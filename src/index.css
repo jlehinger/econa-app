@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --void:        #1C1C2E;
+  --ember:       #C4621A;
+  --flame:       #E8981D;
+  --spark:       #F5C84A;
+  --teal:        #2A7B8C;
+  --teal-light:  #3FA4B5;
+  --vitality:    #4CAF82;
+  --distress:    #E05252;
+  --ivory:       #FAF8F4;
+  --paper:       #F0EDE7;
+  --mist:        #E8E4DE;
+  --text:        #2D2B3D;
+  --text-light:  #5D5A72;
+
+  --font-display:   'Cinzel', Georgia, serif;
+  --font-editorial: 'Cormorant Garamond', Georgia, serif;
+  --font-body:      'DM Sans', -apple-system, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent font size inflation on iOS */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--void);
+  color: #fff;
+  min-height: 100dvh;
+  overscroll-behavior: none;
+}
+
+/* Hide scrollbar on mobile for a native app feel */
+::-webkit-scrollbar { display: none; }
+* { scrollbar-width: none; -ms-overflow-style: none; }
+
+/* Tap highlight removal on mobile */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Focus visible ring for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--flame);
+  outline-offset: 2px;
+}
+
+/* Remove default focus outline (replaced above) */
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible),
+input:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Input autofill color override */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px rgba(28, 28, 46, 0.95) inset;
+  -webkit-text-fill-color: #fff;
+  caret-color: var(--flame);
+}
+
+/* PWA safe area support */
+#root {
+  min-height: 100dvh;
+  padding-top: env(safe-area-inset-top, 0px);
+}
