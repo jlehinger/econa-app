@@ -33,7 +33,7 @@ export const questions = [
       { label: 'Dissatisfied',      value: 1 },
       { label: 'Acceptable',        value: 2 },
       { label: 'Satisfied',         value: 3 },
-      { label: 'Very satisfied',    value: 4 },
+      { label: 'Very Satisfied',    value: 4 },
     ],
     reversed: false,
     domainKey: 'thriving',
@@ -71,8 +71,8 @@ export const questions = [
     context: {
       label: 'This includes',
       items: [
-        'as a founder, co-founder, leader, executive and manager',
-        'as a coach, mentor, relationship builder, and business developer',
+        'as a founder/co-founder/leader, executive and manager',
+        'as a coach and mentor, relationship builder, and business developer',
         'driving results like revenue growth, profitability, and innovation',
       ],
     },
@@ -145,7 +145,7 @@ export const questions = [
       items: [
         'decreased energy, alertness, attention span or memory',
         'reduced enthusiasm, optimism, motivation, or creativity',
-        'diminished coping, self-control or people skills',
+        'diminished coping, self-control or "people skills"',
         'fatigue, procrastination, irritability, or depression',
       ],
     },
