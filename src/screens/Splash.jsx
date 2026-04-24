@@ -127,7 +127,8 @@ export default function Splash() {
         textTransform: 'uppercase',
       }}>
         Built by Econa<br />
-        Global Center of Excellence for Entrepreneur Mental Wellness
+        Global Center of Excellence for Entrepreneur Mental Wellness<br />
+        © 2025 Econa
       </div>
     </div>
   )
