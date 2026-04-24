@@ -119,8 +119,8 @@ export default function Settings() {
     navigate('/')
   }
 
-  const handleLogout = () => {
-    logout()
+  const handleLogout = async () => {
+    await logout()
     navigate('/')
   }
 
@@ -207,7 +207,7 @@ export default function Settings() {
         <SettingsCard>
           <Row
             label="Data storage"
-            sub="Your results are stored locally on this device. Cloud sync via Supabase is coming."
+            sub="Your results are stored on this device. Cloud sync keeps your history safe across devices."
           />
           <Row
             label="Anonymity"

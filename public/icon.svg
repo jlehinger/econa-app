@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Main flame gradient: ember base → flame middle → spark tip -->
+    <linearGradient id="flameGrad" x1="256" y1="400" x2="256" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#C4621A"/>
+      <stop offset="45%"  stop-color="#E8981D"/>
+      <stop offset="100%" stop-color="#F5C84A"/>
+    </linearGradient>
+
+    <!-- Inner core glow: brighter highlight -->
+    <linearGradient id="coreGrad" x1="256" y1="380" x2="256" y2="160" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#E8981D"/>
+      <stop offset="100%" stop-color="#F5C84A" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <!-- Teal accent glow for the base/wick -->
+    <linearGradient id="wickGrad" x1="256" y1="430" x2="256" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#2A7B8C"/>
+      <stop offset="100%" stop-color="#2A7B8C" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Soft ambient glow behind flame -->
+    <radialGradient id="glowGrad" cx="256" cy="290" r="130" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#E8981D" stop-opacity="0.25"/>
+      <stop offset="60%"  stop-color="#C4621A" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#1C1C2E" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Clip to safe zone for maskable icon (80% of 512 = 409.6, centered) -->
+    <clipPath id="safeZone">
+      <rect x="51.2" y="51.2" width="409.6" height="409.6" rx="20"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" fill="#1C1C2E"/>
+
+  <!-- Ambient glow halo -->
+  <ellipse cx="256" cy="300" rx="120" ry="140" fill="url(#glowGrad)"/>
+
+  <!-- Outer flame body — wide, teardrop shape -->
+  <path
+    d="
+      M256,88
+      C256,88 195,160 178,230
+      C165,283 175,310 185,330
+      C175,315 155,302 148,278
+      C138,248 148,208 148,208
+      C148,208 108,252 108,310
+      C108,368 156,420 256,428
+      C356,420 404,368 404,310
+      C404,252 364,208 364,208
+      C364,208 374,248 364,278
+      C357,302 337,315 327,330
+      C337,310 347,283 334,230
+      C317,160 256,88 256,88
+      Z
+    "
+    fill="url(#flameGrad)"
+    opacity="0.95"
+  />
+
+  <!-- Inner core — narrower, brighter -->
+  <path
+    d="
+      M256,155
+      C256,155 224,210 214,258
+      C207,292 212,318 220,338
+      C212,322 200,310 196,292
+      C190,268 198,242 198,242
+      C198,242 175,270 175,310
+      C175,350 206,390 256,396
+      C306,390 337,350 337,310
+      C337,270 314,242 314,242
+      C314,242 322,268 316,292
+      C312,310 300,322 292,338
+      C300,318 305,292 298,258
+      C288,210 256,155 256,155
+      Z
+    "
+    fill="url(#coreGrad)"
+    opacity="0.75"
+  />
+
+  <!-- Teal base glow / wick accent -->
+  <ellipse cx="256" cy="410" rx="52" ry="14" fill="url(#wickGrad)" opacity="0.7"/>
+
+  <!-- Bright spark tip highlight — tiny teardrop at apex -->
+  <ellipse cx="256" cy="122" rx="10" ry="20" fill="#F5C84A" opacity="0.55" transform="rotate(-2, 256, 122)"/>
+</svg>

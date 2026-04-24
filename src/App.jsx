@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Splash from './screens/Splash.jsx'
 import Auth from './screens/Auth.jsx'
@@ -12,13 +13,37 @@ import ResultDetail from './screens/ResultDetail.jsx'
 import Settings from './screens/Settings.jsx'
 import NotFound from './screens/NotFound.jsx'
 import { useAuthStore } from './store/authStore.js'
+import { supabase } from './lib/supabase.js'
 
 function PrivateRoute({ children }) {
-  const { user } = useAuthStore()
+  const { user, authReady } = useAuthStore()
+  if (!authReady) return null  // hold render until session resolved
   return user ? children : <Navigate to="/auth" replace />
 }
 
 export default function App() {
+  const { setUser, setAuthReady } = useAuthStore()
+
+  useEffect(() => {
+    if (!supabase) {
+      setAuthReady()
+      return
+    }
+
+    // Restore session from Supabase on cold load
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user) setUser(session.user)
+      setAuthReady()
+    })
+
+    // Keep store in sync with Supabase auth events (token refresh, logout from another tab)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
+      setUser(session?.user ?? null)
+    })
+
+    return () => subscription.unsubscribe()
+  }, [])
+
   return (
     <Routes>
       <Route path="/" element={<Splash />} />
