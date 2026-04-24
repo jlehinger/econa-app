@@ -73,84 +73,16 @@ export default function Auth() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-  const [needsConfirmation, setNeedsConfirmation] = useState(false)
-  const { signUp, signIn } = useAuthStore()
+  const { setUser } = useAuthStore()
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    setError(null)
     setLoading(true)
-
-    const result = mode === 'create'
-      ? await signUp(email, password)
-      : await signIn(email, password)
-
-    setLoading(false)
-
-    if (result.error) {
-      setError(result.error.message)
-      return
-    }
-
-    if (result.needsConfirmation) {
-      setNeedsConfirmation(true)
-      return
-    }
-
-    navigate('/verify')
-  }
-
-  if (needsConfirmation) {
-    return (
-      <div style={{
-        minHeight: '100dvh',
-        background: 'var(--void)',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        maxWidth: '480px',
-        margin: '0 auto',
-        padding: '64px 28px',
-        textAlign: 'center',
-      }}>
-        {FLAME_BAR}
-        <EconaLogo size="md" />
-        <div style={{
-          marginTop: 40,
-          fontFamily: 'var(--font-editorial)',
-          fontSize: 26,
-          fontStyle: 'italic',
-          color: '#fff',
-          fontWeight: 300,
-          lineHeight: 1.3,
-          marginBottom: 16,
-        }}>
-          Check your inbox
-        </div>
-        <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, maxWidth: 320 }}>
-          We sent a confirmation link to <strong style={{ color: 'var(--flame)' }}>{email}</strong>.
-          Click it to activate your account, then come back to sign in.
-        </p>
-        <button
-          onClick={() => { setNeedsConfirmation(false); setMode('login') }}
-          style={{
-            marginTop: 36,
-            background: 'none',
-            border: '1px solid rgba(255,255,255,0.15)',
-            color: 'rgba(255,255,255,0.5)',
-            borderRadius: 12,
-            padding: '14px 28px',
-            fontSize: 14,
-            cursor: 'pointer',
-            fontFamily: 'var(--font-body)',
-          }}
-        >
-          Back to Sign In
-        </button>
-      </div>
-    )
+    setTimeout(() => {
+      setUser({ id: crypto.randomUUID(), email })
+      setLoading(false)
+      navigate('/verify')
+    }, 700)
   }
 
   return (
@@ -187,7 +119,6 @@ export default function Auth() {
 
       <EconaLogo size="md" />
 
-      {/* Mode switcher pill */}
       <div style={{
         display: 'flex',
         background: 'rgba(255,255,255,0.06)',
@@ -200,7 +131,7 @@ export default function Auth() {
         {['create', 'login'].map(m => (
           <button
             key={m}
-            onClick={() => { setMode(m); setError(null) }}
+            onClick={() => setMode(m)}
             style={{
               flex: 1,
               background: mode === m ? 'linear-gradient(135deg, var(--ember), var(--flame))' : 'none',
@@ -252,20 +183,6 @@ export default function Auth() {
           onChange={e => setPassword(e.target.value)}
           placeholder={mode === 'create' ? 'Create a password' : 'Enter your password'}
         />
-
-        {error && (
-          <div style={{
-            background: 'rgba(224,82,82,0.1)',
-            border: '1px solid rgba(224,82,82,0.25)',
-            borderRadius: 10,
-            padding: '12px 16px',
-            fontSize: 13,
-            color: '#E05252',
-            lineHeight: 1.5,
-          }}>
-            {error}
-          </div>
-        )}
 
         <button
           type="submit"
