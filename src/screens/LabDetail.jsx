@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import EconaLogo from '../components/EconaLogo.jsx'
 import NavBar from '../components/NavBar.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
 import { LABS } from '../data/labs.js'
@@ -24,11 +23,11 @@ export default function LabDetail() {
   useEffect(() => {
     if (!lab) { navigate('/labs'); return }
     startLab(lab.id)
-  }, [lab?.id])
+  }, [lab?.id, navigate, startLab])
 
   useEffect(() => {
     if (lab) markLabSection(lab.id, activeSection)
-  }, [activeSection, lab?.id])
+  }, [activeSection, lab?.id, markLabSection])
 
   if (!lab) return null
   if (!lab.available) {
