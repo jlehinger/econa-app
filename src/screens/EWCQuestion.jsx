@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import ProgressBar from '../components/ProgressBar.jsx'
 import EconaLogo from '../components/EconaLogo.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
-import { questions, scoreToBand, computeDomainScores } from '../data/questions.js'
+import { questions, scoreToBand, computeItemScores, computeDomainScores } from '../data/questions.js'
 
 const TOTAL = questions.length
 
@@ -36,11 +36,12 @@ export default function EWCQuestion() {
       setTimeout(() => navigate(`/ewc/q/${nextIdx}`), 320)
     } else {
       const allAnswers = { ...answers, [idx]: value }
-      const domains = computeDomainScores(allAnswers)
-      const total = domains.d1 + domains.d2 + domains.d3 + domains.d4
+      const itemScores = computeItemScores(allAnswers)
+      const domainScores = computeDomainScores(allAnswers)
+      const total = domainScores.wellbeing + domainScores.occupational + domainScores.emotional
       const band = scoreToBand(total)
-      setResult(total, band.key)
-      addToHistory({ date: new Date().toISOString(), score: total, band: band.key, domains })
+      setResult(total, band.key, itemScores, domainScores)
+      addToHistory({ date: new Date().toISOString(), score: total, band: band.key, itemScores, domainScores })
       setTimeout(() => navigate('/ewc/results'), 320)
     }
   }
