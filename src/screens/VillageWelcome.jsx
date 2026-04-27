@@ -14,7 +14,7 @@ export default function VillageWelcome() {
     if (villageStatus !== 'active') {
       joinVillage()
     }
-  }, [])
+  }, [villageStatus, joinVillage])
 
   const topLab = rankedLabs(itemScores).find(l => l.available) || null
 
