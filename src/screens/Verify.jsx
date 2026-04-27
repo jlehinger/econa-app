@@ -81,7 +81,7 @@ export default function Verify() {
               Yes — I'm a founder
             </button>
             <button
-              onClick={() => setIsQualified(false)}
+              onClick={() => { setQualified(false); setIsQualified(false) }}
               style={{
                 background: 'rgba(255,255,255,0.05)',
                 border: '1.5px solid rgba(255,255,255,0.12)',
@@ -136,10 +136,16 @@ export default function Verify() {
               Learn about Econa →
             </a>
             <button
-              onClick={() => navigate('/')}
+              onClick={() => { setQualified(false); setIsQualified(null) }}
               style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.35)', cursor: 'pointer', fontSize: 13, fontFamily: 'var(--font-body)', padding: '12px 0' }}
             >
-              Return to Econa
+              ← Go back
+            </button>
+            <button
+              onClick={() => navigate('/')}
+              style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.2)', cursor: 'pointer', fontSize: 12, fontFamily: 'var(--font-body)', padding: '4px 0' }}
+            >
+              Return to home
             </button>
           </div>
         </div>
