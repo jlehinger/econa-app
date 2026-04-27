@@ -25,7 +25,7 @@ export const useAssessmentStore = create(persist(
     startLab: (labId) => set(state => ({
       labProgress: {
         ...state.labProgress,
-        [labId]: { started: true, assessmentDone: false, sectionsSeen: [], ...state.labProgress[labId] }
+        [labId]: { ...state.labProgress[labId], started: true, assessmentDone: false, sectionsSeen: [] }
       }
     })),
     markLabSection: (labId, section) => set(state => {
