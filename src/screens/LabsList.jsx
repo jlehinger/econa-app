@@ -40,7 +40,7 @@ export default function LabsList() {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          {labs.map((lab, rank) => {
+          {labs.map((lab) => {
             const progress = labProgress[lab.id]
             const started = progress?.started
             const seen = progress?.sectionsSeen?.length || 0
@@ -48,7 +48,7 @@ export default function LabsList() {
             return (
               <button
                 key={lab.id}
-                onClick={() => lab.available ? navigate(`/labs/${lab.id}`) : null}
+                onClick={lab.available ? () => navigate(`/labs/${lab.id}`) : undefined}
                 style={{
                   background: lab.available ? `${lab.color}08` : 'rgba(255,255,255,0.02)',
                   border: lab.available ? `1px solid ${lab.color}25` : '1px solid rgba(255,255,255,0.05)',
