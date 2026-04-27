@@ -196,7 +196,7 @@ export const LABS = [
     },
     resources: {
       apps: [
-        { name: 'Oura Ring / WHOOP', note: 'Sleep tracking hardware for data-driven founders' },
+        { name: 'Oura Ring / WHOOP', url: null, note: 'Sleep tracking hardware for data-driven founders' },
         { name: 'Sleep Cycle', url: 'https://sleepcycle.com', note: 'Smart alarm + sleep analysis' },
       ],
       books: [{ name: 'Why We Sleep — Matthew Walker', note: 'The science case for founder sleep' }],
@@ -219,9 +219,14 @@ export function getLabByIndex(ewcIndex) {
 }
 
 // Helper: rank labs by user's lowest item scores (Phase 1 available labs first)
-export function rankedLabs(itemScores) {
+// Unavailable Phase 2 labs use Infinity so they sort after all real scores
+export function rankedLabs(itemScores = []) {
+  const scores = Array.isArray(itemScores) ? itemScores : []
   return LABS
-    .map(lab => ({ ...lab, userScore: itemScores[lab.ewcIndex] ?? 4 }))
+    .map(lab => ({
+      ...lab,
+      userScore: lab.available ? (scores[lab.ewcIndex] ?? Infinity) : Infinity,
+    }))
     .sort((a, b) => {
       if (a.available && !b.available) return -1
       if (!a.available && b.available) return 1
