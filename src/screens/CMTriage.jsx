@@ -1,0 +1,175 @@
+import { useNavigate } from 'react-router-dom'
+import EconaLogo from '../components/EconaLogo.jsx'
+import NavBar from '../components/NavBar.jsx'
+import { useAssessmentStore } from '../store/assessmentStore.js'
+
+const STEPS = [
+  {
+    step: 1,
+    color: '#E05252',
+    title: 'Connected Mind Mental Health Lab',
+    body: "Your score indicates you may benefit from a deeper clinical assessment. We're partnering with Connected Mind to provide a confidential DSM-5 screening — the same tool used by vetted clinicians who specialize in founders.",
+    note: 'Takes about 10 minutes. No referral required. Free.',
+    cta: 'Begin Mental Health Screening',
+    link: 'https://connectedmind.com',
+    external: true,
+    highlight: true,
+  },
+  {
+    step: 2,
+    color: '#E8981D',
+    title: 'Your Personal Report',
+    body: "After completing the screening, you'll receive a written assessment summary you can take to a licensed mental health professional. It translates your results into clinical language your provider will understand.",
+    note: 'Printable PDF format.',
+    cta: null,
+    link: null,
+    external: false,
+  },
+  {
+    step: 3,
+    color: '#3FA4B5',
+    title: 'Your Econa Labs',
+    body: "Once you've completed the screening, come back and explore your personal Econa Labs — tools matched to your specific EWC item scores. You don't have to do everything at once.",
+    note: null,
+    cta: 'Explore My Labs',
+    link: null,
+    external: false,
+    internal: '/labs',
+  },
+]
+
+export default function CMTriage() {
+  const navigate = useNavigate()
+  const { score } = useAssessmentStore()
+
+  return (
+    <div style={{
+      minHeight: '100dvh',
+      background: 'var(--void)',
+      display: 'flex',
+      flexDirection: 'column',
+      maxWidth: '480px',
+      margin: '0 auto',
+      paddingBottom: 80,
+    }}>
+      <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, #E05252, #E8981D, var(--flame))', zIndex: 200 }} />
+
+      <div style={{ padding: '48px 28px 0' }}>
+        <EconaLogo size="sm" />
+
+        {/* Score badge */}
+        <div style={{
+          background: 'rgba(224,82,82,0.08)',
+          border: '1px solid rgba(224,82,82,0.25)',
+          borderLeft: '3px solid #E05252',
+          borderRadius: 12,
+          padding: '20px 20px',
+          margin: '24px 0 32px',
+        }}>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: 8,
+            background: 'rgba(224,82,82,0.15)', border: '1px solid rgba(224,82,82,0.30)',
+            borderRadius: 100, padding: '4px 12px', marginBottom: 14,
+          }}>
+            <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#E05252' }} />
+            <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#E05252' }}>
+              Your Score: {score}/28
+            </span>
+          </div>
+          <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: '#fff', fontWeight: 300, lineHeight: 1.3, marginBottom: 10 }}>
+            You deserve more support than a self-help app.
+          </div>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>
+            Your results suggest significant distress. This isn't a character flaw — it's a signal the research takes seriously. The next step is a clinical screening designed specifically for entrepreneurs.
+          </p>
+        </div>
+
+        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 16 }}>
+          Your Path Forward
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 36 }}>
+          {STEPS.map(s => (
+            <div key={s.step} style={{
+              background: s.highlight ? `${s.color}08` : 'rgba(255,255,255,0.04)',
+              border: s.highlight ? `1px solid ${s.color}30` : '1px solid rgba(255,255,255,0.07)',
+              borderLeft: s.highlight ? `3px solid ${s.color}` : undefined,
+              borderRadius: 14,
+              padding: '20px',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+                <div style={{
+                  width: 28, height: 28, borderRadius: 8,
+                  background: `${s.color}18`, border: `1px solid ${s.color}35`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontFamily: 'var(--font-display)', fontSize: 12, fontWeight: 700, color: s.color, flexShrink: 0,
+                }}>
+                  {s.step}
+                </div>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, letterSpacing: '0.05em', color: '#fff' }}>
+                  {s.title}
+                </div>
+              </div>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.65, marginBottom: s.cta ? 16 : 0 }}>
+                {s.body}
+              </p>
+              {s.note && (
+                <p style={{ fontSize: 11, color: `${s.color}90`, marginBottom: s.cta ? 14 : 0 }}>
+                  {s.note}
+                </p>
+              )}
+              {s.cta && s.external && (
+                <a href={s.link} target="_blank" rel="noopener noreferrer" style={{
+                  display: 'block', background: `linear-gradient(135deg, ${s.color}CC, ${s.color})`,
+                  color: '#fff', textDecoration: 'none', borderRadius: 12, padding: '14px 18px',
+                  fontSize: 14, fontWeight: 600, textAlign: 'center', fontFamily: 'var(--font-body)',
+                }}>
+                  {s.cta} →
+                </a>
+              )}
+              {s.cta && s.internal && (
+                <button onClick={() => navigate(s.internal)} style={{
+                  background: 'none', border: `1px solid ${s.color}50`, color: s.color,
+                  borderRadius: 12, padding: '14px 18px', fontSize: 14, fontWeight: 600,
+                  cursor: 'pointer', width: '100%', fontFamily: 'var(--font-body)',
+                }}>
+                  {s.cta} →
+                </button>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Crisis line */}
+        <div style={{
+          background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)',
+          borderRadius: 12, padding: '16px 18px', marginBottom: 32, textAlign: 'center',
+        }}>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>
+            If you need immediate support
+          </div>
+          <a href="tel:988" style={{ fontSize: 24, fontFamily: 'var(--font-display)', color: '#E05252', textDecoration: 'none', fontWeight: 700 }}>
+            988
+          </a>
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', marginTop: 4 }}>
+            Suicide & Crisis Lifeline · Call or Text · Free · 24/7
+          </div>
+        </div>
+
+        <button onClick={() => navigate('/dashboard')} style={{
+          background: 'none', border: '1px solid rgba(255,255,255,0.12)',
+          color: 'rgba(255,255,255,0.4)', borderRadius: 14, padding: '16px',
+          fontSize: 14, cursor: 'pointer', width: '100%', fontFamily: 'var(--font-body)', marginBottom: 32,
+        }}>
+          Go to Dashboard
+        </button>
+
+        <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.18)', textAlign: 'center', lineHeight: 1.8, paddingBottom: 16, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+          This is a screening instrument, not a clinical diagnostic.<br />
+          Results are for your personal awareness and professional use.
+        </p>
+      </div>
+      <NavBar />
+    </div>
+  )
+}
