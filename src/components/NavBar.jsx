@@ -43,21 +43,18 @@ const NAV_ITEMS = [
     resetOnTap: true,
   },
   {
-    to: '/history',
-    label: 'History',
+    to: '/labs',
+    label: 'Labs',
     icon: (active) => (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <polyline
-          points="3,18 8,12 13,15 21,6"
+        <path
+          d="M12 2C12 2 8 7 8 12a4 4 0 008 0c0-5-4-10-4-10z"
           stroke={active ? '#E8981D' : 'rgba(255,255,255,0.4)'}
-          strokeWidth="2"
+          strokeWidth="1.8"
           strokeLinecap="round"
           strokeLinejoin="round"
-          fill="none"
+          fill={active ? 'rgba(232,152,29,0.15)' : 'none'}
         />
-        <circle cx="8" cy="12" r="2.2" fill={active ? '#E8981D' : 'rgba(255,255,255,0.4)'} />
-        <circle cx="13" cy="15" r="2.2" fill={active ? '#E8981D' : 'rgba(255,255,255,0.4)'} />
-        <circle cx="21" cy="6" r="2.2" fill={active ? '#E8981D' : 'rgba(255,255,255,0.4)'} />
       </svg>
     ),
   },

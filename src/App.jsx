@@ -11,6 +11,10 @@ import History from './screens/History.jsx'
 import ResultDetail from './screens/ResultDetail.jsx'
 import Settings from './screens/Settings.jsx'
 import NotFound from './screens/NotFound.jsx'
+import CMTriage from './screens/CMTriage.jsx'
+import VillageWelcome from './screens/VillageWelcome.jsx'
+import LabsList from './screens/LabsList.jsx'
+import LabDetail from './screens/LabDetail.jsx'
 import { useAuthStore } from './store/authStore.js'
 
 function PrivateRoute({ children }) {
@@ -32,6 +36,10 @@ export default function App() {
       <Route path="/history" element={<PrivateRoute><History /></PrivateRoute>} />
       <Route path="/history/:index" element={<PrivateRoute><ResultDetail /></PrivateRoute>} />
       <Route path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
+      <Route path="/triage" element={<PrivateRoute><CMTriage /></PrivateRoute>} />
+      <Route path="/village" element={<PrivateRoute><VillageWelcome /></PrivateRoute>} />
+      <Route path="/labs" element={<PrivateRoute><LabsList /></PrivateRoute>} />
+      <Route path="/labs/:labId" element={<PrivateRoute><LabDetail /></PrivateRoute>} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   )
