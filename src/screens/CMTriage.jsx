@@ -73,7 +73,7 @@ export default function CMTriage() {
           }}>
             <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#E05252' }} />
             <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#E05252' }}>
-              Your Score: {score}/28
+              Your Score: {score ?? '—'}/28
             </span>
           </div>
           <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: '#fff', fontWeight: 300, lineHeight: 1.3, marginBottom: 10 }}>
