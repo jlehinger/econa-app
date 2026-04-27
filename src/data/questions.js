@@ -229,7 +229,8 @@ export function computeItemScores(answers) {
   )
 }
 
-// Triage boundary: ≤12 → Connected Mind mental health lab
+// Triage boundary per Dr. Freeman's clinical guidance: score ≤12 covers all of Distress Zone
+// (0-11) plus the bottom of Strain Zone (12). Intentionally one step wider than Distress alone.
 export function shouldTriage(totalScore) {
   return totalScore <= 12
 }
