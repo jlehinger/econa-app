@@ -17,8 +17,8 @@ const FLAME_BAR = (
 
 export default function Verify() {
   const navigate = useNavigate()
-  const { setVerified } = useAuthStore()
-  const [isEntrepreneur, setIsEntrepreneur] = useState(null)
+  const { setVerified, setQualified } = useAuthStore()
+  const [isQualified, setIsQualified] = useState(null)
   const [stage, setStage] = useState(null)
 
   const handleProceed = () => {
@@ -40,8 +40,8 @@ export default function Verify() {
 
       <EconaLogo size="md" />
 
-      {/* Step 1: Are you an entrepreneur? */}
-      {isEntrepreneur === null && (
+      {/* Step 1: FounderScreen qualification gate */}
+      {isQualified === null && (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
           <div style={{
             fontFamily: 'var(--font-editorial)',
@@ -52,15 +52,15 @@ export default function Verify() {
             fontWeight: 300,
             lineHeight: 1.2,
           }}>
-            Are you currently building or running a business?
+            Are you, or were you, the founder, co-founder, or CEO of a company?
           </div>
           <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, marginBottom: 48 }}>
-            The Entrepreneur Wellbeing Check is built specifically for people building or running a business. The questions and scoring are calibrated to the unique pressures of entrepreneurship.
+            FounderScreen is validated exclusively for founders and executives who have built or led companies. The questions and scoring are calibrated to this population.
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             <button
-              onClick={() => setIsEntrepreneur(true)}
+              onClick={() => { setQualified(); setIsQualified(true) }}
               style={{
                 background: 'linear-gradient(135deg, var(--ember), var(--flame))',
                 color: '#fff',
@@ -78,10 +78,10 @@ export default function Verify() {
               onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-1px)'}
               onMouseLeave={e => e.currentTarget.style.transform = ''}
             >
-              Yes, I'm building or running a business
+              Yes — I'm a founder
             </button>
             <button
-              onClick={() => setIsEntrepreneur(false)}
+              onClick={() => setIsQualified(false)}
               style={{
                 background: 'rgba(255,255,255,0.05)',
                 border: '1.5px solid rgba(255,255,255,0.12)',
@@ -97,34 +97,27 @@ export default function Verify() {
               onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'}
               onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'}
             >
-              No, not currently
+              No
             </button>
           </div>
         </div>
       )}
 
       {/* No path: respectful exit */}
-      {isEntrepreneur === false && (
+      {isQualified === false && (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div style={{
-            width: 56,
-            height: 56,
-            borderRadius: '50%',
+            width: 56, height: 56, borderRadius: '50%',
             background: 'rgba(255,255,255,0.06)',
             border: '1px solid rgba(255,255,255,0.1)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: 28,
-            fontSize: 24,
-          }}>
-            ✦
-          </div>
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            marginBottom: 28, fontSize: 24,
+          }}>✦</div>
           <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 30, fontStyle: 'italic', color: '#fff', marginBottom: 16, fontWeight: 300 }}>
-            Thank you for your interest
+            Not the right fit — yet.
           </div>
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, marginBottom: 48 }}>
-            This tool was built specifically for entrepreneurs. The questions and scoring are calibrated to the unique pressures of building and running a business. We hope to see you here when the time is right.
+            FounderScreen is validated exclusively for entrepreneurs. If your journey changes and you build or lead a company, we'll be here.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             <a
@@ -132,17 +125,12 @@ export default function Verify() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                display: 'block',
-                textAlign: 'center',
+                display: 'block', textAlign: 'center',
                 background: 'rgba(255,255,255,0.06)',
                 border: '1px solid rgba(255,255,255,0.12)',
-                color: '#fff',
-                borderRadius: 12,
-                padding: '16px',
-                fontSize: 14,
-                textDecoration: 'none',
-                fontFamily: 'var(--font-body)',
-                fontWeight: 500,
+                color: '#fff', borderRadius: 12, padding: '16px',
+                fontSize: 14, textDecoration: 'none',
+                fontFamily: 'var(--font-body)', fontWeight: 500,
               }}
             >
               Learn about Econa →
@@ -158,7 +146,7 @@ export default function Verify() {
       )}
 
       {/* Yes path: stage selection */}
-      {isEntrepreneur === true && (
+      {isQualified === true && (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
           <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 30, fontStyle: 'italic', color: '#fff', margin: '28px 0 12px', fontWeight: 300, lineHeight: 1.2 }}>
             What stage best describes your business?
