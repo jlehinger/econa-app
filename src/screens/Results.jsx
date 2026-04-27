@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import EconaLogo from '../components/EconaLogo.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
-import { scoreToBand, computeDomainScores } from '../data/questions.js'
+import { scoreToBand, computeDomainScores, shouldTriage } from '../data/questions.js'
 
 export default function Results() {
   const navigate = useNavigate()
@@ -17,7 +17,8 @@ export default function Results() {
   }, [])
 
   const domains = computeDomainScores(answers)
-  const total = domains.d1 + domains.d2 + domains.d3 + domains.d4
+  const total = domains.wellbeing + domains.occupational + domains.emotional
+  const triage = shouldTriage(total)
   const band = scoreToBand(total)
 
   if (!band || !bandKey) {
@@ -26,10 +27,9 @@ export default function Results() {
   }
 
   const domainCards = [
-    { label: 'Thriving & Satisfaction', score: domains.d1, max: 8,  color: 'var(--flame)',    desc: 'How fully you feel you are thriving and satisfied with life.' },
-    { label: 'Effectiveness',           score: domains.d2, max: 8,  color: 'var(--teal)',     desc: 'How effectively you are operating in personal life and as a founder.' },
-    { label: 'Burnout & Emotions',      score: domains.d3, max: 8,  color: 'var(--ember)',    desc: 'Frequency of burnout symptoms and negative emotions in the past month.' },
-    { label: 'Sleep & Recovery',        score: domains.d4, max: 4,  color: 'var(--vitality)', desc: 'How much sleep issues are affecting your performance and cognition.' },
+    { label: 'Wellbeing',               sublabel: 'Thriving · Satisfaction · Social',   score: domains.wellbeing,    max: 12, color: 'var(--flame)',    desc: 'How fully you are thriving, satisfied with life, and engaged socially.' },
+    { label: 'Occupational Functioning', sublabel: 'Self-Efficacy · Burnout',           score: domains.occupational, max: 8,  color: 'var(--teal)',     desc: 'Your entrepreneurial confidence and freedom from burnout.' },
+    { label: 'Emotional Stability',      sublabel: 'Emotional Regulation · Sleep',      score: domains.emotional,    max: 8,  color: 'var(--ember)',    desc: 'Frequency of negative emotions and sleep impairment at work.' },
   ]
 
   return (
@@ -157,9 +157,12 @@ export default function Results() {
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 10 }}>
-                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>
-                  {d.label}
-                </span>
+                <div>
+                  <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>
+                    {d.label}
+                  </div>
+                  {d.sublabel && <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.2)', letterSpacing: '0.05em', marginTop: 2 }}>{d.sublabel}</div>}
+                </div>
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 700, color: '#fff' }}>
                   {d.score}<span style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', fontWeight: 400 }}>/{d.max}</span>
                 </span>
@@ -203,7 +206,7 @@ export default function Results() {
         </div>
 
         <button
-          onClick={() => navigate('/ewc/resources')}
+          onClick={() => navigate(triage ? '/triage' : '/village')}
           style={{
             background: 'linear-gradient(135deg, var(--ember), var(--flame))',
             color: '#fff',
@@ -220,7 +223,7 @@ export default function Results() {
             letterSpacing: '0.03em',
           }}
         >
-          See Your Resources →
+          {triage ? 'See Your Next Steps →' : 'Enter Econa Village →'}
         </button>
         <button
           onClick={() => navigate('/dashboard')}
