@@ -22,7 +22,7 @@ export default function LabDetail() {
 
   useEffect(() => {
     if (!lab) { navigate('/labs'); return }
-    startLab(lab.id)
+    if (lab.available) startLab(lab.id)
   }, [lab?.id, navigate, startLab])
 
   useEffect(() => {

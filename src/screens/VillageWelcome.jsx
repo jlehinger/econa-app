@@ -4,6 +4,7 @@ import EconaLogo from '../components/EconaLogo.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
 import { useAuthStore } from '../store/authStore.js'
 import { rankedLabs } from '../data/labs.js'
+import NavBar from '../components/NavBar.jsx'
 
 export default function VillageWelcome() {
   const navigate = useNavigate()
@@ -26,6 +27,7 @@ export default function VillageWelcome() {
       flexDirection: 'column',
       maxWidth: '480px',
       margin: '0 auto',
+      paddingBottom: 80,
     }}>
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--ember), var(--flame), var(--spark))', zIndex: 200 }} />
 
@@ -165,6 +167,7 @@ export default function VillageWelcome() {
           Go to Dashboard
         </button>
       </div>
+      <NavBar />
     </div>
   )
 }
