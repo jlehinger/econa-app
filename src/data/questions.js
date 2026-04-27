@@ -19,7 +19,7 @@ export const questions = [
       { label: 'Completely',  value: 4 },
     ],
     reversed: false,
-    domainKey: 'thriving',
+    domainKey: 'wellbeing',
   },
   {
     index: 1,
@@ -36,11 +36,11 @@ export const questions = [
       { label: 'Very Satisfied',    value: 4 },
     ],
     reversed: false,
-    domainKey: 'thriving',
+    domainKey: 'wellbeing',
   },
   {
     index: 2,
-    domain: 'Effectiveness · Personal Life',
+    domain: 'Wellbeing · Social Functioning',
     text: 'How would you rate your effectiveness in your personal life?',
     boldWord: 'effectiveness in your personal life',
     timeframe: null,
@@ -60,11 +60,11 @@ export const questions = [
       { label: 'Excellent', value: 4 },
     ],
     reversed: false,
-    domainKey: 'effectiveness',
+    domainKey: 'wellbeing',
   },
   {
     index: 3,
-    domain: 'Effectiveness · At Work',
+    domain: 'Occupational · Self-Efficacy',
     text: 'How would you rate your effectiveness at work?',
     boldWord: 'effectiveness at work',
     timeframe: null,
@@ -84,11 +84,11 @@ export const questions = [
       { label: 'Excellent', value: 4 },
     ],
     reversed: false,
-    domainKey: 'effectiveness',
+    domainKey: 'occupational',
   },
   {
     index: 4,
-    domain: 'Challenges · Burnout',
+    domain: 'Occupational · Burnout',
     text: 'How often do you experience work-related burnout?',
     boldWord: 'work-related burnout',
     timeframe: null,
@@ -108,11 +108,11 @@ export const questions = [
       { label: 'Never',     value: 4 },
     ],
     reversed: true,
-    domainKey: 'burnout',
+    domainKey: 'occupational',
   },
   {
     index: 5,
-    domain: 'Challenges · Emotional Wellbeing',
+    domain: 'Emotional · Negative Emotionality',
     text: 'How often have you experienced negative emotions?',
     boldWord: 'negative emotions',
     timeframe: null,
@@ -132,11 +132,11 @@ export const questions = [
       { label: 'Never',     value: 4 },
     ],
     reversed: true,
-    domainKey: 'burnout',
+    domainKey: 'emotional',
   },
   {
     index: 6,
-    domain: 'Challenges · Sleep',
+    domain: 'Emotional · Sleep Impairments',
     text: 'How often have sleep issues caused problems for you at work?',
     boldWord: 'sleep issues',
     timeframe: null,
@@ -157,15 +157,11 @@ export const questions = [
       { label: 'Never',     value: 4 },
     ],
     reversed: true,
-    domainKey: 'sleep',
+    domainKey: 'emotional',
   },
 ]
 
 // Score bands: total out of 28
-// d1 = Q0+Q1 (Thriving & Satisfaction) max 8
-// d2 = Q2+Q3 (Effectiveness) max 8
-// d3 = Q4+Q5 (Burnout & Emotions) max 8
-// d4 = Q6    (Sleep) max 4
 
 export const BANDS = {
   vitality: {
@@ -213,12 +209,27 @@ export function scoreToBand(score) {
   return BANDS.distress
 }
 
+// Official EWC 3 domains:
+// Wellbeing:              Q0 + Q1 + Q2  (max 12)
+// Occupational:           Q3 + Q4       (max 8)
+// Emotional Stability:    Q5 + Q6       (max 8)
 export function computeDomainScores(answers) {
   const get = (i) => (answers[i] !== undefined ? answers[i] : 0)
   return {
-    d1: get(0) + get(1),   // Thriving & Satisfaction /8
-    d2: get(2) + get(3),   // Effectiveness /8
-    d3: get(4) + get(5),   // Burnout & Emotions /8
-    d4: get(6),            // Sleep /4
+    wellbeing:    get(0) + get(1) + get(2),
+    occupational: get(3) + get(4),
+    emotional:    get(5) + get(6),
   }
+}
+
+// Individual item scores for lab ranking
+export function computeItemScores(answers) {
+  return Array.from({ length: 7 }, (_, i) =>
+    answers[i] !== undefined ? answers[i] : 0
+  )
+}
+
+// Triage boundary: ≤12 → Connected Mind mental health lab
+export function shouldTriage(totalScore) {
+  return totalScore <= 12
 }
