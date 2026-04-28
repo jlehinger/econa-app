@@ -52,10 +52,10 @@ export default function Verify() {
             fontWeight: 300,
             lineHeight: 1.2,
           }}>
-            Are you, or were you, the founder, co-founder, or CEO of a company?
+            Are you, or were you, the founder or co-founder of a company?
           </div>
           <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, marginBottom: 48 }}>
-            FounderScreen is validated exclusively for founders and executives who have built or led companies. The questions and scoring are calibrated to this population.
+            FounderScreen is validated exclusively for entrepreneurs. The assessment questions and scoring are calibrated to this population.
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -117,7 +117,7 @@ export default function Verify() {
             Not the right fit — yet.
           </div>
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, marginBottom: 48 }}>
-            FounderScreen is validated exclusively for entrepreneurs. If your journey changes and you build or lead a company, we'll be here.
+            Thank you for your interest in FounderScreen, however it's not the right platform for you because it is only valid for entrepreneurs.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             <a
