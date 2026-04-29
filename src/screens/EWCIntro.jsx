@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import EconaLogo from '../components/EconaLogo.jsx'
+import NavBar from '../components/NavBar.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
 
 const DOMAINS = [
@@ -32,7 +33,7 @@ export default function EWCIntro() {
       flexDirection: 'column',
       maxWidth: '480px',
       margin: '0 auto',
-      padding: '20px 28px 56px',
+      padding: '20px 28px 100px',
     }}>
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--ember), var(--flame), var(--spark))', zIndex: 200 }} />
 
@@ -169,6 +170,8 @@ export default function EWCIntro() {
         Freeman, Mazza, Johnson &amp; Heinz (2025).<br />
         Validated on 313 entrepreneurs across US, Canada, EU, UK &amp; Israel.
       </p>
+
+      <NavBar />
     </div>
   )
 }
