@@ -12,6 +12,9 @@ export const useAssessmentStore = create(persist(
     domainScores: null,      // { wellbeing, occupational, emotional }
     history: [],
     labProgress: {},         // { [labId]: { started, assessmentDone, sectionsSeen: [] } }
+    demographics: null,      // object { q1..q10 } — set by Demographics screen
+    econometrics: null,      // object { sector, growth_a, growth_b, q4..q17 } — set by Econometrics screen
+    perceivedNeed: null,     // 1|2|3|4 — set by PerceivedNeedForCare screen
 
     setAnswer: (index, value) => set(state => ({
       answers: { ...state.answers, [index]: value }
@@ -46,8 +49,12 @@ export const useAssessmentStore = create(persist(
     }),
     resetAssessment: () => set({
       answers: {}, currentQuestion: 0, completed: false,
-      score: null, band: null, itemScores: [], domainScores: null
+      score: null, band: null, itemScores: [], domainScores: null,
+      demographics: null, econometrics: null, perceivedNeed: null,
     }),
+    setDemographics: (data) => set({ demographics: data }),
+    setEconometrics: (data) => set({ econometrics: data }),
+    setPerceivedNeed: (val) => set({ perceivedNeed: val }),
     clearHistory: () => set({ history: [] }),
   }),
   { name: 'econa-assessment' }

@@ -2,6 +2,9 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Splash from './screens/Splash.jsx'
 import Auth from './screens/Auth.jsx'
 import Verify from './screens/Verify.jsx'
+import Demographics from './screens/Demographics.jsx'
+import Econometrics from './screens/Econometrics.jsx'
+import PerceivedNeedForCare from './screens/PerceivedNeedForCare.jsx'
 import EWCIntro from './screens/EWCIntro.jsx'
 import EWCQuestion from './screens/EWCQuestion.jsx'
 import Results from './screens/Results.jsx'
@@ -28,6 +31,9 @@ export default function App() {
       <Route path="/" element={<Splash />} />
       <Route path="/auth" element={<Auth />} />
       <Route path="/verify" element={<PrivateRoute><Verify /></PrivateRoute>} />
+      <Route path="/demographics" element={<PrivateRoute><Demographics /></PrivateRoute>} />
+      <Route path="/econometrics" element={<PrivateRoute><Econometrics /></PrivateRoute>} />
+      <Route path="/ewc/perceived-need" element={<PrivateRoute><PerceivedNeedForCare /></PrivateRoute>} />
       <Route path="/ewc/intro" element={<PrivateRoute><EWCIntro /></PrivateRoute>} />
       <Route path="/ewc/q/:questionIndex" element={<PrivateRoute><EWCQuestion /></PrivateRoute>} />
       <Route path="/ewc/results" element={<PrivateRoute><Results /></PrivateRoute>} />
