@@ -58,7 +58,7 @@ function TrendChart({ history }) {
         return (
           <g key={score}>
             <line x1={0} y1={y} x2={W} y2={y} stroke={color} strokeWidth="0.8" strokeDasharray="4 4" opacity="0.25" />
-            <text x={4} y={y - 3} fontSize="8" fill={color} opacity="0.5" fontFamily="DM Sans, sans-serif">{label}</text>
+            <text x={4} y={y - 3} fontSize="8" fill={color} opacity="0.5" fontFamily="Inter, sans-serif">{label}</text>
           </g>
         )
       })}

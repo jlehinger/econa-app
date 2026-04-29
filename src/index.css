@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Franklin:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap');
 
 :root {
   --void:        #1C1C2E;
@@ -15,9 +15,9 @@
   --text:        #2D2B3D;
   --text-light:  #5D5A72;
 
-  --font-display:   'Cinzel', Georgia, serif;
-  --font-editorial: 'Cormorant Garamond', Georgia, serif;
-  --font-body:      'DM Sans', -apple-system, sans-serif;
+  --font-display:   'Inter', -apple-system, sans-serif;
+  --font-editorial: 'Libre Franklin', -apple-system, sans-serif;
+  --font-body:      'Inter', -apple-system, sans-serif;
 }
 
 *, *::before, *::after {
