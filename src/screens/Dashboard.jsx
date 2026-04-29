@@ -57,25 +57,49 @@ export default function Dashboard() {
         borderBottom: '1px solid rgba(255,255,255,0.06)',
       }}>
         <EconaLogo size="sm" />
-        <button
-          onClick={handleLogout}
-          style={{
-            background: 'none',
-            border: '1px solid rgba(255,255,255,0.1)',
-            color: 'rgba(255,255,255,0.35)',
-            cursor: 'pointer',
-            fontSize: 11,
-            fontFamily: 'var(--font-body)',
-            padding: '6px 14px',
-            borderRadius: 100,
-            letterSpacing: '0.05em',
-            transition: 'color 0.15s, border-color 0.15s',
-          }}
-          onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
-          onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.35)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
-        >
-          Sign out
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <button
+            onClick={() => navigate('/settings')}
+            title="Settings"
+            style={{
+              background: 'none',
+              border: '1px solid rgba(255,255,255,0.1)',
+              color: 'rgba(255,255,255,0.35)',
+              cursor: 'pointer',
+              padding: '6px 8px',
+              borderRadius: 100,
+              display: 'flex',
+              alignItems: 'center',
+              transition: 'color 0.15s, border-color 0.15s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
+            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.35)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.8" />
+              <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+            </svg>
+          </button>
+          <button
+            onClick={handleLogout}
+            style={{
+              background: 'none',
+              border: '1px solid rgba(255,255,255,0.1)',
+              color: 'rgba(255,255,255,0.35)',
+              cursor: 'pointer',
+              fontSize: 11,
+              fontFamily: 'var(--font-body)',
+              padding: '6px 14px',
+              borderRadius: 100,
+              letterSpacing: '0.05em',
+              transition: 'color 0.15s, border-color 0.15s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
+            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.35)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
+          >
+            Sign out
+          </button>
+        </div>
       </div>
 
       <div style={{ padding: '28px 24px', flex: 1 }}>

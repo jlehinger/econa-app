@@ -59,23 +59,24 @@ const NAV_ITEMS = [
     ),
   },
   {
-    to: '/settings',
-    label: 'Settings',
+    to: '/history',
+    label: 'History',
     icon: (active) => (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
         <circle
           cx="12"
           cy="12"
-          r="3"
+          r="9"
           stroke={active ? '#E8981D' : 'rgba(255,255,255,0.4)'}
           strokeWidth="1.8"
-          fill={active ? 'rgba(232,152,29,0.15)' : 'none'}
+          fill={active ? 'rgba(232,152,29,0.08)' : 'none'}
         />
         <path
-          d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+          d="M12 7v5l3 3"
           stroke={active ? '#E8981D' : 'rgba(255,255,255,0.4)'}
           strokeWidth="1.8"
           strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     ),
