@@ -109,7 +109,7 @@ export default function Settings() {
   const { user, logout } = useAuthStore()
   const { history, resetAssessment, clearHistory } = useAssessmentStore()
   const [retestReminder, setRetestReminder] = useState(true)
-  const [researchOptIn, setResearchOptIn] = useState(false)
+  const [researchOptIn, setResearchOptIn] = useState(true)
   const [deleteStep, setDeleteStep] = useState(0)
 
   const handleDeleteAccount = () => {
@@ -181,7 +181,6 @@ export default function Settings() {
           />
           <Row
             label={`${history.length} ${history.length === 1 ? 'assessment' : 'assessments'} completed`}
-            sub="Stored locally on this device"
             noBorder
           />
         </SettingsCard>
@@ -207,7 +206,7 @@ export default function Settings() {
         <SettingsCard>
           <Row
             label="Data storage"
-            sub="Your results are stored locally on this device. Cloud sync via Supabase is coming."
+            sub="Your results are saved to your account."
           />
           <Row
             label="Anonymity"

@@ -34,10 +34,9 @@ const RESOURCES = {
 }
 
 const DOMAIN_CARDS = [
-  { key: 'd1', label: 'Thriving & Satisfaction', max: 8,  color: 'var(--flame)' },
-  { key: 'd2', label: 'Effectiveness',           max: 8,  color: 'var(--teal)' },
-  { key: 'd3', label: 'Burnout & Emotions',      max: 8,  color: 'var(--ember)' },
-  { key: 'd4', label: 'Sleep & Recovery',        max: 4,  color: 'var(--vitality)' },
+  { key: 'wellbeing',    label: 'Wellbeing',                max: 12, color: 'var(--flame)' },
+  { key: 'occupational', label: 'Occupational Functioning', max: 8,  color: 'var(--teal)' },
+  { key: 'emotional',    label: 'Emotional Stability',      max: 8,  color: 'var(--ember)' },
 ]
 
 function formatDate(iso) {

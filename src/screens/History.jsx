@@ -328,18 +328,6 @@ export default function History() {
               })}
             </div>
 
-            <p style={{
-              marginTop: 32,
-              fontSize: 10,
-              color: 'rgba(255,255,255,0.12)',
-              textAlign: 'center',
-              lineHeight: 1.8,
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              paddingBottom: 8,
-            }}>
-              History stored locally · Cloud sync via Supabase
-            </p>
           </>
         )}
       </div>

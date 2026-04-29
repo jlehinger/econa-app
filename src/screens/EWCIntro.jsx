@@ -3,10 +3,9 @@ import EconaLogo from '../components/EconaLogo.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
 
 const DOMAINS = [
-  { icon: '◆', label: 'Thriving & Satisfaction', desc: "How fully you're living, thriving, and satisfied with life", color: '#E8981D', bg: 'rgba(232,152,29,0.08)' },
-  { icon: '◆', label: 'Effectiveness',           desc: "How you're performing in life and work as a founder",        color: '#3FA4B5', bg: 'rgba(63,164,181,0.08)' },
-  { icon: '◆', label: 'Burnout & Emotions',      desc: 'Frequency of burnout and negative emotional experiences',    color: '#C4621A', bg: 'rgba(196,98,26,0.08)' },
-  { icon: '◆', label: 'Sleep & Recovery',        desc: 'How sleep issues are affecting your work and cognition',     color: '#4CAF82', bg: 'rgba(76,175,130,0.08)' },
+  { icon: '◆', label: 'Wellbeing',                desc: 'Thriving, life satisfaction, and social functioning as a founder', color: '#E8981D', bg: 'rgba(232,152,29,0.08)' },
+  { icon: '◆', label: 'Occupational Functioning', desc: 'Entrepreneurial self-efficacy and burnout at work',                color: '#3FA4B5', bg: 'rgba(63,164,181,0.08)' },
+  { icon: '◆', label: 'Emotional Stability',      desc: 'Negative emotionality and the impact of sleep impairments',       color: '#C4621A', bg: 'rgba(196,98,26,0.08)' },
 ]
 
 const BANDS = [
@@ -33,11 +32,33 @@ export default function EWCIntro() {
       flexDirection: 'column',
       maxWidth: '480px',
       margin: '0 auto',
-      padding: '64px 28px 56px',
+      padding: '20px 28px 56px',
     }}>
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--ember), var(--flame), var(--spark))', zIndex: 200 }} />
 
-      <EconaLogo size="md" />
+      {/* Header row */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 32 }}>
+        <button
+          onClick={() => navigate('/dashboard')}
+          style={{
+            background: 'none',
+            border: '1px solid rgba(255,255,255,0.1)',
+            color: 'rgba(255,255,255,0.35)',
+            cursor: 'pointer',
+            fontSize: 11,
+            fontFamily: 'var(--font-body)',
+            padding: '5px 12px',
+            borderRadius: 100,
+            letterSpacing: '0.05em',
+            transition: 'color 0.15s, border-color 0.15s',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
+          onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.35)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
+        >
+          ← Dashboard
+        </button>
+        <EconaLogo size="sm" />
+      </div>
 
       <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 36, fontStyle: 'italic', color: '#fff', margin: '24px 0 12px', fontWeight: 300, lineHeight: 1.15 }}>
         The Entrepreneur<br />Wellbeing Check
@@ -45,7 +66,7 @@ export default function EWCIntro() {
 
       {/* Stats row */}
       <div style={{ display: 'flex', gap: 24, marginBottom: 40 }}>
-        {[['7', 'Questions'], ['~3 min', 'Duration'], ['4', 'Domains']].map(([n, l]) => (
+        {[['7', 'Questions'], ['~3 min', 'Duration'], ['3', 'Domains']].map(([n, l]) => (
           <div key={l}>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600, color: 'var(--flame)', lineHeight: 1 }}>{n}</div>
             <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginTop: 4 }}>{l}</div>
@@ -71,7 +92,7 @@ export default function EWCIntro() {
 
       {/* Domains */}
       <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 14 }}>
-        4 Domains Measured
+        3 Domains Measured
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 36 }}>
         {DOMAINS.map(d => (

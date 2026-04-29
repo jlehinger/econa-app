@@ -73,6 +73,7 @@ export default function Auth() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
+  const [forgotClicked, setForgotClicked] = useState(false)
   const { setUser } = useAuthStore()
 
   const handleSubmit = (e) => {
@@ -207,6 +208,42 @@ export default function Auth() {
         >
           {loading ? 'One moment…' : mode === 'create' ? 'Create Account →' : 'Sign In →'}
         </button>
+
+        {mode === 'login' && (
+          <div style={{ textAlign: 'center', marginTop: 4 }}>
+            <button
+              type="button"
+              onClick={() => setForgotClicked(f => !f)}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'rgba(245,200,74,0.6)',
+                cursor: 'pointer',
+                fontSize: 13,
+                fontFamily: 'var(--font-body)',
+                letterSpacing: '0.02em',
+                padding: '4px 0',
+                transition: 'color 0.15s',
+              }}
+              onMouseEnter={e => e.currentTarget.style.color = 'var(--spark)'}
+              onMouseLeave={e => e.currentTarget.style.color = 'rgba(245,200,74,0.6)'}
+            >
+              Forgot password?
+            </button>
+            {forgotClicked && (
+              <p style={{
+                marginTop: 8,
+                fontSize: 12,
+                color: 'rgba(255,255,255,0.35)',
+                fontFamily: 'var(--font-body)',
+                lineHeight: 1.6,
+                letterSpacing: '0.01em',
+              }}>
+                Password reset will be available once email sign-in is enabled.
+              </p>
+            )}
+          </div>
+        )}
       </form>
 
       <p style={{
