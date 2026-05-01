@@ -73,7 +73,7 @@ export default function LabsList() {
                       </span>
                       {!lab.available && (
                         <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.04)', borderRadius: 100, padding: '2px 7px' }}>
-                          Phase 2
+                          {lab.phase === 'summer2026' ? "Coming Summer '26" : 'Phase 2'}
                         </span>
                       )}
                       {started && (

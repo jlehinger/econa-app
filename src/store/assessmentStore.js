@@ -15,6 +15,7 @@ export const useAssessmentStore = create(persist(
     demographics: null,      // object { q1..q10 } — set by Demographics screen
     econometrics: null,      // object { sector, growth_a, growth_b, q4..q17 } — set by Econometrics screen
     perceivedNeed: null,     // 1|2|3|4 — set by PerceivedNeedForCare screen
+    researchConsented: false, // true once user has accepted the IRB consent modal
 
     setAnswer: (index, value) => set(state => ({
       answers: { ...state.answers, [index]: value }
@@ -55,6 +56,7 @@ export const useAssessmentStore = create(persist(
     setDemographics: (data) => set({ demographics: data }),
     setEconometrics: (data) => set({ econometrics: data }),
     setPerceivedNeed: (val) => set({ perceivedNeed: val }),
+    setResearchConsented: (val) => set({ researchConsented: val }),
     clearHistory: () => set({ history: [] }),
   }),
   { name: 'econa-assessment' }

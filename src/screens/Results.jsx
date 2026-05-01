@@ -113,7 +113,7 @@ export default function Results() {
           <div style={{
             height: 10,
             borderRadius: 5,
-            background: 'linear-gradient(to right, #E05252 0%, #E8803C 28%, #E8981D 48%, #8AC878 72%, #4CAF82 100%)',
+            background: 'linear-gradient(to right, #E05252 0%, #E8803C 28%, #D4A03C 48%, #8AC878 72%, #4CAF82 100%)',
             position: 'relative',
             marginBottom: 10,
           }}>
@@ -181,6 +181,52 @@ export default function Results() {
           ))}
         </div>
 
+        {/* Score=13 borderline callout — Dr. Freeman specified verbatim message */}
+        {total === 13 && (
+          <div style={{
+            background: 'rgba(212,160,60,0.08)',
+            border: '1px solid rgba(212,160,60,0.3)',
+            borderLeft: '3px solid var(--flame)',
+            borderRadius: 12,
+            padding: '20px 20px',
+            marginBottom: 20,
+          }}>
+            <div style={{
+              fontSize: 10,
+              fontWeight: 700,
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              color: 'var(--flame)',
+              marginBottom: 10,
+            }}>
+              A note about your score
+            </div>
+            <p style={{
+              fontSize: 14,
+              color: 'rgba(255,255,255,0.75)',
+              lineHeight: 1.75,
+              margin: 0,
+            }}>
+              Tests like the EWC can have false positive and false negative results. Your score suggests that you may be experiencing enough distress to benefit from additional support. Please{' '}
+              <span
+                role="button"
+                tabIndex={0}
+                onClick={() => navigate('/triage')}
+                onKeyDown={(e) => e.key === 'Enter' && navigate('/triage')}
+                style={{
+                  color: 'var(--flame)',
+                  textDecoration: 'underline',
+                  cursor: 'pointer',
+                  fontWeight: 600,
+                }}
+              >
+                click here
+              </span>
+              {' '}for an additional assessment and some guidance about how to find professional support if you need it.
+            </p>
+          </div>
+        )}
+
         {/* What this means */}
         <div style={{
           background: `linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))`,
@@ -219,7 +265,7 @@ export default function Results() {
             width: '100%',
             fontFamily: 'var(--font-body)',
             marginBottom: 12,
-            boxShadow: '0 4px 20px rgba(232,152,29,0.3)',
+            boxShadow: '0 4px 20px rgba(212,160,60,0.3)',
             letterSpacing: '0.03em',
           }}
         >

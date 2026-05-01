@@ -1,4 +1,4 @@
-export default function EconaLogo({ size = 'md', color = '#E8981D' }) {
+export default function EconaLogo({ size = 'md', color = '#D4A03C' }) {
   const sizes = { sm: 14, md: 20, lg: 28 }
   return (
     <div style={{

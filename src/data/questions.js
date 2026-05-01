@@ -185,7 +185,7 @@ export const BANDS = {
   strain: {
     key: 'strain',
     label: 'Strain Zone',
-    min: 12,
+    min: 13,
     max: 16,
     color: '#E8981D',
     curvePosition: 40,
@@ -195,7 +195,7 @@ export const BANDS = {
     key: 'distress',
     label: 'Distress Zone',
     min: 0,
-    max: 11,
+    max: 12,
     color: '#E05252',
     curvePosition: 16,
     description: 'Your results suggest you may be experiencing significant distress. This is not a character flaw — the research shows founder mental health challenges are common, under-addressed, and highly treatable. You deserve support designed for the entrepreneurial experience.',
@@ -205,7 +205,7 @@ export const BANDS = {
 export function scoreToBand(score) {
   if (score >= 22) return BANDS.vitality
   if (score >= 17) return BANDS.stability
-  if (score >= 12) return BANDS.strain
+  if (score >= 13) return BANDS.strain
   return BANDS.distress
 }
 

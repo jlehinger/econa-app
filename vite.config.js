@@ -7,13 +7,13 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'icon-192.png', 'icon-512.png'],
+      includeAssets: ['favicon.png', 'icon-192.png', 'icon-512.png'],
       manifest: {
         name: 'Econa Wellbeing Check',
         short_name: 'Econa EWC',
         description: 'The Entrepreneur Wellbeing Check — know where you stand.',
-        theme_color: '#1C1C2E',
-        background_color: '#1C1C2E',
+        theme_color: '#0F2B4C',
+        background_color: '#0F2B4C',
         display: 'standalone',
         orientation: 'portrait',
         start_url: '/',

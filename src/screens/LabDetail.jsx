@@ -126,6 +126,264 @@ function Card({ children, color, highlight }) {
   )
 }
 
+function getBMS10Band(score) {
+  if (score === null || score === '') return null
+  const n = parseFloat(score)
+  if (isNaN(n)) return null
+  if (n <= 2.4)  return { label: 'Very Low Burnout',          color: '#4ade80', urgent: false }
+  if (n <= 3.4)  return { label: 'Danger Signs',              color: '#facc15', urgent: false }
+  if (n <= 4.4)  return { label: 'Burnout',                   color: '#fb923c', urgent: false }
+  if (n <= 5.4)  return { label: 'Very Serious',              color: '#f97316', urgent: false }
+  return           { label: 'Requires Immediate Support',     color: '#ef4444', urgent: true  }
+}
+
+function BMS10Calculator({ color }) {
+  const navigate = useNavigate()
+  const [scoreInput, setScoreInput] = useState('')
+  const band = getBMS10Band(scoreInput)
+
+  return (
+    <div style={{ marginTop: 8 }}>
+      <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color, marginBottom: 14 }}>
+        Calculate your score
+      </div>
+
+      <Card color={color}>
+        <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', fontWeight: 600, marginBottom: 6 }}>
+          Average item score
+        </div>
+        <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginBottom: 12, lineHeight: 1.5 }}>
+          Enter your average (add all 10 item scores, divide by 10)
+        </div>
+        <input
+          type="number"
+          min={1}
+          max={7}
+          step={0.1}
+          value={scoreInput}
+          onChange={e => setScoreInput(e.target.value)}
+          placeholder="1.0 – 7.0"
+          style={{
+            width: '100%',
+            boxSizing: 'border-box',
+            background: 'rgba(255,255,255,0.06)',
+            border: band ? `1px solid ${band.color}50` : '1px solid rgba(255,255,255,0.12)',
+            borderRadius: 10,
+            padding: '12px 14px',
+            fontSize: 18,
+            fontFamily: 'var(--font-display)',
+            color: band ? band.color : '#fff',
+            outline: 'none',
+            letterSpacing: '0.04em',
+          }}
+        />
+
+        {band && (
+          <div style={{
+            marginTop: 14,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 10,
+            padding: '10px 14px',
+            background: `${band.color}12`,
+            border: `1px solid ${band.color}30`,
+            borderRadius: 10,
+          }}>
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: band.color, flexShrink: 0 }} />
+            <span style={{ fontSize: 13, fontWeight: 700, color: band.color }}>{band.label}</span>
+          </div>
+        )}
+      </Card>
+
+      {band?.urgent && (
+        <div style={{
+          background: 'rgba(239,68,68,0.08)',
+          border: '1px solid rgba(239,68,68,0.3)',
+          borderLeft: '3px solid #ef4444',
+          borderRadius: 14,
+          padding: '18px',
+          marginTop: 4,
+        }}>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#ef4444', marginBottom: 8 }}>
+            Professional support recommended
+          </div>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', lineHeight: 1.65, marginBottom: 16 }}>
+            Your score suggests you may benefit from immediate professional support. Connected Mind offers confidential care designed for entrepreneurs.
+          </p>
+          <button
+            onClick={() => navigate('/triage')}
+            style={{
+              width: '100%',
+              background: 'linear-gradient(135deg, #ef4444, #f97316)',
+              border: 'none',
+              borderRadius: 12,
+              padding: '14px 20px',
+              fontSize: 14,
+              fontWeight: 700,
+              fontFamily: 'var(--font-body)',
+              color: '#fff',
+              cursor: 'pointer',
+              letterSpacing: '0.02em',
+            }}
+          >
+            Connect with CM Support →
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
+
+const ER_INSTRUMENTS = [
+  {
+    key: 'gad7',
+    label: 'GAD-7',
+    sublabel: 'Generalized Anxiety',
+    hint: 'Sum all 7 items (each 0–3)',
+    min: 0, max: 21, step: 1,
+    placeholder: '0 – 21',
+    getBand: (n) => {
+      if (n <= 4)  return { label: 'Minimal Anxiety',   color: '#4ade80', urgent: false }
+      if (n <= 9)  return { label: 'Mild Anxiety',      color: '#facc15', urgent: false }
+      if (n <= 14) return { label: 'Moderate Anxiety',  color: '#fb923c', urgent: true  }
+      return             { label: 'Severe Anxiety',     color: '#ef4444', urgent: true  }
+    },
+  },
+  {
+    key: 'phq9',
+    label: 'PHQ-9',
+    sublabel: 'Depression',
+    hint: 'Sum all 9 items (each 0–3)',
+    min: 0, max: 27, step: 1,
+    placeholder: '0 – 27',
+    getBand: (n) => {
+      if (n <= 4)  return { label: 'Minimal Depression',          color: '#4ade80', urgent: false }
+      if (n <= 9)  return { label: 'Mild Depression',             color: '#facc15', urgent: false }
+      if (n <= 14) return { label: 'Moderate Depression',         color: '#fb923c', urgent: true  }
+      if (n <= 19) return { label: 'Moderately Severe Depression',color: '#f97316', urgent: true  }
+      return             { label: 'Severe Depression',            color: '#ef4444', urgent: true  }
+    },
+  },
+  {
+    key: 'bpaq',
+    label: 'BPAQ-SF',
+    sublabel: 'Anger & Hostility',
+    hint: 'Sum all 12 items (each 1–5)',
+    min: 12, max: 60, step: 1,
+    placeholder: '12 – 60',
+    getBand: (n) => {
+      if (n < 30)  return { label: 'Low',                    color: '#4ade80', urgent: false }
+      if (n < 45)  return { label: 'Moderate',               color: '#facc15', urgent: false }
+      return             { label: 'Clinically Significant',  color: '#ef4444', urgent: true  }
+    },
+  },
+]
+
+function EmotionRegCalculator({ color }) {
+  const navigate = useNavigate()
+  const [scores, setScores] = useState({ gad7: '', phq9: '', bpaq: '' })
+
+  const results = ER_INSTRUMENTS.map(inst => {
+    const raw = scores[inst.key]
+    if (raw === '' || raw === null) return { inst, band: null }
+    const n = parseInt(raw, 10)
+    if (isNaN(n)) return { inst, band: null }
+    return { inst, band: inst.getBand(n) }
+  })
+
+  const anyUrgent = results.some(r => r.band?.urgent)
+
+  return (
+    <div style={{ marginTop: 8 }}>
+      <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color, marginBottom: 14 }}>
+        Calculate your scores
+      </div>
+
+      {results.map(({ inst, band }) => (
+        <Card key={inst.key} color={color}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 13, color: '#fff', fontWeight: 600 }}>{inst.label}</div>
+            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.05em' }}>{inst.sublabel}</div>
+          </div>
+          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginBottom: 10 }}>{inst.hint}</div>
+          <input
+            type="number"
+            min={inst.min}
+            max={inst.max}
+            step={inst.step}
+            value={scores[inst.key]}
+            onChange={e => setScores(prev => ({ ...prev, [inst.key]: e.target.value }))}
+            placeholder={inst.placeholder}
+            style={{
+              width: '100%',
+              boxSizing: 'border-box',
+              background: 'rgba(255,255,255,0.06)',
+              border: band ? `1px solid ${band.color}50` : '1px solid rgba(255,255,255,0.12)',
+              borderRadius: 10,
+              padding: '11px 14px',
+              fontSize: 17,
+              fontFamily: 'var(--font-display)',
+              color: band ? band.color : '#fff',
+              outline: 'none',
+            }}
+          />
+          {band && (
+            <div style={{
+              marginTop: 10,
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              padding: '8px 12px',
+              background: `${band.color}12`,
+              border: `1px solid ${band.color}30`,
+              borderRadius: 8,
+            }}>
+              <div style={{ width: 7, height: 7, borderRadius: '50%', background: band.color, flexShrink: 0 }} />
+              <span style={{ fontSize: 12, fontWeight: 700, color: band.color }}>{band.label}</span>
+            </div>
+          )}
+        </Card>
+      ))}
+
+      {anyUrgent && (
+        <div style={{
+          background: 'rgba(239,68,68,0.08)',
+          border: '1px solid rgba(239,68,68,0.3)',
+          borderLeft: '3px solid #ef4444',
+          borderRadius: 14,
+          padding: '18px',
+          marginTop: 4,
+        }}>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#ef4444', marginBottom: 8 }}>
+            Professional support recommended
+          </div>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', lineHeight: 1.65, marginBottom: 16 }}>
+            One or more of your scores suggests you may benefit from professional support. Connected Mind offers confidential care designed for entrepreneurs.
+          </p>
+          <button
+            onClick={() => navigate('/triage')}
+            style={{
+              width: '100%',
+              background: 'linear-gradient(135deg, #ef4444, #f97316)',
+              border: 'none',
+              borderRadius: 12,
+              padding: '14px 20px',
+              fontSize: 14,
+              fontWeight: 700,
+              fontFamily: 'var(--font-body)',
+              color: '#fff',
+              cursor: 'pointer',
+              letterSpacing: '0.02em',
+            }}
+          >
+            Connect with CM Support →
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
+
 function AssessmentSection({ lab, color }) {
   const a = lab.assessment
   if (!a) return <PlaceholderSection message="Assessment content coming soon." />
@@ -143,6 +401,8 @@ function AssessmentSection({ lab, color }) {
         <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 6 }}>Citation</div>
         <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', lineHeight: 1.6 }}>{a.citation}</p>
       </Card>
+      {lab.id === 'burnout' && <BMS10Calculator color={color} />}
+      {lab.id === 'emotional-regulation' && <EmotionRegCalculator color={color} />}
     </>
   )
 }

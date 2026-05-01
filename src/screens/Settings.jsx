@@ -107,10 +107,29 @@ function Row({ label, sub, right, onClick, destructive, noBorder }) {
 export default function Settings() {
   const navigate = useNavigate()
   const { user, logout } = useAuthStore()
-  const { history, resetAssessment, clearHistory } = useAssessmentStore()
+  const { history, resetAssessment, clearHistory, researchConsented, setResearchConsented } = useAssessmentStore()
   const [retestReminder, setRetestReminder] = useState(true)
   const [researchOptIn, setResearchOptIn] = useState(true)
   const [deleteStep, setDeleteStep] = useState(0)
+  const [isConsentModalOpen, setIsConsentModalOpen] = useState(false)
+
+  const handleResearchToggle = (newValue) => {
+    if (newValue === true && !researchConsented) {
+      setIsConsentModalOpen(true)
+    } else {
+      setResearchOptIn(newValue)
+    }
+  }
+
+  const handleConsent = () => {
+    setResearchConsented(true)
+    setResearchOptIn(true)
+    setIsConsentModalOpen(false)
+  }
+
+  const handleDeclineConsent = () => {
+    setIsConsentModalOpen(false)
+  }
 
   const handleDeleteAccount = () => {
     resetAssessment()
@@ -170,8 +189,8 @@ export default function Settings() {
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 fontWeight: 700,
-                background: 'rgba(63,164,181,0.1)',
-                border: '1px solid rgba(63,164,181,0.2)',
+                background: 'rgba(93,173,226,0.1)',
+                border: '1px solid rgba(93,173,226,0.2)',
                 padding: '3px 8px',
                 borderRadius: 100,
               }}>
@@ -196,7 +215,7 @@ export default function Settings() {
           <Row
             label="Contribute to research"
             sub="Share anonymized scores with Econa's global dataset"
-            right={<Toggle on={researchOptIn} onChange={setResearchOptIn} />}
+            right={<Toggle on={researchOptIn} onChange={handleResearchToggle} />}
             noBorder
           />
         </SettingsCard>
@@ -353,6 +372,114 @@ export default function Settings() {
       </div>
 
       <NavBar />
+
+      {/* IRB Consent Modal */}
+      {isConsentModalOpen && (
+        <div style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 1000,
+          background: 'rgba(0,0,0,0.85)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '24px',
+        }}>
+          <div style={{
+            background: 'var(--void)',
+            borderRadius: 16,
+            padding: '32px',
+            maxWidth: 400,
+            width: '100%',
+            border: '1px solid rgba(255,255,255,0.1)',
+          }}>
+            <div style={{
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              fontVariant: 'small-caps',
+              color: 'var(--flame)',
+              marginBottom: 16,
+              fontFamily: 'var(--font-display)',
+            }}>
+              Research Participation
+            </div>
+
+            <p style={{
+              fontSize: 13,
+              color: 'rgba(255,255,255,0.75)',
+              lineHeight: 1.7,
+              marginBottom: 12,
+            }}>
+              Econa is conducting ongoing research on entrepreneur mental health and wellbeing, in partnership with UC Berkeley and the Wharton School.
+            </p>
+            <p style={{
+              fontSize: 13,
+              color: 'rgba(255,255,255,0.75)',
+              lineHeight: 1.7,
+              marginBottom: 12,
+            }}>
+              By enabling this option, you consent to your anonymized assessment scores being included in Econa's research dataset. No personally identifiable information is shared. You may withdraw consent at any time by disabling this toggle in Settings.
+            </p>
+            <p style={{
+              fontSize: 13,
+              color: 'rgba(255,255,255,0.75)',
+              lineHeight: 1.7,
+              marginBottom: 28,
+            }}>
+              This research has been designed to meet standards for IRB (Institutional Review Board) compliance for human subjects research.
+            </p>
+
+            <div style={{ display: 'flex', gap: 12 }}>
+              <button
+                onClick={handleDeclineConsent}
+                style={{
+                  flex: 1,
+                  background: 'none',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  color: 'rgba(255,255,255,0.6)',
+                  borderRadius: 10,
+                  padding: '12px 16px',
+                  fontSize: 14,
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-body)',
+                  transition: 'border-color 0.15s, color 0.15s',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'
+                  e.currentTarget.style.color = 'rgba(255,255,255,0.9)'
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'
+                  e.currentTarget.style.color = 'rgba(255,255,255,0.6)'
+                }}
+              >
+                No Thanks
+              </button>
+              <button
+                onClick={handleConsent}
+                style={{
+                  flex: 1,
+                  background: 'linear-gradient(135deg, var(--ember), var(--flame))',
+                  border: 'none',
+                  color: '#fff',
+                  borderRadius: 10,
+                  padding: '12px 16px',
+                  fontSize: 14,
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-body)',
+                  boxShadow: '0 2px 12px rgba(230,100,40,0.35)',
+                }}
+              >
+                I Consent
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

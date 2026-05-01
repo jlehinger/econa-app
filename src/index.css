@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Franklin:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap');
 
 :root {
-  --void:        #1C1C2E;
-  --ember:       #C4621A;
-  --flame:       #E8981D;
-  --spark:       #F5C84A;
-  --teal:        #2A7B8C;
-  --teal-light:  #3FA4B5;
+  --void:        #0F2B4C;
+  --ember:       #E07B54;
+  --flame:       #D4A03C;
+  --spark:       #D4BB71;
+  --teal:        #2874A6;
+  --teal-light:  #5DADE2;
   --vitality:    #4CAF82;
   --distress:    #E05252;
   --ivory:       #FAF8F4;
@@ -70,7 +70,7 @@ input:focus:not(:focus-visible) {
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 1000px rgba(28, 28, 46, 0.95) inset;
+  -webkit-box-shadow: 0 0 0 1000px rgba(15, 43, 76, 0.95) inset;
   -webkit-text-fill-color: #fff;
   caret-color: var(--flame);
 }
