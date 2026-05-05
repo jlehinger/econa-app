@@ -4,3 +4,6 @@ dist/
 *.local
 .vercel
 .worktrees/
+
+# Tool session artifacts
+docs/superpowers/
