@@ -106,7 +106,7 @@ export default function PerceivedNeedForCare() {
               key={value}
               onClick={() => setSelected(value)}
               style={{
-                background: isSelected ? 'rgba(232,152,29,0.1)' : 'rgba(255,255,255,0.04)',
+                background: isSelected ? 'rgba(212,160,60,0.1)' : 'rgba(255,255,255,0.04)',
                 border: isSelected
                   ? '2px solid var(--flame)'
                   : '1.5px solid rgba(255,255,255,0.09)',
@@ -142,8 +142,8 @@ export default function PerceivedNeedForCare() {
       {/* Resource block — shown when 1 or 2 selected */}
       {showResources && (
         <div style={{
-          background: 'rgba(63,164,181,0.07)',
-          border: '1px solid rgba(63,164,181,0.2)',
+          background: 'rgba(93,173,226,0.07)',
+          border: '1px solid rgba(93,173,226,0.2)',
           borderLeft: '3px solid var(--teal)',
           borderRadius: 12,
           padding: '20px 18px',
@@ -216,18 +216,18 @@ export default function PerceivedNeedForCare() {
           fontFamily: 'var(--font-body)',
           width: '100%',
           opacity: selected !== null ? 1 : 0.6,
-          boxShadow: selected !== null ? '0 4px 24px rgba(232,152,29,0.35)' : 'none',
+          boxShadow: selected !== null ? '0 4px 24px rgba(212,160,60,0.35)' : 'none',
           transition: 'transform 0.15s, box-shadow 0.15s, opacity 0.15s',
         }}
         onMouseEnter={e => {
           if (selected !== null) {
             e.currentTarget.style.transform = 'translateY(-1px)'
-            e.currentTarget.style.boxShadow = '0 6px 32px rgba(232,152,29,0.45)'
+            e.currentTarget.style.boxShadow = '0 6px 32px rgba(212,160,60,0.45)'
           }
         }}
         onMouseLeave={e => {
           e.currentTarget.style.transform = ''
-          e.currentTarget.style.boxShadow = selected !== null ? '0 4px 24px rgba(232,152,29,0.35)' : 'none'
+          e.currentTarget.style.boxShadow = selected !== null ? '0 4px 24px rgba(212,160,60,0.35)' : 'none'
         }}
       >
         Continue to the Check →

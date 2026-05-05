@@ -37,8 +37,8 @@ export default function VillageWelcome() {
         {/* Village badge */}
         <div style={{
           marginTop: 32, marginBottom: 8,
-          background: 'linear-gradient(135deg, rgba(232,152,29,0.15), rgba(196,98,26,0.1))',
-          border: '1px solid rgba(232,152,29,0.3)',
+          background: 'linear-gradient(135deg, rgba(212,160,60,0.15), rgba(224,123,84,0.1))',
+          border: '1px solid rgba(212,160,60,0.3)',
           borderRadius: 100, padding: '6px 20px',
           fontSize: 11, fontWeight: 700, letterSpacing: '0.2em',
           textTransform: 'uppercase', color: 'var(--flame)',
@@ -53,7 +53,7 @@ export default function VillageWelcome() {
           color: 'var(--flame)',
           lineHeight: 1,
           margin: '12px 0 6px',
-          textShadow: '0 0 40px rgba(232,152,29,0.4)',
+          textShadow: '0 0 40px rgba(212,160,60,0.4)',
         }}>
           {score ?? '—'}/28
         </div>
@@ -77,8 +77,8 @@ export default function VillageWelcome() {
         {/* Membership card */}
         <div style={{
           width: '100%',
-          background: 'linear-gradient(135deg, rgba(232,152,29,0.08), rgba(196,98,26,0.05))',
-          border: '1px solid rgba(232,152,29,0.2)',
+          background: 'linear-gradient(135deg, rgba(212,160,60,0.08), rgba(224,123,84,0.05))',
+          border: '1px solid rgba(212,160,60,0.2)',
           borderRadius: 16,
           padding: '24px',
           marginBottom: 28,
@@ -149,7 +149,7 @@ export default function VillageWelcome() {
             color: '#fff', border: 'none', borderRadius: 14, padding: '18px',
             fontSize: 15, fontWeight: 600, cursor: 'pointer', width: '100%',
             fontFamily: 'var(--font-body)', marginBottom: 12,
-            boxShadow: '0 4px 20px rgba(232,152,29,0.3)', letterSpacing: '0.03em',
+            boxShadow: '0 4px 20px rgba(212,160,60,0.3)', letterSpacing: '0.03em',
           }}
         >
           Explore All My Labs →

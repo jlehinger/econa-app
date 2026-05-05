@@ -58,7 +58,7 @@ export default function Verify() {
                 cursor: 'pointer',
                 fontFamily: 'var(--font-body)',
                 letterSpacing: '0.03em',
-                boxShadow: '0 4px 20px rgba(232,152,29,0.3)',
+                boxShadow: '0 4px 20px rgba(212,160,60,0.3)',
                 transition: 'transform 0.15s',
               }}
               onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-1px)'}

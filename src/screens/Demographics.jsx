@@ -150,11 +150,11 @@ export default function Demographics() {
           letterSpacing: '0.04em',
           fontFamily: 'var(--font-body)',
           width: '100%',
-          boxShadow: '0 4px 24px rgba(232,152,29,0.35)',
+          boxShadow: '0 4px 24px rgba(212,160,60,0.35)',
           transition: 'transform 0.15s, box-shadow 0.15s',
         }}
-        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 6px 32px rgba(232,152,29,0.45)' }}
-        onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 4px 24px rgba(232,152,29,0.35)' }}
+        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 6px 32px rgba(212,160,60,0.45)' }}
+        onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 4px 24px rgba(212,160,60,0.35)' }}
       >
         Continue →
       </button>

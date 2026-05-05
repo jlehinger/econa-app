@@ -86,11 +86,11 @@ export default function Splash() {
             fontFamily: 'var(--font-body)',
             marginBottom: 14,
             width: '100%',
-            boxShadow: '0 4px 24px rgba(232,152,29,0.35)',
+            boxShadow: '0 4px 24px rgba(212,160,60,0.35)',
             transition: 'transform 0.15s, box-shadow 0.15s',
           }}
-          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 6px 32px rgba(232,152,29,0.45)' }}
-          onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 4px 24px rgba(232,152,29,0.35)' }}
+          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 6px 32px rgba(212,160,60,0.45)' }}
+          onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 4px 24px rgba(212,160,60,0.35)' }}
         >
           {user ? 'Go to Dashboard' : 'Take the Free Check'}
         </button>

@@ -4,15 +4,15 @@ import NavBar from '../components/NavBar.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
 
 const DOMAINS = [
-  { icon: '◆', label: 'Wellbeing',                desc: 'Thriving, life satisfaction, and social functioning as a founder', color: '#E8981D', bg: 'rgba(232,152,29,0.08)' },
-  { icon: '◆', label: 'Occupational Functioning', desc: 'Entrepreneurial self-efficacy and burnout at work',                color: '#3FA4B5', bg: 'rgba(63,164,181,0.08)' },
-  { icon: '◆', label: 'Emotional Stability',      desc: 'Negative emotionality and the impact of sleep impairments',       color: '#C4621A', bg: 'rgba(196,98,26,0.08)' },
+  { icon: '◆', label: 'Wellbeing',                desc: 'Thriving, life satisfaction, and social functioning as a founder', color: '#D4A03C', bg: 'rgba(212,160,60,0.08)' },
+  { icon: '◆', label: 'Occupational Functioning', desc: 'Entrepreneurial self-efficacy and burnout at work',                color: '#5DADE2', bg: 'rgba(93,173,226,0.08)' },
+  { icon: '◆', label: 'Emotional Stability',      desc: 'Negative emotionality and the impact of sleep impairments',       color: '#E07B54', bg: 'rgba(224,123,84,0.08)' },
 ]
 
 const BANDS = [
   { label: 'Distress',  range: '0–11',  color: '#E05252', bg: 'rgba(224,82,82,0.1)' },
-  { label: 'Strain',    range: '12–16', color: '#E8981D', bg: 'rgba(232,152,29,0.1)' },
-  { label: 'Stability', range: '17–21', color: '#3FA4B5', bg: 'rgba(63,164,181,0.1)' },
+  { label: 'Strain',    range: '12–16', color: '#D4A03C', bg: 'rgba(212,160,60,0.1)' },
+  { label: 'Stability', range: '17–21', color: '#5DADE2', bg: 'rgba(93,173,226,0.1)' },
   { label: 'Vitality',  range: '22–28', color: '#4CAF82', bg: 'rgba(76,175,130,0.1)' },
 ]
 
@@ -77,8 +77,8 @@ export default function EWCIntro() {
 
       {/* Anonymity callout */}
       <div style={{
-        background: 'rgba(63,164,181,0.08)',
-        border: '1px solid rgba(63,164,181,0.2)',
+        background: 'rgba(93,173,226,0.08)',
+        border: '1px solid rgba(93,173,226,0.2)',
         borderLeft: '3px solid var(--teal)',
         borderRadius: 10,
         padding: '14px 16px',
@@ -157,11 +157,11 @@ export default function EWCIntro() {
           fontFamily: 'var(--font-body)',
           width: '100%',
           marginBottom: 20,
-          boxShadow: '0 4px 24px rgba(232,152,29,0.35)',
+          boxShadow: '0 4px 24px rgba(212,160,60,0.35)',
           transition: 'transform 0.15s, box-shadow 0.15s',
         }}
-        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 6px 32px rgba(232,152,29,0.45)' }}
-        onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 4px 24px rgba(232,152,29,0.35)' }}
+        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 6px 32px rgba(212,160,60,0.45)' }}
+        onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 4px 24px rgba(212,160,60,0.35)' }}
       >
         Begin the Check →
       </button>

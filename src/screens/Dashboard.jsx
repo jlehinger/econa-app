@@ -6,8 +6,8 @@ import { useAssessmentStore } from '../store/assessmentStore.js'
 
 const BAND_META = {
   vitality:  { label: 'Vitality',  color: '#4CAF82', bg: 'rgba(76,175,130,0.1)' },
-  stability: { label: 'Stability', color: '#3FA4B5', bg: 'rgba(63,164,181,0.1)' },
-  strain:    { label: 'Strain',    color: '#E8981D', bg: 'rgba(232,152,29,0.1)' },
+  stability: { label: 'Stability', color: '#5DADE2', bg: 'rgba(93,173,226,0.1)' },
+  strain:    { label: 'Strain',    color: '#D4A03C', bg: 'rgba(212,160,60,0.1)' },
   distress:  { label: 'Distress',  color: '#E05252', bg: 'rgba(224,82,82,0.1)' },
 }
 
@@ -204,7 +204,7 @@ export default function Dashboard() {
             width: '100%',
             fontFamily: 'var(--font-body)',
             marginBottom: 36,
-            boxShadow: '0 4px 20px rgba(232,152,29,0.28)',
+            boxShadow: '0 4px 20px rgba(212,160,60,0.28)',
             letterSpacing: '0.03em',
           }}
         >

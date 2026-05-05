@@ -5,8 +5,8 @@ import { useAssessmentStore } from '../store/assessmentStore.js'
 
 const BAND_META = {
   vitality:  { label: 'Vitality',  color: '#4CAF82', bg: 'rgba(76,175,130,0.12)' },
-  stability: { label: 'Stability', color: '#3FA4B5', bg: 'rgba(63,164,181,0.12)' },
-  strain:    { label: 'Strain',    color: '#E8981D', bg: 'rgba(232,152,29,0.12)' },
+  stability: { label: 'Stability', color: '#5DADE2', bg: 'rgba(93,173,226,0.12)' },
+  strain:    { label: 'Strain',    color: '#D4A03C', bg: 'rgba(212,160,60,0.12)' },
   distress:  { label: 'Distress',  color: '#E05252', bg: 'rgba(224,82,82,0.12)' },
 }
 
@@ -43,16 +43,16 @@ function TrendChart({ history }) {
     <svg viewBox={`0 0 ${W} ${H}`} style={{ width: '100%', height: H, display: 'block' }}>
       <defs>
         <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#E8981D" stopOpacity="0.2" />
-          <stop offset="100%" stopColor="#E8981D" stopOpacity="0" />
+          <stop offset="0%" stopColor="#D4A03C" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="#D4A03C" stopOpacity="0" />
         </linearGradient>
       </defs>
 
       {/* Horizontal band zone lines */}
       {[
         { score: 22, color: '#4CAF82', label: '22' },
-        { score: 17, color: '#3FA4B5', label: '17' },
-        { score: 12, color: '#E8981D', label: '12' },
+        { score: 17, color: '#5DADE2', label: '17' },
+        { score: 12, color: '#D4A03C', label: '12' },
       ].map(({ score, color, label }) => {
         const y = padY + ((28 - score) / 28) * (H - 2 * padY)
         return (
@@ -71,7 +71,7 @@ function TrendChart({ history }) {
         <path
           d={linePath}
           fill="none"
-          stroke="rgba(232,152,29,0.55)"
+          stroke="rgba(212,160,60,0.55)"
           strokeWidth="2"
           strokeLinejoin="round"
           strokeLinecap="round"
@@ -168,7 +168,7 @@ export default function History() {
                 fontWeight: 600,
                 cursor: 'pointer',
                 fontFamily: 'var(--font-body)',
-                boxShadow: '0 4px 20px rgba(232,152,29,0.28)',
+                boxShadow: '0 4px 20px rgba(212,160,60,0.28)',
               }}
             >
               Take the Check →
@@ -217,8 +217,8 @@ export default function History() {
               }}>
                 {[
                   { label: 'Distress', color: '#E05252' },
-                  { label: 'Strain',   color: '#E8981D' },
-                  { label: 'Stability', color: '#3FA4B5' },
+                  { label: 'Strain',   color: '#D4A03C' },
+                  { label: 'Stability', color: '#5DADE2' },
                   { label: 'Vitality', color: '#4CAF82' },
                 ].map(({ label, color }) => (
                   <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
@@ -243,7 +243,7 @@ export default function History() {
                 width: '100%',
                 fontFamily: 'var(--font-body)',
                 marginBottom: 32,
-                boxShadow: '0 4px 20px rgba(232,152,29,0.28)',
+                boxShadow: '0 4px 20px rgba(212,160,60,0.28)',
                 letterSpacing: '0.03em',
               }}
             >
@@ -293,10 +293,10 @@ export default function History() {
                             letterSpacing: '0.15em',
                             textTransform: 'uppercase',
                             color: 'var(--flame)',
-                            background: 'rgba(232,152,29,0.12)',
+                            background: 'rgba(212,160,60,0.12)',
                             padding: '2px 8px',
                             borderRadius: 100,
-                            border: '1px solid rgba(232,152,29,0.2)',
+                            border: '1px solid rgba(212,160,60,0.2)',
                           }}>Latest</span>
                         )}
                         <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.38)' }}>{formatDate(entry.date)}</span>

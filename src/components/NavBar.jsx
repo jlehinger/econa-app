@@ -9,13 +9,13 @@ const NAV_ITEMS = [
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
         <path
           d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"
-          stroke={active ? '#E8981D' : 'rgba(255,255,255,0.4)'}
+          stroke={active ? '#D4A03C' : 'rgba(255,255,255,0.4)'}
           strokeWidth="1.8"
-          fill={active ? 'rgba(232,152,29,0.15)' : 'none'}
+          fill={active ? 'rgba(212,160,60,0.15)' : 'none'}
         />
         <path
           d="M9 21V13h6v8"
-          stroke={active ? '#E8981D' : 'rgba(255,255,255,0.4)'}
+          stroke={active ? '#D4A03C' : 'rgba(255,255,255,0.4)'}
           strokeWidth="1.8"
         />
       </svg>
@@ -28,13 +28,13 @@ const NAV_ITEMS = [
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
         <path
           d="M12 2C9.5 5 7 7.5 7 11c0 2.76 2.24 5 5 5s5-2.24 5-5c0-3.5-2.5-6-5-9z"
-          fill={active ? '#E8981D' : 'none'}
-          stroke={active ? '#E8981D' : 'rgba(255,255,255,0.4)'}
+          fill={active ? '#D4A03C' : 'none'}
+          stroke={active ? '#D4A03C' : 'rgba(255,255,255,0.4)'}
           strokeWidth="1.8"
         />
         <path
           d="M12 16v2M9 21h6"
-          stroke={active ? '#E8981D' : 'rgba(255,255,255,0.4)'}
+          stroke={active ? '#D4A03C' : 'rgba(255,255,255,0.4)'}
           strokeWidth="1.8"
           strokeLinecap="round"
         />
@@ -49,11 +49,11 @@ const NAV_ITEMS = [
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
         <path
           d="M12 2C12 2 8 7 8 12a4 4 0 008 0c0-5-4-10-4-10z"
-          stroke={active ? '#E8981D' : 'rgba(255,255,255,0.4)'}
+          stroke={active ? '#D4A03C' : 'rgba(255,255,255,0.4)'}
           strokeWidth="1.8"
           strokeLinecap="round"
           strokeLinejoin="round"
-          fill={active ? 'rgba(232,152,29,0.15)' : 'none'}
+          fill={active ? 'rgba(212,160,60,0.15)' : 'none'}
         />
       </svg>
     ),
@@ -67,13 +67,13 @@ const NAV_ITEMS = [
           cx="12"
           cy="12"
           r="9"
-          stroke={active ? '#E8981D' : 'rgba(255,255,255,0.4)'}
+          stroke={active ? '#D4A03C' : 'rgba(255,255,255,0.4)'}
           strokeWidth="1.8"
-          fill={active ? 'rgba(232,152,29,0.08)' : 'none'}
+          fill={active ? 'rgba(212,160,60,0.08)' : 'none'}
         />
         <path
           d="M12 7v5l3 3"
-          stroke={active ? '#E8981D' : 'rgba(255,255,255,0.4)'}
+          stroke={active ? '#D4A03C' : 'rgba(255,255,255,0.4)'}
           strokeWidth="1.8"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -139,7 +139,7 @@ export default function NavBar() {
               fontWeight: 600,
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
-              color: active ? '#E8981D' : 'rgba(255,255,255,0.35)',
+              color: active ? '#D4A03C' : 'rgba(255,255,255,0.35)',
               transition: 'color 0.15s',
             }}>
               {item.label}

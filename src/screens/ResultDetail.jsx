@@ -6,8 +6,8 @@ import { scoreToBand } from '../data/questions.js'
 
 const BAND_META = {
   vitality:  { label: 'Vitality Zone',  color: '#4CAF82', bg: 'rgba(76,175,130,0.1)' },
-  stability: { label: 'Stability Zone', color: '#3FA4B5', bg: 'rgba(63,164,181,0.1)' },
-  strain:    { label: 'Strain Zone',    color: '#E8981D', bg: 'rgba(232,152,29,0.1)' },
+  stability: { label: 'Stability Zone', color: '#5DADE2', bg: 'rgba(93,173,226,0.1)' },
+  strain:    { label: 'Strain Zone',    color: '#D4A03C', bg: 'rgba(212,160,60,0.1)' },
   distress:  { label: 'Distress Zone',  color: '#E05252', bg: 'rgba(224,82,82,0.1)' },
 }
 
@@ -15,21 +15,21 @@ const RESOURCES = {
   distress: [
     { color: '#E05252', title: 'Connected Mind Clinicians', body: 'Vetted clinicians who specialize in entrepreneurial mental health. Free initial consultation available.', cta: 'Book a Consultation', link: 'https://connectedmind.com' },
     { color: '#E8803C', title: '988 Crisis Lifeline', body: 'Call or text 988 anytime. For entrepreneurs and all individuals experiencing crisis.', cta: 'Call or Text 988', link: 'https://988lifeline.org' },
-    { color: '#3FA4B5', title: 'Econa Crisis Support', body: 'Resources and vetted practitioners who understand the entrepreneurial experience at depth.', cta: 'Find Support', link: 'https://econa.net' },
+    { color: '#5DADE2', title: 'Econa Crisis Support', body: 'Resources and vetted practitioners who understand the entrepreneurial experience at depth.', cta: 'Find Support', link: 'https://econa.net' },
   ],
   strain: [
-    { color: '#E8981D', title: 'Econa Programs', body: 'Workshops and retreats built for founders experiencing strain — resilience before crisis.', cta: 'View Programs', link: 'https://econa.net' },
-    { color: '#3FA4B5', title: 'Connected Mind', body: 'Evidence-based mental health tools built for high-performance environments.', cta: 'Visit Connected Mind', link: 'https://connectedmind.com' },
+    { color: '#D4A03C', title: 'Econa Programs', body: 'Workshops and retreats built for founders experiencing strain — resilience before crisis.', cta: 'View Programs', link: 'https://econa.net' },
+    { color: '#5DADE2', title: 'Connected Mind', body: 'Evidence-based mental health tools built for high-performance environments.', cta: 'Visit Connected Mind', link: 'https://connectedmind.com' },
   ],
   stability: [
-    { color: '#3FA4B5', title: 'FounderScreen', body: 'Contribute to the global entrepreneur wellbeing dataset and track longitudinally over time.', cta: 'Join FounderScreen', link: 'https://econa.net' },
-    { color: '#E8981D', title: 'Econa Programs', body: 'Keynotes, workshops, and retreats to sustain and grow from your stable foundation.', cta: 'View Programs', link: 'https://econa.net' },
+    { color: '#5DADE2', title: 'FounderScreen', body: 'Contribute to the global entrepreneur wellbeing dataset and track longitudinally over time.', cta: 'Join FounderScreen', link: 'https://econa.net' },
+    { color: '#D4A03C', title: 'Econa Programs', body: 'Keynotes, workshops, and retreats to sustain and grow from your stable foundation.', cta: 'View Programs', link: 'https://econa.net' },
     { color: '#4CAF82', title: 'Econaclast Community', body: 'Connect with other stable and thriving founders. Build accountability and share practices.', cta: 'Learn More', link: 'https://econa.net' },
   ],
   vitality: [
     { color: '#4CAF82', title: 'Econaclast Community', body: "You're thriving — now help others get here. Lead, mentor, and build the ecosystem.", cta: 'Join Econaclast', link: 'https://econa.net' },
-    { color: '#E8981D', title: "Dr. Freeman's Programs", body: 'Keynote, workshop, and leadership programs from Dr. Freeman — for high-vitality founders ready to amplify impact.', cta: 'Book Dr. Freeman', link: 'https://econa.net' },
-    { color: '#3FA4B5', title: 'FounderScreen', body: "Join the global dataset and contribute to the future of founder wellbeing science.", cta: 'Join FounderScreen', link: 'https://econa.net' },
+    { color: '#D4A03C', title: "Dr. Freeman's Programs", body: 'Keynote, workshop, and leadership programs from Dr. Freeman — for high-vitality founders ready to amplify impact.', cta: 'Book Dr. Freeman', link: 'https://econa.net' },
+    { color: '#5DADE2', title: 'FounderScreen', body: "Join the global dataset and contribute to the future of founder wellbeing science.", cta: 'Join FounderScreen', link: 'https://econa.net' },
   ],
 }
 
@@ -300,7 +300,7 @@ export default function ResultDetail() {
             width: '100%',
             fontFamily: 'var(--font-body)',
             marginBottom: 8,
-            boxShadow: '0 4px 20px rgba(232,152,29,0.28)',
+            boxShadow: '0 4px 20px rgba(212,160,60,0.28)',
             letterSpacing: '0.03em',
           }}
         >

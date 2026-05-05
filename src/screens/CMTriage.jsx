@@ -17,7 +17,7 @@ const STEPS = [
   },
   {
     step: 2,
-    color: '#E8981D',
+    color: '#D4A03C',
     title: 'Your Personal Report',
     body: "After completing the screening, you'll receive a written assessment summary you can take to a licensed mental health professional. It translates your results into clinical language your provider will understand.",
     note: 'Printable PDF format.',
@@ -27,7 +27,7 @@ const STEPS = [
   },
   {
     step: 3,
-    color: '#3FA4B5',
+    color: '#5DADE2',
     title: 'Your Econa Labs',
     body: "Once you've completed the screening, come back and explore your personal Econa Labs — tools matched to your specific EWC item scores. You don't have to do everything at once.",
     note: null,
@@ -52,7 +52,7 @@ export default function CMTriage() {
       margin: '0 auto',
       paddingBottom: 80,
     }}>
-      <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, #E05252, #E8981D, var(--flame))', zIndex: 200 }} />
+      <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, #E05252, #D4A03C, var(--flame))', zIndex: 200 }} />
 
       <div style={{ padding: '48px 28px 0' }}>
         <EconaLogo size="sm" />

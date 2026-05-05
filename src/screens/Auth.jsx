@@ -57,7 +57,7 @@ function FloatingInput({ label, type, value, onChange, placeholder, autoFocus })
           fontFamily: 'var(--font-body)',
           outline: 'none',
           transition: 'border-color 0.18s, box-shadow 0.18s',
-          boxShadow: focused ? '0 0 0 3px rgba(232,152,29,0.15)' : 'none',
+          boxShadow: focused ? '0 0 0 3px rgba(212,160,60,0.15)' : 'none',
           caretColor: 'var(--flame)',
         }}
       />
@@ -190,7 +190,7 @@ export default function Auth() {
           disabled={loading}
           style={{
             background: loading
-              ? 'rgba(232,152,29,0.4)'
+              ? 'rgba(212,160,60,0.4)'
               : 'linear-gradient(135deg, var(--ember) 0%, var(--flame) 60%, var(--spark) 100%)',
             color: '#fff',
             border: 'none',
@@ -202,7 +202,7 @@ export default function Auth() {
             letterSpacing: '0.04em',
             fontFamily: 'var(--font-body)',
             marginTop: 8,
-            boxShadow: loading ? 'none' : '0 4px 20px rgba(232,152,29,0.3)',
+            boxShadow: loading ? 'none' : '0 4px 20px rgba(212,160,60,0.3)',
             transition: 'all 0.2s',
           }}
         >
@@ -217,7 +217,7 @@ export default function Auth() {
               style={{
                 background: 'none',
                 border: 'none',
-                color: 'rgba(245,200,74,0.6)',
+                color: 'rgba(212,187,113,0.6)',
                 cursor: 'pointer',
                 fontSize: 13,
                 fontFamily: 'var(--font-body)',
@@ -226,7 +226,7 @@ export default function Auth() {
                 transition: 'color 0.15s',
               }}
               onMouseEnter={e => e.currentTarget.style.color = 'var(--spark)'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(245,200,74,0.6)'}
+              onMouseLeave={e => e.currentTarget.style.color = 'rgba(212,187,113,0.6)'}
             >
               Forgot password?
             </button>

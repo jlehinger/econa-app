@@ -128,8 +128,8 @@ export default function EWCQuestion() {
         <div style={{
           display: 'inline-flex',
           alignItems: 'center',
-          background: 'rgba(63,164,181,0.1)',
-          border: '1px solid rgba(63,164,181,0.2)',
+          background: 'rgba(93,173,226,0.1)',
+          border: '1px solid rgba(93,173,226,0.2)',
           borderRadius: 100,
           padding: '4px 12px',
           marginBottom: 20,
@@ -199,7 +199,7 @@ export default function EWCQuestion() {
                 onClick={() => handleSelect(opt.value)}
                 style={{
                   background: isSelected
-                    ? 'rgba(232,152,29,0.14)'
+                    ? 'rgba(212,160,60,0.14)'
                     : 'rgba(255,255,255,0.04)',
                   border: isSelected
                     ? '2px solid var(--flame)'
@@ -216,7 +216,7 @@ export default function EWCQuestion() {
                   textAlign: 'left',
                   transition: 'all 0.15s',
                   fontWeight: isSelected ? 600 : 400,
-                  boxShadow: isSelected ? '0 2px 12px rgba(232,152,29,0.2)' : 'none',
+                  boxShadow: isSelected ? '0 2px 12px rgba(212,160,60,0.2)' : 'none',
                 }}
               >
                 {/* Checkmark indicator */}
@@ -252,7 +252,7 @@ export default function EWCQuestion() {
         justifyContent: 'space-between',
         alignItems: 'center',
         borderTop: '1px solid rgba(255,255,255,0.06)',
-        background: 'rgba(28,28,46,0.95)',
+        background: 'rgba(15,43,76,0.95)',
         backdropFilter: 'blur(8px)',
       }}>
         <button

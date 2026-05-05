@@ -6,8 +6,8 @@ import { useAssessmentStore } from '../store/assessmentStore.js'
 
 const BAND_META = {
   distress:  { label: 'Distress Zone',  color: '#E05252', bg: 'rgba(224,82,82,0.1)',   headline: "You're carrying something heavy right now.", sub: "This is not a character flaw — the research shows founder mental health challenges are common, under-addressed, and highly treatable. You deserve support designed for the entrepreneurial experience." },
-  strain:    { label: 'Strain Zone',    color: '#E8981D', bg: 'rgba(232,152,29,0.1)',  headline: "The pressure is real. Let's get you the right tools.", sub: "Founders who address strain early perform better and build more sustainably. Below are three concrete steps you can take starting today." },
-  stability: { label: 'Stability Zone', color: '#3FA4B5', bg: 'rgba(63,164,181,0.1)', headline: "You're holding steady. Let's help you go further.", sub: "Stability is a foundation, not a ceiling. These resources are designed to help high-performing founders optimize and sustain." },
+  strain:    { label: 'Strain Zone',    color: '#D4A03C', bg: 'rgba(212,160,60,0.1)',  headline: "The pressure is real. Let's get you the right tools.", sub: "Founders who address strain early perform better and build more sustainably. Below are three concrete steps you can take starting today." },
+  stability: { label: 'Stability Zone', color: '#5DADE2', bg: 'rgba(93,173,226,0.1)', headline: "You're holding steady. Let's help you go further.", sub: "Stability is a foundation, not a ceiling. These resources are designed to help high-performing founders optimize and sustain." },
   vitality:  { label: 'Vitality Zone',  color: '#4CAF82', bg: 'rgba(76,175,130,0.1)', headline: "You're in a strong place — and you can amplify that.", sub: "High-vitality founders who give back create resilient communities. Lead, connect, and help build the ecosystem." },
 }
 
@@ -29,14 +29,14 @@ const RESOURCES = {
       link: 'https://988lifeline.org',
     },
     {
-      color: '#3FA4B5',
+      color: '#5DADE2',
       title: 'Econa Crisis Support',
       body: 'Resources and vetted practitioners who understand the entrepreneurial experience at clinical depth. You do not have to navigate this alone.',
       cta: 'Find Support at Econa',
       link: 'https://econa.net',
     },
     {
-      color: '#E8981D',
+      color: '#D4A03C',
       title: 'Read the Research',
       body: 'Understanding the science behind why founders experience these challenges at higher rates can itself reduce shame and accelerate recovery.',
       cta: 'Read the Study',
@@ -45,14 +45,14 @@ const RESOURCES = {
   ],
   stability: [
     {
-      color: '#3FA4B5',
+      color: '#5DADE2',
       title: 'FounderScreen',
       body: 'Contribute to the first-ever global entrepreneur wellbeing dataset. Track your wellbeing longitudinally and unlock deeper personalized insights.',
       cta: 'Join FounderScreen',
       link: 'https://econa.net',
     },
     {
-      color: '#E8981D',
+      color: '#D4A03C',
       title: 'Econa Programs',
       body: 'Keynotes, workshops, and retreats that give you tools to sustain and grow from your current stable foundation.',
       cta: 'View Programs',
@@ -83,14 +83,14 @@ const RESOURCES = {
       highlight: true,
     },
     {
-      color: '#E8981D',
+      color: '#D4A03C',
       title: "Dr. Freeman's Programs",
       body: "Dr. Michael Freeman's keynote, workshop, and leadership programs for high-vitality founders ready to amplify impact and sustain their edge.",
       cta: 'Book Dr. Freeman',
       link: 'https://econa.net',
     },
     {
-      color: '#3FA4B5',
+      color: '#5DADE2',
       title: 'FounderScreen',
       body: "Join the global dataset and contribute to the future of founder wellbeing science. Your vitality data helps calibrate resources for others.",
       cta: 'Join FounderScreen',
@@ -102,7 +102,7 @@ const RESOURCES = {
 const STRAIN_MODULES = [
   {
     step: 1,
-    color: '#3FA4B5',
+    color: '#5DADE2',
     title: 'Recovery Protocol',
     sub: 'Sleep & energy management',
     bullets: [
@@ -115,7 +115,7 @@ const STRAIN_MODULES = [
   },
   {
     step: 2,
-    color: '#E8981D',
+    color: '#D4A03C',
     title: 'Stress Processing',
     sub: 'Cognitive offload & reframe',
     bullets: [
@@ -419,7 +419,7 @@ export default function Resources() {
             width: '100%',
             fontFamily: 'var(--font-body)',
             marginBottom: 48,
-            boxShadow: '0 4px 20px rgba(232,152,29,0.3)',
+            boxShadow: '0 4px 20px rgba(212,160,60,0.3)',
             letterSpacing: '0.03em',
           }}
         >
