@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
 
-  <!-- Background: Deep Navy -->
-  <rect width="512" height="512" fill="#0F2B4C"/>
+  <!-- Background: Warm white -->
+  <rect width="512" height="512" fill="#F9F6F0"/>
 
+  <!-- Flame: Amber Gold -->
   <g fill="#D4A03C">
-
-    <!-- Main flame body: right-biased, rounded bottom, pointed top -->
     <path d="
       M260,278
       C282,268 308,244 310,208
@@ -16,8 +15,6 @@
       C224,212 240,252 260,278
       Z
     "/>
-
-    <!-- Secondary flame wisp: branches upper-left from main body -->
     <path d="
       M248,94
       C242,82 232,66 218,58
@@ -26,19 +23,14 @@
       C230,96 240,96 248,94
       Z
     "/>
+  </g>
 
-    <!-- Cup: inverted trapezoid connecting flame to stem -->
+  <!-- Torch body: Deep Navy -->
+  <g fill="#0F2B4C">
     <path d="M218,278 L294,278 L272,314 L246,314 Z"/>
-
-    <!-- Stem -->
     <rect x="246" y="314" width="26" height="72" rx="1"/>
-
-    <!-- Pedestal upper -->
     <rect x="218" y="386" width="76" height="22" rx="3"/>
-
-    <!-- Pedestal foot -->
     <rect x="202" y="408" width="108" height="20" rx="6"/>
-
   </g>
 
 </svg>
