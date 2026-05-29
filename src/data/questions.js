@@ -235,13 +235,12 @@ export function computeItemScores(answers) {
   )
 }
 
-// Triage boundary: score ≤ 12 covers the entire Distress Zone (0–12). Scores 13–16 are
-// the Strain Zone and currently receive only the borderline callout on the Results screen
-// (see Results.jsx, `total === 13`), not full triage.
-// OPEN QUESTION (pending Dr. Freeman): whether the boundary should be 12 or 13, and whether
-// the score-13 Results callout (which links to /triage) is consistent with sending the
-// primary CTA to /village. Do not change this threshold without confirming his intent —
-// it controls clinical routing.
+// Triage boundary (confirmed by Dr. Freeman, Apr 30): score ≤ 12 = the Surviving band (0–12)
+// and triggers triage. Scores 13–16 are the Striving band; score 13 intentionally shows a
+// borderline message with his verbatim text (see Results.jsx, `total === 13`) that links to
+// /triage while the primary CTA goes to /village — this is by design, not a contradiction.
+// "Keep the other cutoffs as they are." Do not change without his sign-off — it controls
+// clinical routing.
 export function shouldTriage(totalScore) {
   return totalScore <= 12
 }

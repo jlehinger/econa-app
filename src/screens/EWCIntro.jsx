@@ -10,10 +10,10 @@ const DOMAINS = [
 ]
 
 const BANDS = [
-  { label: 'Distress',  range: '0–11',  color: '#E05252', bg: 'rgba(224,82,82,0.1)' },
-  { label: 'Strain',    range: '12–16', color: '#D4A03C', bg: 'rgba(212,160,60,0.1)' },
-  { label: 'Stability', range: '17–21', color: '#5DADE2', bg: 'rgba(93,173,226,0.1)' },
-  { label: 'Vitality',  range: '22–28', color: '#4CAF82', bg: 'rgba(76,175,130,0.1)' },
+  { label: 'Surviving', range: '0–12',  color: '#E05252', bg: 'rgba(224,82,82,0.1)' },
+  { label: 'Striving',  range: '13–16', color: '#D4A03C', bg: 'rgba(212,160,60,0.1)' },
+  { label: 'Driving',   range: '17–21', color: '#5DADE2', bg: 'rgba(93,173,226,0.1)' },
+  { label: 'Thriving',  range: '22–28', color: '#4CAF82', bg: 'rgba(76,175,130,0.1)' },
 ]
 
 export default function EWCIntro() {
