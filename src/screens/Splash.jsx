@@ -68,7 +68,7 @@ export default function Splash() {
           marginBottom: 56,
           maxWidth: 340,
         }}>
-          A scientifically validated tool that tells you where you stand — and connects you with resources matched to where you actually are.
+          A scientifically validated screening tool that tells you where you stand — and connects you with resources matched to where you actually are.
         </p>
 
         <button

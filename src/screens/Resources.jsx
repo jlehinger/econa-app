@@ -7,7 +7,7 @@ import { CONNECTED_MIND_URL } from '../lib/links.js'
 
 const BAND_META = {
   distress:  { label: 'Distress Zone',  color: '#E05252', bg: 'rgba(224,82,82,0.1)',   headline: "You're carrying something heavy right now.", sub: "This is not a character flaw — the research shows founder mental health challenges are common, under-addressed, and highly treatable. You deserve support designed for the entrepreneurial experience." },
-  strain:    { label: 'Strain Zone',    color: '#D4A03C', bg: 'rgba(212,160,60,0.1)',  headline: "The pressure is real. Let's get you the right tools.", sub: "Founders who address strain early perform better and build more sustainably. Below are three concrete steps you can take starting today." },
+  strain:    { label: 'Strain Zone',    color: '#D4A03C', bg: 'rgba(212,160,60,0.1)',  headline: "The pressure is real. Let's get you the right tools.", sub: "Addressing strain early can help you sustain performance and build more steadily. Below are three concrete steps you can take starting today." },
   stability: { label: 'Stability Zone', color: '#5DADE2', bg: 'rgba(93,173,226,0.1)', headline: "You're holding steady. Let's help you go further.", sub: "Stability is a foundation, not a ceiling. These resources are designed to help high-performing founders optimize and sustain." },
   vitality:  { label: 'Vitality Zone',  color: '#4CAF82', bg: 'rgba(76,175,130,0.1)', headline: "You're in a strong place — and you can amplify that.", sub: "High-vitality founders who give back create resilient communities. Lead, connect, and help build the ecosystem." },
 }
