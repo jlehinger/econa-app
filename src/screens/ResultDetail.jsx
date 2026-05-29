@@ -6,10 +6,10 @@ import { scoreToBand } from '../data/questions.js'
 import { CONNECTED_MIND_URL } from '../lib/links.js'
 
 const BAND_META = {
-  vitality:  { label: 'Vitality Zone',  color: '#4CAF82', bg: 'rgba(76,175,130,0.1)' },
-  stability: { label: 'Stability Zone', color: '#5DADE2', bg: 'rgba(93,173,226,0.1)' },
-  strain:    { label: 'Strain Zone',    color: '#D4A03C', bg: 'rgba(212,160,60,0.1)' },
-  distress:  { label: 'Distress Zone',  color: '#E05252', bg: 'rgba(224,82,82,0.1)' },
+  vitality:  { label: 'Thriving',  color: '#4CAF82', bg: 'rgba(76,175,130,0.1)' },
+  stability: { label: 'Driving', color: '#5DADE2', bg: 'rgba(93,173,226,0.1)' },
+  strain:    { label: 'Striving',    color: '#D4A03C', bg: 'rgba(212,160,60,0.1)' },
+  distress:  { label: 'Surviving',  color: '#E05252', bg: 'rgba(224,82,82,0.1)' },
 }
 
 const RESOURCES = {

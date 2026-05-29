@@ -4,10 +4,10 @@ import NavBar from '../components/NavBar.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
 
 const BAND_META = {
-  vitality:  { label: 'Vitality',  color: '#4CAF82', bg: 'rgba(76,175,130,0.12)' },
-  stability: { label: 'Stability', color: '#5DADE2', bg: 'rgba(93,173,226,0.12)' },
-  strain:    { label: 'Strain',    color: '#D4A03C', bg: 'rgba(212,160,60,0.12)' },
-  distress:  { label: 'Distress',  color: '#E05252', bg: 'rgba(224,82,82,0.12)' },
+  vitality:  { label: 'Thriving',  color: '#4CAF82', bg: 'rgba(76,175,130,0.12)' },
+  stability: { label: 'Driving', color: '#5DADE2', bg: 'rgba(93,173,226,0.12)' },
+  strain:    { label: 'Striving',    color: '#D4A03C', bg: 'rgba(212,160,60,0.12)' },
+  distress:  { label: 'Surviving',  color: '#E05252', bg: 'rgba(224,82,82,0.12)' },
 }
 
 function formatDate(iso) {
@@ -216,10 +216,10 @@ export default function History() {
                 marginTop: 8,
               }}>
                 {[
-                  { label: 'Distress', color: '#E05252' },
-                  { label: 'Strain',   color: '#D4A03C' },
-                  { label: 'Stability', color: '#5DADE2' },
-                  { label: 'Vitality', color: '#4CAF82' },
+                  { label: 'Surviving', color: '#E05252' },
+                  { label: 'Striving',   color: '#D4A03C' },
+                  { label: 'Driving', color: '#5DADE2' },
+                  { label: 'Thriving', color: '#4CAF82' },
                 ].map(({ label, color }) => (
                   <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                     <div style={{ width: 5, height: 5, borderRadius: '50%', background: color, opacity: 0.6 }} />

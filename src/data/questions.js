@@ -1,7 +1,7 @@
 // EWC Questions — sourced from Econa EWC Portal Mockup
-// Freeman, Mazza, Johnson & Heinz (2025). The Entrepreneur Well-Being Check.
-// International Journal of Entrepreneurial Behavior & Research.
-// Validated on 313 entrepreneurs across US, Canada, EU, UK & Israel.
+// Freeman, Mazza, Johnson & Heinz (2026). The Entrepreneur Well-Being Check.
+// International Journal of Entrepreneurial Behavior & Research, 32(5):1333-1354. DOI 10.1108/IJEBR-02-2025-0147.
+// Validated on 314 entrepreneurs across US, Canada, EU, UK & Israel.
 
 export const questions = [
   {
@@ -166,7 +166,7 @@ export const questions = [
 export const BANDS = {
   vitality: {
     key: 'vitality',
-    label: 'Vitality Zone',
+    label: 'Thriving',
     min: 22,
     max: 28,
     color: '#4CAF82',
@@ -175,7 +175,7 @@ export const BANDS = {
   },
   stability: {
     key: 'stability',
-    label: 'Stability Zone',
+    label: 'Driving',
     min: 17,
     max: 21,
     color: '#3FA4B5',
@@ -184,7 +184,7 @@ export const BANDS = {
   },
   strain: {
     key: 'strain',
-    label: 'Strain Zone',
+    label: 'Striving',
     min: 13,
     max: 16,
     color: '#D4A03C',
@@ -193,7 +193,7 @@ export const BANDS = {
   },
   distress: {
     key: 'distress',
-    label: 'Distress Zone',
+    label: 'Surviving',
     min: 0,
     max: 12,
     color: '#E05252',

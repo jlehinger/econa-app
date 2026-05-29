@@ -256,7 +256,7 @@ export default function Settings() {
           />
           <Row
             label="EWC Version 1.0"
-            sub="Freeman, Mazza, Johnson & Heinz (2025). Validated on 313 entrepreneurs."
+            sub="Freeman, Mazza, Johnson & Heinz (2026). Validated on 314 entrepreneurs. DOI 10.1108/IJEBR-02-2025-0147."
             noBorder
           />
         </SettingsCard>

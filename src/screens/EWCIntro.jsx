@@ -167,8 +167,8 @@ export default function EWCIntro() {
       </button>
 
       <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.2)', textAlign: 'center', lineHeight: 1.7 }}>
-        Freeman, Mazza, Johnson &amp; Heinz (2025).<br />
-        Validated on 313 entrepreneurs across US, Canada, EU, UK &amp; Israel.
+        Freeman, Mazza, Johnson &amp; Heinz (2026).<br />
+        Validated on 314 entrepreneurs across US, Canada, EU, UK &amp; Israel.
       </p>
 
       <NavBar />

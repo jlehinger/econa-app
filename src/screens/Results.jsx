@@ -134,9 +134,9 @@ export default function Results() {
             }} />
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-            <span style={{ color: '#E05252' }}>Distress</span>
-            <span style={{ color: 'rgba(255,255,255,0.3)' }}>Strain · Stability</span>
-            <span style={{ color: '#4CAF82' }}>Vitality</span>
+            <span style={{ color: '#E05252' }}>Surviving</span>
+            <span style={{ color: 'rgba(255,255,255,0.3)' }}>Striving · Driving</span>
+            <span style={{ color: '#4CAF82' }}>Thriving</span>
           </div>
         </div>
       </div>
