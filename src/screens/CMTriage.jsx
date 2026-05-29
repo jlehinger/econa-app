@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import EconaLogo from '../components/EconaLogo.jsx'
 import NavBar from '../components/NavBar.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
+import { CONNECTED_MIND_URL } from '../lib/links.js'
 
 const STEPS = [
   {
@@ -11,7 +12,7 @@ const STEPS = [
     body: "Your score indicates you may benefit from a deeper clinical assessment. We're partnering with Connected Mind to provide a confidential DSM-5 screening — the same tool used by vetted clinicians who specialize in founders.",
     note: 'Takes about 10 minutes. No referral required. Free.',
     cta: 'Begin Mental Health Screening',
-    link: 'https://connectedmind.com',
+    link: CONNECTED_MIND_URL,
     external: true,
     highlight: true,
   },

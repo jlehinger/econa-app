@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import EconaLogo from '../components/EconaLogo.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
+import { CONNECTED_MIND_URL } from '../lib/links.js'
 
 // PLACEHOLDER — resource list pending Dr. Freeman (Q8 in delivery email)
 const RESOURCES = [
@@ -9,7 +10,7 @@ const RESOURCES = [
     title: 'Connected Mind',
     body: '[Resource description pending]',   // PLACEHOLDER — replace with Dr. Freeman's verbatim text
     cta: 'Learn More',
-    link: 'https://connectedmind.com',
+    link: CONNECTED_MIND_URL,
   },
   {
     title: 'Econa Support',

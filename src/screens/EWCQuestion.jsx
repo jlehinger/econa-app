@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import ProgressBar from '../components/ProgressBar.jsx'
 import EconaLogo from '../components/EconaLogo.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
@@ -14,14 +14,35 @@ export default function EWCQuestion() {
   const { answers, setAnswer, setCurrentQuestion, setResult, addToHistory } = useAssessmentStore()
   const [selected, setSelected] = useState(answers[idx] !== undefined ? answers[idx] : null)
   const [advancing, setAdvancing] = useState(false)
+  // Synchronous mutex: setAdvancing(true) is async, so a rapid tap + auto-advance
+  // could both pass an `if (advancing)` check and fire advance() twice — duplicating
+  // the history entry on the last question. The ref flips synchronously.
+  const advancingRef = useRef(false)
+  // Holds the pending auto-advance timer so it can be cancelled on navigation.
+  // The component instance is REUSED across questions (the route param changes but
+  // it does not remount), so without this a stale timer from the previous question
+  // fires after navigation and corrupts the shared mutex.
+  const advanceTimer = useRef(null)
+  const [prevIdx, setPrevIdx] = useState(idx)
 
   const question = questions[idx]
 
-  useEffect(() => {
-    setCurrentQuestion(idx)
+  // Reset per-question UI state when navigating between questions. Done during render
+  // (React's recommended "adjust state on prop change" pattern) rather than in an effect.
+  if (idx !== prevIdx) {
+    setPrevIdx(idx)
     setSelected(answers[idx] !== undefined ? answers[idx] : null)
     setAdvancing(false)
-  }, [idx])
+  }
+
+  useEffect(() => {
+    setCurrentQuestion(idx)
+    // Release the advance mutex for the new question (refs are mutated in effects,
+    // not during render).
+    advancingRef.current = false
+    // Cancel any auto-advance still pending from the previous question.
+    return () => { if (advanceTimer.current) clearTimeout(advanceTimer.current) }
+  }, [idx, setCurrentQuestion])
 
   if (!question) {
     navigate('/ewc/intro')
@@ -29,7 +50,8 @@ export default function EWCQuestion() {
   }
 
   const advance = (value) => {
-    if (advancing) return
+    if (advancingRef.current) return
+    advancingRef.current = true
     setAdvancing(true)
     const nextIdx = idx + 1
     if (nextIdx < TOTAL) {
@@ -49,8 +71,8 @@ export default function EWCQuestion() {
   const handleSelect = (value) => {
     setSelected(value)
     setAnswer(idx, value)
-    // Auto-advance after 400ms
-    setTimeout(() => advance(value), 400)
+    // Auto-advance after 400ms. Tracked so it can be cancelled on navigation.
+    advanceTimer.current = setTimeout(() => advance(value), 400)
   }
 
   const handleNext = () => {

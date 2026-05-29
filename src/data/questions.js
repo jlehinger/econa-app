@@ -187,7 +187,7 @@ export const BANDS = {
     label: 'Strain Zone',
     min: 13,
     max: 16,
-    color: '#E8981D',
+    color: '#D4A03C',
     curvePosition: 40,
     description: 'Your results indicate meaningful strain in one or more areas. This is a signal worth taking seriously — not because something is wrong with you, but because founders who address strain early perform better and build more sustainably.',
   },
@@ -213,6 +213,12 @@ export function scoreToBand(score) {
 // Wellbeing:              Q0 + Q1 + Q2  (max 12)
 // Occupational:           Q3 + Q4       (max 8)
 // Emotional Stability:    Q5 + Q6       (max 8)
+//
+// NOTE on `reversed`: Q4–Q6 carry `reversed: true` as DESCRIPTIVE metadata only.
+// Their option `value`s are already pre-scored in the correct direction (e.g. for the
+// burnout/negative-emotion items, "Always" = 0 and "Never" = 4). Scoring below uses the
+// raw answer value directly and applies NO reversal. Do not add a `4 - value` transform —
+// that would double-reverse these items and silently corrupt the validated scores.
 export function computeDomainScores(answers) {
   const get = (i) => (answers[i] !== undefined ? answers[i] : 0)
   return {
@@ -229,8 +235,13 @@ export function computeItemScores(answers) {
   )
 }
 
-// Triage boundary per Dr. Freeman's clinical guidance: score ≤12 covers all of Distress Zone
-// (0-11) plus the bottom of Strain Zone (12). Intentionally one step wider than Distress alone.
+// Triage boundary: score ≤ 12 covers the entire Distress Zone (0–12). Scores 13–16 are
+// the Strain Zone and currently receive only the borderline callout on the Results screen
+// (see Results.jsx, `total === 13`), not full triage.
+// OPEN QUESTION (pending Dr. Freeman): whether the boundary should be 12 or 13, and whether
+// the score-13 Results callout (which links to /triage) is consistent with sending the
+// primary CTA to /village. Do not change this threshold without confirming his intent —
+// it controls clinical routing.
 export function shouldTriage(totalScore) {
   return totalScore <= 12
 }

@@ -3,6 +3,7 @@ import EconaLogo from '../components/EconaLogo.jsx'
 import NavBar from '../components/NavBar.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
 import { scoreToBand } from '../data/questions.js'
+import { CONNECTED_MIND_URL } from '../lib/links.js'
 
 const BAND_META = {
   vitality:  { label: 'Vitality Zone',  color: '#4CAF82', bg: 'rgba(76,175,130,0.1)' },
@@ -13,13 +14,13 @@ const BAND_META = {
 
 const RESOURCES = {
   distress: [
-    { color: '#E05252', title: 'Connected Mind Clinicians', body: 'Vetted clinicians who specialize in entrepreneurial mental health. Free initial consultation available.', cta: 'Book a Consultation', link: 'https://connectedmind.com' },
+    { color: '#E05252', title: 'Connected Mind Clinicians', body: 'Vetted clinicians who specialize in entrepreneurial mental health. Free initial consultation available.', cta: 'Book a Consultation', link: CONNECTED_MIND_URL },
     { color: '#E8803C', title: '988 Crisis Lifeline', body: 'Call or text 988 anytime. For entrepreneurs and all individuals experiencing crisis.', cta: 'Call or Text 988', link: 'https://988lifeline.org' },
     { color: '#5DADE2', title: 'Econa Crisis Support', body: 'Resources and vetted practitioners who understand the entrepreneurial experience at depth.', cta: 'Find Support', link: 'https://econa.net' },
   ],
   strain: [
     { color: '#D4A03C', title: 'Econa Programs', body: 'Workshops and retreats built for founders experiencing strain — resilience before crisis.', cta: 'View Programs', link: 'https://econa.net' },
-    { color: '#5DADE2', title: 'Connected Mind', body: 'Evidence-based mental health tools built for high-performance environments.', cta: 'Visit Connected Mind', link: 'https://connectedmind.com' },
+    { color: '#5DADE2', title: 'Connected Mind', body: 'Evidence-based mental health tools built for high-performance environments.', cta: 'Visit Connected Mind', link: CONNECTED_MIND_URL },
   ],
   stability: [
     { color: '#5DADE2', title: 'FounderScreen', body: 'Contribute to the global entrepreneur wellbeing dataset and track longitudinally over time.', cta: 'Join FounderScreen', link: 'https://econa.net' },
@@ -63,7 +64,7 @@ export default function ResultDetail() {
   const bandKey = entry.band
   const band = BAND_META[bandKey] || BAND_META.stability
   const bandData = scoreToBand(entry.score)
-  const domains = entry.domains
+  const domains = entry.domainScores
   const resources = RESOURCES[bandKey] || RESOURCES.stability
 
   const handleRetake = () => {

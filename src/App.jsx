@@ -21,6 +21,10 @@ import LabDetail from './screens/LabDetail.jsx'
 import { useAuthStore } from './store/authStore.js'
 
 function PrivateRoute({ children }) {
+  // HANDOFF NOTE: gates on session presence only. The `verified` and `isQualified`
+  // flags in authStore are set but NOT enforced here (the current auth is a local
+  // stub). When real auth lands, gate on real session validity (e.g. a verified JWT)
+  // — and note `/verify` performs founder qualification, not email verification.
   const { user } = useAuthStore()
   return user ? children : <Navigate to="/auth" replace />
 }

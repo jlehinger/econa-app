@@ -4,6 +4,7 @@ import EconaLogo from '../components/EconaLogo.jsx'
 import NavBar from '../components/NavBar.jsx'
 import { useAuthStore } from '../store/authStore.js'
 import { useAssessmentStore } from '../store/assessmentStore.js'
+import { CONNECTED_MIND_URL } from '../lib/links.js'
 
 function Toggle({ on, onChange }) {
   return (
@@ -109,7 +110,8 @@ export default function Settings() {
   const { user, logout } = useAuthStore()
   const { history, resetAssessment, clearHistory, researchConsented, setResearchConsented } = useAssessmentStore()
   const [retestReminder, setRetestReminder] = useState(true)
-  const [researchOptIn, setResearchOptIn] = useState(true)
+  // Reflect the user's actual stored consent, not a hardcoded ON.
+  const [researchOptIn, setResearchOptIn] = useState(researchConsented)
   const [deleteStep, setDeleteStep] = useState(0)
   const [isConsentModalOpen, setIsConsentModalOpen] = useState(false)
 
@@ -117,7 +119,10 @@ export default function Settings() {
     if (newValue === true && !researchConsented) {
       setIsConsentModalOpen(true)
     } else {
+      // Turning OFF must persist the withdrawal — the IRB consent text promises
+      // users can withdraw via this toggle.
       setResearchOptIn(newValue)
+      if (newValue === false) setResearchConsented(false)
     }
   }
 
@@ -246,7 +251,7 @@ export default function Settings() {
           <Row
             label="Connected Mind"
             sub="Clinical partner — evidence-based tools for high-performance environments"
-            onClick={() => window.open('https://connectedmind.com', '_blank', 'noopener,noreferrer')}
+            onClick={() => window.open(CONNECTED_MIND_URL, '_blank', 'noopener,noreferrer')}
             right={<span style={{ color: 'rgba(255,255,255,0.2)', fontSize: 16 }}>→</span>}
           />
           <Row

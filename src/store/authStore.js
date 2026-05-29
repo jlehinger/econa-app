@@ -10,7 +10,13 @@ export const useAuthStore = create(persist(
     villageJoinDate: null,       // ISO date string
 
     setUser: (user) => set({ user }),
-    logout: () => set({ user: null, verified: false, isQualified: false }),
+    logout: () => set({
+      user: null,
+      verified: false,
+      isQualified: false,
+      villageStatus: null,
+      villageJoinDate: null,
+    }),
     setVerified: (v) => set({ verified: v }),
     setQualified: (v = true) => set({ isQualified: v }),
     joinVillage: () => set((state) => ({

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import EconaLogo from '../components/EconaLogo.jsx'
 import NavBar from '../components/NavBar.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
+import { CONNECTED_MIND_URL } from '../lib/links.js'
 
 const BAND_META = {
   distress:  { label: 'Distress Zone',  color: '#E05252', bg: 'rgba(224,82,82,0.1)',   headline: "You're carrying something heavy right now.", sub: "This is not a character flaw — the research shows founder mental health challenges are common, under-addressed, and highly treatable. You deserve support designed for the entrepreneurial experience." },
@@ -18,7 +19,7 @@ const RESOURCES = {
       title: 'Connected Mind — Clinician Booking',
       body: "Econa's clinical partner. Vetted therapists and coaches who specialize in entrepreneurial mental health. Free initial consultation — no referral needed.",
       cta: 'Book a Free Consultation',
-      link: 'https://connectedmind.com',
+      link: CONNECTED_MIND_URL,
       highlight: true,
     },
     {
@@ -137,7 +138,7 @@ const STRAIN_MODULES = [
       'Schedule a free Connected Mind consultation — no referral needed',
     ],
     cta: 'Book a Connected Mind consult',
-    link: 'https://connectedmind.com',
+    link: CONNECTED_MIND_URL,
   },
 ]
 

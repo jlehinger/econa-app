@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import EconaLogo from '../components/EconaLogo.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
-import { scoreToBand, computeDomainScores, shouldTriage } from '../data/questions.js'
+import { scoreToBand, shouldTriage } from '../data/questions.js'
 
 export default function Results() {
   const navigate = useNavigate()
-  const { answers, score, band: bandKey } = useAssessmentStore()
+  // Read the score/domains persisted by setResult at completion — authoritative and
+  // identical to what was written to history. (Recomputing from `answers` here could
+  // diverge if the user back-navigated and changed an answer after completing.)
+  const { score: total, band: bandKey, domainScores: domains } = useAssessmentStore()
   const [animated, setAnimated] = useState(false)
   const [scoreVisible, setScoreVisible] = useState(false)
 
@@ -16,8 +19,6 @@ export default function Results() {
     return () => { clearTimeout(t1); clearTimeout(t2) }
   }, [])
 
-  const domains = computeDomainScores(answers)
-  const total = domains.wellbeing + domains.occupational + domains.emotional
   const triage = shouldTriage(total)
   const band = scoreToBand(total)
 

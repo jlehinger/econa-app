@@ -59,5 +59,13 @@ export const useAssessmentStore = create(persist(
     setResearchConsented: (val) => set({ researchConsented: val }),
     clearHistory: () => set({ history: [] }),
   }),
-  { name: 'econa-assessment' }
+  {
+    name: 'econa-assessment',
+    version: 1,
+    // Establishes the migration hook. Returning the persisted state unchanged is safe:
+    // Zustand merges it over the current defaults, so fields added after a user's data
+    // was written (labProgress, demographics, etc.) hydrate with their defaults rather
+    // than undefined. Bump version + extend this when a future shape change needs cleanup.
+    migrate: (persisted) => persisted,
+  }
 ))
