@@ -36,7 +36,7 @@ export default function LabDetail() {
         <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginBottom: 32 }}>
           The {lab.title} lab is coming in Phase 2.
         </div>
-        <button onClick={() => navigate('/labs')} style={{ background: 'none', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.4)', borderRadius: 14, padding: '14px 28px', fontSize: 14, cursor: 'pointer', fontFamily: 'var(--font-body)' }}>
+        <button onClick={() => navigate('/labs')} style={{ background: 'none', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.7)', borderRadius: 14, padding: '14px 28px', fontSize: 14, cursor: 'pointer', fontFamily: 'var(--font-body)' }}>
           Back to Labs
         </button>
         <NavBar />
@@ -52,22 +52,22 @@ export default function LabDetail() {
 
       {/* Header */}
       <div style={{ padding: '48px 24px 24px', borderBottom: '1px solid rgba(255,255,255,0.06)', background: `radial-gradient(ellipse at 50% 0%, ${lab.color}10 0%, transparent 70%)` }}>
-        <button onClick={() => navigate('/labs')} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.3)', cursor: 'pointer', fontSize: 13, padding: 0, marginBottom: 16, fontFamily: 'var(--font-body)' }}>
+        <button onClick={() => navigate('/labs')} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.7)', cursor: 'pointer', fontSize: 13, padding: 0, marginBottom: 16, fontFamily: 'var(--font-body)' }}>
           ← Labs
         </button>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <div>
-            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: lab.color, marginBottom: 6 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: lab.color, marginBottom: 6 }}>
               Econa Lab
             </div>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 26, color: '#fff', letterSpacing: '0.04em', marginBottom: 6 }}>
               {lab.title}
             </div>
-            <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>{lab.tagline}</div>
+            <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)' }}>{lab.tagline}</div>
           </div>
           <div style={{ textAlign: 'right' }}>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 32, fontWeight: 700, color: lab.color }}>{userScore}</div>
-            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.25)' }}>/ 4</div>
+            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.45)' }}>/ 4</div>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@ export default function LabDetail() {
             style={{
               flex: '0 0 auto', padding: '14px 16px', background: 'none', border: 'none',
               borderBottom: activeSection === s.id ? `2px solid ${lab.color}` : '2px solid transparent',
-              color: activeSection === s.id ? lab.color : 'rgba(255,255,255,0.3)',
+              color: activeSection === s.id ? lab.color : 'rgba(255,255,255,0.7)',
               cursor: 'pointer', fontSize: 12, fontWeight: 600, fontFamily: 'var(--font-body)',
               transition: 'all 0.15s', whiteSpace: 'nowrap',
             }}
@@ -107,7 +107,7 @@ export default function LabDetail() {
 
 function SectionLabel({ text, color }) {
   return (
-    <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color, marginBottom: 16 }}>
+    <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color, marginBottom: 16 }}>
       {text}
     </div>
   )
@@ -144,7 +144,7 @@ function BMS10Calculator({ color }) {
 
   return (
     <div style={{ marginTop: 8 }}>
-      <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color, marginBottom: 14 }}>
+      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color, marginBottom: 14 }}>
         Calculate your score
       </div>
 
@@ -152,7 +152,7 @@ function BMS10Calculator({ color }) {
         <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', fontWeight: 600, marginBottom: 6 }}>
           Average item score
         </div>
-        <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginBottom: 12, lineHeight: 1.5 }}>
+        <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', marginBottom: 12, lineHeight: 1.5 }}>
           Enter your average (add all 10 item scores, divide by 10)
         </div>
         <input
@@ -295,7 +295,7 @@ function EmotionRegCalculator({ color }) {
 
   return (
     <div style={{ marginTop: 8 }}>
-      <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color, marginBottom: 14 }}>
+      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color, marginBottom: 14 }}>
         Calculate your scores
       </div>
 
@@ -303,9 +303,9 @@ function EmotionRegCalculator({ color }) {
         <Card key={inst.key} color={color}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 13, color: '#fff', fontWeight: 600 }}>{inst.label}</div>
-            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.05em' }}>{inst.sublabel}</div>
+            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.05em' }}>{inst.sublabel}</div>
           </div>
-          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginBottom: 10 }}>{inst.hint}</div>
+          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', marginBottom: 10 }}>{inst.hint}</div>
           <input
             type="number"
             min={inst.min}
@@ -394,12 +394,12 @@ function AssessmentSection({ lab, color }) {
         <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#fff', marginBottom: 8 }}>{a.instrumentName}</div>
         <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, marginBottom: 12 }}>{a.description}</p>
         <div style={{ fontSize: 11, color: color, fontWeight: 600, marginBottom: 8 }}>Scoring</div>
-        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6, marginBottom: 12 }}>{a.scoring}</p>
-        {a.trackingNote && <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', fontStyle: 'italic' }}>{a.trackingNote}</p>}
+        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: 12 }}>{a.scoring}</p>
+        {a.trackingNote && <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)' }}>{a.trackingNote}</p>}
       </Card>
       <Card color={color}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 6 }}>Citation</div>
-        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', lineHeight: 1.6 }}>{a.citation}</p>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.65)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 6 }}>Citation</div>
+        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{a.citation}</p>
       </Card>
       {lab.id === 'burnout' && <BMS10Calculator color={color} />}
       {lab.id === 'emotional-regulation' && <EmotionRegCalculator color={color} />}
@@ -413,12 +413,12 @@ function ActionSection({ lab, color }) {
   return (
     <>
       <SectionLabel text="What should I do now?" color={color} />
-      <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 18, fontStyle: 'italic', color: '#fff', fontWeight: 300, lineHeight: 1.4, marginBottom: 20 }}>{a.headline}</p>
+      <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 18, color: '#fff', fontWeight: 400, lineHeight: 1.4, marginBottom: 20 }}>{a.headline}</p>
       {a.interventions.map((item, i) => (
         <Card key={i} color={color} highlight={i === 0}>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#fff', marginBottom: 8 }}>{item.title}</div>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, marginBottom: item.source ? 10 : 0 }}>{item.body}</p>
-          {item.source && <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', fontStyle: 'italic' }}>Source: {item.source}</div>}
+          {item.source && <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', fontStyle: 'italic' }}>Source: {item.source}</div>}
         </Card>
       ))}
     </>
@@ -431,7 +431,7 @@ function BetterSection({ lab, color }) {
   return (
     <>
       <SectionLabel text="How can I get even better?" color={color} />
-      <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 18, fontStyle: 'italic', color: '#fff', fontWeight: 300, lineHeight: 1.4, marginBottom: 20 }}>{b.headline}</p>
+      <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 18, color: '#fff', fontWeight: 400, lineHeight: 1.4, marginBottom: 20 }}>{b.headline}</p>
       {b.practices.map((p, i) => (
         <Card key={i} color={color}>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#fff', marginBottom: 8 }}>{p.title}</div>
@@ -459,7 +459,7 @@ function ResourcesSection({ lab, color }) {
         if (!items?.length) return null
         return (
           <div key={cat.key} style={{ marginBottom: 20 }}>
-            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 10 }}>{cat.label}</div>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 10 }}>{cat.label}</div>
             {items.map((item, i) => (
               <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'flex-start', marginBottom: 12 }}>
                 <div style={{ width: 6, height: 6, borderRadius: '50%', background: color, flexShrink: 0, marginTop: 6 }} />
@@ -469,7 +469,7 @@ function ResourcesSection({ lab, color }) {
                   ) : (
                     <span style={{ fontSize: 13, fontWeight: 600, color: '#fff' }}>{item.name}</span>
                   )}
-                  {item.note && <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', marginTop: 2 }}>{item.note}</div>}
+                  {item.note && <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', marginTop: 2 }}>{item.note}</div>}
                 </div>
               </div>
             ))}
@@ -493,7 +493,7 @@ function MotivationSection({ lab, color }) {
             borderLeft: i === 0 ? `3px solid ${color}` : undefined,
             borderRadius: 12, padding: '18px 18px',
           }}>
-            <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 16, fontStyle: 'italic', color: i === 0 ? '#fff' : 'rgba(255,255,255,0.6)', fontWeight: 300, lineHeight: 1.65 }}>
+            <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 16, color: i === 0 ? '#fff' : 'rgba(255,255,255,0.6)', fontWeight: 400, lineHeight: 1.65 }}>
               "{msg}"
             </p>
           </div>
@@ -506,7 +506,7 @@ function MotivationSection({ lab, color }) {
 function PlaceholderSection({ message }) {
   return (
     <div style={{ padding: '40px 0', textAlign: 'center' }}>
-      <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 16, fontStyle: 'italic', color: 'rgba(255,255,255,0.3)', lineHeight: 1.7 }}>{message}</p>
+      <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 16, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{message}</p>
     </div>
   )
 }

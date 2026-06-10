@@ -10,12 +10,12 @@ export default function NotFound() {
       <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 24, fontStyle: 'italic', color: '#fff', marginBottom: 12, fontWeight: 300 }}>
         Page not found
       </div>
-      <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, marginBottom: 40 }}>
+      <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 40 }}>
         The page you're looking for doesn't exist or has been moved.
       </p>
       <button
         onClick={() => navigate('/')}
-        style={{ background: 'linear-gradient(135deg, var(--ember), var(--flame))', color: '#fff', border: 'none', borderRadius: 12, padding: '14px 32px', fontSize: 14, fontWeight: 600, cursor: 'pointer', fontFamily: 'var(--font-body)' }}
+        style={{ background: 'linear-gradient(135deg, var(--ember), var(--flame))', color: 'var(--void)', border: 'none', borderRadius: 12, padding: '14px 32px', fontSize: 14, fontWeight: 600, cursor: 'pointer', fontFamily: 'var(--font-body)' }}
       >
         Go Home
       </button>

@@ -40,7 +40,7 @@ export default function Verify() {
           }}>
             Are you, or were you, the founder or co-founder of a company?
           </div>
-          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, marginBottom: 48 }}>
+          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, marginBottom: 48 }}>
             FounderScreen is validated exclusively for entrepreneurs. The assessment questions and scoring are calibrated to this population.
           </p>
 
@@ -49,7 +49,7 @@ export default function Verify() {
               onClick={() => { setQualified(); setVerified(true); navigate('/demographics') }}
               style={{
                 background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-                color: '#fff',
+                color: 'var(--void)',
                 border: 'none',
                 borderRadius: 14,
                 padding: '20px 28px',
@@ -123,13 +123,13 @@ export default function Verify() {
             </a>
             <button
               onClick={() => { setQualified(false); setIsQualified(null) }}
-              style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.35)', cursor: 'pointer', fontSize: 13, fontFamily: 'var(--font-body)', padding: '12px 0' }}
+              style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.7)', cursor: 'pointer', fontSize: 13, fontFamily: 'var(--font-body)', padding: '12px 0' }}
             >
               ← Go back
             </button>
             <button
               onClick={() => navigate('/')}
-              style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.2)', cursor: 'pointer', fontSize: 12, fontFamily: 'var(--font-body)', padding: '4px 0' }}
+              style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.7)', cursor: 'pointer', fontSize: 12, fontFamily: 'var(--font-body)', padding: '4px 0' }}
             >
               Return to home
             </button>

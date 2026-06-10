@@ -52,13 +52,13 @@ export default function Splash() {
 
         <div style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 10,
-          letterSpacing: '0.3em',
+          fontSize: 11,
+          fontWeight: 600,
+          letterSpacing: '0.05em',
           color: 'var(--flame)',
-          textTransform: 'uppercase',
           marginBottom: 36,
         }}>
-          7 Questions · 3 Minutes · Free
+          7 questions · 3 minutes · Free
         </div>
 
         <p style={{
@@ -75,7 +75,7 @@ export default function Splash() {
           onClick={() => navigate(user ? '/dashboard' : '/auth')}
           style={{
             background: 'linear-gradient(135deg, var(--ember) 0%, var(--flame) 60%, var(--spark) 100%)',
-            color: '#fff',
+            color: 'var(--void)',
             border: 'none',
             borderRadius: 14,
             padding: '20px 32px',
@@ -120,11 +120,10 @@ export default function Splash() {
 
       <div style={{
         textAlign: 'center',
-        fontSize: 10,
-        color: 'rgba(255,255,255,0.2)',
-        letterSpacing: '0.1em',
+        fontSize: 11,
+        color: 'rgba(255,255,255,0.6)',
+        letterSpacing: '0.04em',
         lineHeight: 2,
-        textTransform: 'uppercase',
       }}>
         Built by Econa<br />
         Global Center of Excellence for Entrepreneur Mental Wellness<br />

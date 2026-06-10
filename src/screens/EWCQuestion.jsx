@@ -118,7 +118,7 @@ export default function EWCQuestion() {
       {/* Header */}
       <div style={{ padding: '20px 24px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <EconaLogo size="sm" />
-        <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.12em', fontFamily: 'var(--font-body)' }}>
+        <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.12em', fontFamily: 'var(--font-body)' }}>
           {idx + 1} / {TOTAL}
         </span>
         <button
@@ -126,7 +126,7 @@ export default function EWCQuestion() {
           style={{
             background: 'none',
             border: '1px solid rgba(255,255,255,0.1)',
-            color: 'rgba(255,255,255,0.35)',
+            color: 'rgba(255,255,255,0.7)',
             cursor: 'pointer',
             fontSize: 11,
             fontFamily: 'var(--font-body)',
@@ -136,7 +136,7 @@ export default function EWCQuestion() {
             transition: 'color 0.15s, border-color 0.15s',
           }}
           onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
-          onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.35)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
+          onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
         >
           Exit ✕
         </button>
@@ -157,7 +157,7 @@ export default function EWCQuestion() {
           marginBottom: 20,
           alignSelf: 'flex-start',
         }}>
-          <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--teal-light)' }}>
+          <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: 'var(--teal-light)' }}>
             {question.domain}
           </span>
         </div>
@@ -178,9 +178,8 @@ export default function EWCQuestion() {
         {question.timeframe && (
           <p style={{
             fontSize: 11,
-            color: 'rgba(255,255,255,0.3)',
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
+            color: 'rgba(255,255,255,0.65)',
+            letterSpacing: '0.05em',
             fontWeight: 600,
             marginBottom: 20,
             fontFamily: 'var(--font-body)',
@@ -197,12 +196,12 @@ export default function EWCQuestion() {
             padding: '14px 18px',
             marginBottom: 28,
           }}>
-            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)', marginBottom: 10 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.65)', marginBottom: 10 }}>
               {question.context.label}
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 7 }}>
               {question.context.items.map((item, i) => (
-                <li key={i} style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6, paddingLeft: 18, position: 'relative' }}>
+                <li key={i} style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, paddingLeft: 18, position: 'relative' }}>
                   <span style={{ position: 'absolute', left: 0, color: 'var(--flame)', fontSize: 10 }}>—</span>
                   {item}
                 </li>
@@ -282,7 +281,7 @@ export default function EWCQuestion() {
           style={{
             background: 'none',
             border: '1px solid rgba(255,255,255,0.12)',
-            color: 'rgba(255,255,255,0.45)',
+            color: 'rgba(255,255,255,0.7)',
             borderRadius: 10,
             padding: '11px 20px',
             fontSize: 13,
@@ -294,7 +293,7 @@ export default function EWCQuestion() {
           ← Back
         </button>
 
-        <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.18)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Private</span>
+        <span style={{ fontSize: 10, fontWeight: 600, color: 'rgba(255,255,255,0.65)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Private</span>
 
         <button
           onClick={handleNext}
@@ -303,13 +302,13 @@ export default function EWCQuestion() {
             background: selected !== null
               ? 'linear-gradient(135deg, var(--ember), var(--flame))'
               : 'rgba(255,255,255,0.08)',
-            color: selected !== null ? '#fff' : 'rgba(255,255,255,0.25)',
+            color: selected !== null ? 'var(--void)' : 'rgba(255,255,255,0.25)',
             border: 'none',
             borderRadius: 10,
             padding: '11px 24px',
             fontSize: 13,
             fontWeight: 700,
-            letterSpacing: '0.08em',
+            letterSpacing: '0.06em',
             textTransform: 'uppercase',
             cursor: selected !== null ? 'pointer' : 'not-allowed',
             fontFamily: 'var(--font-body)',

@@ -40,8 +40,8 @@ export default function VillageWelcome() {
           background: 'linear-gradient(135deg, rgba(212,160,60,0.15), rgba(224,123,84,0.1))',
           border: '1px solid rgba(212,160,60,0.3)',
           borderRadius: 100, padding: '6px 20px',
-          fontSize: 11, fontWeight: 700, letterSpacing: '0.2em',
-          textTransform: 'uppercase', color: 'var(--flame)',
+          fontSize: 12, fontWeight: 700, letterSpacing: '0.05em',
+          color: 'var(--flame)',
         }}>
           Welcome to Econa Village
         </div>
@@ -84,8 +84,8 @@ export default function VillageWelcome() {
           marginBottom: 28,
           textAlign: 'left',
         }}>
-          <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>
-            Your Membership
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 16 }}>
+            Your membership
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {[
@@ -95,7 +95,7 @@ export default function VillageWelcome() {
               { label: 'After Year 1', value: '$30 / month', color: 'rgba(255,255,255,0.5)' },
             ].map(row => (
               <div key={row.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.05em' }}>{row.label}</span>
+                <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', letterSpacing: '0.05em' }}>{row.label}</span>
                 <span style={{ fontSize: 13, fontWeight: 600, color: row.color }}>{row.value}</span>
               </div>
             ))}
@@ -105,8 +105,8 @@ export default function VillageWelcome() {
         {/* First suggested lab */}
         {topLab && (
           <div style={{ width: '100%', marginBottom: 16 }}>
-            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 12, textAlign: 'left' }}>
-              Your Highest-Need Lab
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 12, textAlign: 'left' }}>
+              Your highest-need lab
             </div>
             <button
               onClick={() => navigate(`/labs/${topLab.id}`)}
@@ -124,13 +124,13 @@ export default function VillageWelcome() {
               <div style={{ fontFamily: 'var(--font-display)', fontSize: 16, color: '#fff', marginBottom: 6 }}>
                 {topLab.title}
               </div>
-              <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', marginBottom: 12 }}>
+              <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', marginBottom: 12 }}>
                 {topLab.tagline}
               </div>
               <div style={{ display: 'flex', gap: 8 }}>
                 {['How am I doing', 'What to do', 'Resources'].map(tag => (
                   <div key={tag} style={{
-                    fontSize: 9, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
+                    fontSize: 11, fontWeight: 700, letterSpacing: '0.05em',
                     color: topLab.color, background: `${topLab.color}15`,
                     border: `1px solid ${topLab.color}25`, borderRadius: 100, padding: '3px 8px',
                   }}>
@@ -146,7 +146,7 @@ export default function VillageWelcome() {
           onClick={() => navigate('/labs')}
           style={{
             background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-            color: '#fff', border: 'none', borderRadius: 14, padding: '18px',
+            color: 'var(--void)', border: 'none', borderRadius: 14, padding: '18px',
             fontSize: 15, fontWeight: 600, cursor: 'pointer', width: '100%',
             fontFamily: 'var(--font-body)', marginBottom: 12,
             boxShadow: '0 4px 20px rgba(212,160,60,0.3)', letterSpacing: '0.03em',
@@ -159,7 +159,7 @@ export default function VillageWelcome() {
           onClick={() => navigate('/dashboard')}
           style={{
             background: 'none', border: '1px solid rgba(255,255,255,0.12)',
-            color: 'rgba(255,255,255,0.4)', borderRadius: 14, padding: '16px',
+            color: 'rgba(255,255,255,0.7)', borderRadius: 14, padding: '16px',
             fontSize: 14, cursor: 'pointer', width: '100%',
             fontFamily: 'var(--font-body)', marginBottom: 40,
           }}

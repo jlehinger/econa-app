@@ -2,12 +2,34 @@ import { useNavigate } from 'react-router-dom'
 import EconaLogo from '../components/EconaLogo.jsx'
 import NavBar from '../components/NavBar.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
+import { BANDS } from '../data/questions.js'
 
-const BAND_META = {
-  vitality:  { label: 'Thriving',  color: '#4CAF82', bg: 'rgba(76,175,130,0.12)' },
-  stability: { label: 'Driving', color: '#5DADE2', bg: 'rgba(93,173,226,0.12)' },
-  strain:    { label: 'Striving',    color: '#D4A03C', bg: 'rgba(212,160,60,0.12)' },
-  distress:  { label: 'Surviving',  color: '#E05252', bg: 'rgba(224,82,82,0.12)' },
+// Band labels/colors come from the one scale in questions.js — never redefine them locally.
+// Each band also gets a distinct SHAPE so chart marks are readable without color vision.
+const BAND_META = Object.fromEntries(
+  Object.values(BANDS).map(b => [b.key, { label: b.label, color: b.color, bg: `${b.color}1F` }])
+)
+
+const BAND_SHAPES = {
+  vitality:  'circle',
+  stability: 'diamond',
+  strain:    'square',
+  distress:  'triangle',
+}
+
+// One SVG mark per band: shape + color together, so two bands never differ by hue alone.
+function BandMark({ band, cx, cy, r = 4.5, fill }) {
+  const shape = BAND_SHAPES[band] || 'circle'
+  if (shape === 'square') {
+    return <rect x={cx - r} y={cy - r} width={r * 2} height={r * 2} rx={1} fill={fill} />
+  }
+  if (shape === 'diamond') {
+    return <rect x={cx - r} y={cy - r} width={r * 2} height={r * 2} rx={1} fill={fill} transform={`rotate(45 ${cx} ${cy})`} />
+  }
+  if (shape === 'triangle') {
+    return <polygon points={`${cx},${cy - r * 1.2} ${cx + r * 1.2},${cy + r} ${cx - r * 1.2},${cy + r}`} fill={fill} />
+  }
+  return <circle cx={cx} cy={cy} r={r} fill={fill} />
 }
 
 function formatDate(iso) {
@@ -50,9 +72,9 @@ function TrendChart({ history }) {
 
       {/* Horizontal band zone lines */}
       {[
-        { score: 22, color: '#4CAF82', label: '22' },
-        { score: 17, color: '#5DADE2', label: '17' },
-        { score: 12, color: '#D4A03C', label: '12' },
+        { score: 22, color: BANDS.vitality.color, label: '22' },
+        { score: 17, color: BANDS.stability.color, label: '17' },
+        { score: 12, color: BANDS.strain.color, label: '12' },
       ].map(({ score, color, label }) => {
         const y = padY + ((28 - score) / 28) * (H - 2 * padY)
         return (
@@ -78,13 +100,27 @@ function TrendChart({ history }) {
         />
       )}
 
-      {/* Dots */}
+      {/* Marks — shape + color per band, latest point also labeled with its band name */}
       {chronological.map((entry, i) => {
         const meta = BAND_META[entry.band] || BAND_META.stability
+        const isLatest = i === N - 1
         return (
           <g key={i}>
             <circle cx={xs[i]} cy={ys[i]} r={8} fill={meta.color} opacity={0.15} />
-            <circle cx={xs[i]} cy={ys[i]} r={4} fill={meta.color} />
+            <BandMark band={entry.band} cx={xs[i]} cy={ys[i]} fill={meta.color} />
+            {isLatest && (
+              <text
+                x={xs[i]}
+                y={ys[i] - 12}
+                fontSize="9"
+                fontWeight="600"
+                fill="rgba(255,255,255,0.85)"
+                textAnchor={N === 1 ? 'middle' : 'end'}
+                fontFamily="Inter, sans-serif"
+              >
+                {meta.label} · {entry.score}
+              </text>
+            )}
           </g>
         )
       })}
@@ -123,12 +159,12 @@ export default function History() {
         <EconaLogo size="sm" />
         <div style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 10,
-          letterSpacing: '0.25em',
-          textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.3)',
+          fontSize: 12,
+          fontWeight: 600,
+          letterSpacing: '0.04em',
+          color: 'rgba(255,255,255,0.65)',
         }}>
-          Wellbeing History
+          Wellbeing history
         </div>
       </div>
 
@@ -153,14 +189,14 @@ export default function History() {
             }}>
               Your timeline starts here
             </div>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, marginBottom: 28 }}>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 28 }}>
               Complete your first check to begin tracking your wellbeing over time.
             </p>
             <button
               onClick={handleRetake}
               style={{
                 background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-                color: '#fff',
+                color: 'var(--void)',
                 border: 'none',
                 borderRadius: 12,
                 padding: '14px 28px',
@@ -194,14 +230,14 @@ export default function History() {
               }}>
                 <div style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 10,
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  color: 'rgba(255,255,255,0.25)',
+                  fontSize: 11,
+                  fontWeight: 600,
+                  letterSpacing: '0.04em',
+                  color: 'rgba(255,255,255,0.65)',
                 }}>
-                  Score Trend
+                  Score trend
                 </div>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.2)', letterSpacing: '0.08em' }}>
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.02em' }}>
                   out of 28
                 </div>
               </div>
@@ -215,15 +251,12 @@ export default function History() {
                 paddingRight: 4,
                 marginTop: 8,
               }}>
-                {[
-                  { label: 'Surviving', color: '#E05252' },
-                  { label: 'Striving',   color: '#D4A03C' },
-                  { label: 'Driving', color: '#5DADE2' },
-                  { label: 'Thriving', color: '#4CAF82' },
-                ].map(({ label, color }) => (
-                  <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                    <div style={{ width: 5, height: 5, borderRadius: '50%', background: color, opacity: 0.6 }} />
-                    <span style={{ fontSize: 9, color: color, letterSpacing: '0.08em', textTransform: 'uppercase', opacity: 0.7 }}>{label}</span>
+                {['distress', 'strain', 'stability', 'vitality'].map(key => (
+                  <div key={key} style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+                    <svg width="10" height="10" viewBox="0 0 10 10">
+                      <BandMark band={key} cx={5} cy={5} r={4} fill={BAND_META[key].color} />
+                    </svg>
+                    <span style={{ fontSize: 9, fontWeight: 600, color: BAND_META[key].color }}>{BAND_META[key].label}</span>
                   </div>
                 ))}
               </div>
@@ -233,7 +266,7 @@ export default function History() {
               onClick={handleRetake}
               style={{
                 background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-                color: '#fff',
+                color: 'var(--void)',
                 border: 'none',
                 borderRadius: 14,
                 padding: '17px',
@@ -251,14 +284,13 @@ export default function History() {
             </button>
 
             <div style={{
-              fontSize: 10,
+              fontSize: 11,
               fontWeight: 700,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.25)',
+              letterSpacing: '0.04em',
+              color: 'rgba(255,255,255,0.65)',
               marginBottom: 14,
             }}>
-              All Assessments · {history.length} {history.length === 1 ? 'result' : 'results'}
+              All assessments · {history.length} {history.length === 1 ? 'result' : 'results'}
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -290,7 +322,7 @@ export default function History() {
                           <span style={{
                             fontSize: 9,
                             fontWeight: 700,
-                            letterSpacing: '0.15em',
+                            letterSpacing: '0.05em',
                             textTransform: 'uppercase',
                             color: 'var(--flame)',
                             background: 'rgba(212,160,60,0.12)',
@@ -299,7 +331,7 @@ export default function History() {
                             border: '1px solid rgba(212,160,60,0.2)',
                           }}>Latest</span>
                         )}
-                        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.38)' }}>{formatDate(entry.date)}</span>
+                        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>{formatDate(entry.date)}</span>
                       </div>
                       <div style={{
                         display: 'inline-flex',
@@ -317,7 +349,7 @@ export default function History() {
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                       <div style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 700, color: meta.color }}>
-                        {entry.score}<span style={{ fontSize: 13, color: 'rgba(255,255,255,0.25)', fontWeight: 400 }}>/28</span>
+                        {entry.score}<span style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', fontWeight: 400 }}>/28</span>
                       </div>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                         <path d="M9 18l6-6-6-6" stroke="rgba(255,255,255,0.2)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

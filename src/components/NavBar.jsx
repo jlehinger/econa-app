@@ -137,9 +137,9 @@ export default function NavBar() {
               fontSize: 10,
               fontFamily: 'var(--font-body)',
               fontWeight: 600,
-              letterSpacing: '0.08em',
+              letterSpacing: '0.06em',
               textTransform: 'uppercase',
-              color: active ? '#D4A03C' : 'rgba(255,255,255,0.35)',
+              color: active ? '#D4A03C' : 'rgba(255,255,255,0.7)',
               transition: 'color 0.15s',
             }}>
               {item.label}

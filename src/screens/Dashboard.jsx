@@ -3,13 +3,12 @@ import EconaLogo from '../components/EconaLogo.jsx'
 import NavBar from '../components/NavBar.jsx'
 import { useAuthStore } from '../store/authStore.js'
 import { useAssessmentStore } from '../store/assessmentStore.js'
+import { BANDS } from '../data/questions.js'
 
-const BAND_META = {
-  vitality:  { label: 'Thriving',  color: '#4CAF82', bg: 'rgba(76,175,130,0.1)' },
-  stability: { label: 'Driving', color: '#5DADE2', bg: 'rgba(93,173,226,0.1)' },
-  strain:    { label: 'Striving',    color: '#D4A03C', bg: 'rgba(212,160,60,0.1)' },
-  distress:  { label: 'Surviving',  color: '#E05252', bg: 'rgba(224,82,82,0.1)' },
-}
+// Band labels/colors come from the one scale in questions.js — never redefine them locally.
+const BAND_META = Object.fromEntries(
+  Object.values(BANDS).map(b => [b.key, { label: b.label, color: b.color, bg: `${b.color}1A` }])
+)
 
 function formatDate(iso) {
   try {
@@ -64,7 +63,7 @@ export default function Dashboard() {
             style={{
               background: 'none',
               border: '1px solid rgba(255,255,255,0.1)',
-              color: 'rgba(255,255,255,0.35)',
+              color: 'rgba(255,255,255,0.7)',
               cursor: 'pointer',
               padding: '6px 8px',
               borderRadius: 100,
@@ -73,7 +72,7 @@ export default function Dashboard() {
               transition: 'color 0.15s, border-color 0.15s',
             }}
             onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
-            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.35)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
+            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.8" />
@@ -85,7 +84,7 @@ export default function Dashboard() {
             style={{
               background: 'none',
               border: '1px solid rgba(255,255,255,0.1)',
-              color: 'rgba(255,255,255,0.35)',
+              color: 'rgba(255,255,255,0.7)',
               cursor: 'pointer',
               fontSize: 11,
               fontFamily: 'var(--font-body)',
@@ -95,7 +94,7 @@ export default function Dashboard() {
               transition: 'color 0.15s, border-color 0.15s',
             }}
             onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
-            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.35)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
+            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
           >
             Sign out
           </button>
@@ -108,7 +107,7 @@ export default function Dashboard() {
           Welcome back
         </div>
         {user?.email && (
-          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', marginBottom: 32, letterSpacing: '0.02em' }}>
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', marginBottom: 32, letterSpacing: '0.02em' }}>
             {user.email}
           </div>
         )}
@@ -123,8 +122,8 @@ export default function Dashboard() {
             padding: '24px 22px',
             marginBottom: 20,
           }}>
-            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 12 }}>
-              Latest Result
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 12 }}>
+              Latest result
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 8 }}>
               <span style={{
@@ -137,12 +136,13 @@ export default function Dashboard() {
               }}>
                 {score}
               </span>
-              <span style={{ fontSize: 18, color: 'rgba(255,255,255,0.25)' }}>/28</span>
+              <span style={{ fontSize: 18, color: 'rgba(255,255,255,0.45)' }}>/28</span>
             </div>
             <div style={{
               fontFamily: 'var(--font-display)',
               fontSize: 13,
-              letterSpacing: '0.2em',
+              fontWeight: 600,
+              letterSpacing: '0.06em',
               textTransform: 'uppercase',
               color: latestBand.color,
               marginBottom: 16,
@@ -157,10 +157,9 @@ export default function Dashboard() {
                 color: latestBand.color,
                 borderRadius: 8,
                 padding: '8px 16px',
-                fontSize: 11,
+                fontSize: 12,
                 fontWeight: 700,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
+                letterSpacing: '0.03em',
                 cursor: 'pointer',
                 fontFamily: 'var(--font-body)',
                 transition: 'background 0.15s',
@@ -168,7 +167,7 @@ export default function Dashboard() {
               onMouseEnter={e => e.currentTarget.style.background = `${latestBand.color}15`}
               onMouseLeave={e => e.currentTarget.style.background = 'none'}
             >
-              View Resources →
+              View resources →
             </button>
           </div>
         ) : (
@@ -184,7 +183,7 @@ export default function Dashboard() {
             <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 20, fontStyle: 'italic', color: '#fff', marginBottom: 8, fontWeight: 300 }}>
               No results yet
             </div>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', lineHeight: 1.7 }}>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>
               Take the free 3-minute check to see where you stand.
             </p>
           </div>
@@ -194,7 +193,7 @@ export default function Dashboard() {
           onClick={handleRetake}
           style={{
             background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-            color: '#fff',
+            color: 'var(--void)',
             border: 'none',
             borderRadius: 14,
             padding: '17px',
@@ -214,8 +213,8 @@ export default function Dashboard() {
         {/* Check History */}
         {history.length > 0 && (
           <>
-            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 16 }}>
-              Check History
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 16 }}>
+              Check history
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               {history.map((h, i) => {
@@ -234,7 +233,7 @@ export default function Dashboard() {
                     }}
                   >
                     <div>
-                      <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', marginBottom: 4 }}>{formatDate(h.date)}</div>
+                      <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', marginBottom: 4 }}>{formatDate(h.date)}</div>
                       <div style={{
                         display: 'inline-flex',
                         alignItems: 'center',
@@ -249,7 +248,7 @@ export default function Dashboard() {
                       </div>
                     </div>
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 700, color: m.color }}>
-                      {h.score}<span style={{ fontSize: 13, color: 'rgba(255,255,255,0.25)', fontWeight: 400 }}>/28</span>
+                      {h.score}<span style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', fontWeight: 400 }}>/28</span>
                     </div>
                   </div>
                 )

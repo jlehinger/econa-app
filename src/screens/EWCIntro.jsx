@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import EconaLogo from '../components/EconaLogo.jsx'
 import NavBar from '../components/NavBar.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
+import { BANDS } from '../data/questions.js'
 
 const DOMAINS = [
   { icon: '◆', label: 'Wellbeing',                desc: 'Thriving, life satisfaction, and social functioning as a founder', color: '#D4A03C', bg: 'rgba(212,160,60,0.08)' },
@@ -9,12 +10,13 @@ const DOMAINS = [
   { icon: '◆', label: 'Emotional Stability',      desc: 'Negative emotionality and the impact of sleep impairments',       color: '#E07B54', bg: 'rgba(224,123,84,0.08)' },
 ]
 
-const BANDS = [
-  { label: 'Surviving', range: '0–12',  color: '#E05252', bg: 'rgba(224,82,82,0.1)' },
-  { label: 'Striving',  range: '13–16', color: '#D4A03C', bg: 'rgba(212,160,60,0.1)' },
-  { label: 'Driving',   range: '17–21', color: '#5DADE2', bg: 'rgba(93,173,226,0.1)' },
-  { label: 'Thriving',  range: '22–28', color: '#4CAF82', bg: 'rgba(76,175,130,0.1)' },
-]
+// Band labels/colors/ranges come from the one scale in questions.js — never redefine them locally.
+const BAND_CHIPS = [...Object.values(BANDS)].reverse().map(b => ({
+  label: b.label,
+  range: `${b.min}–${b.max}`,
+  color: b.color,
+  bg: `${b.color}1A`,
+}))
 
 export default function EWCIntro() {
   const navigate = useNavigate()
@@ -44,7 +46,7 @@ export default function EWCIntro() {
           style={{
             background: 'none',
             border: '1px solid rgba(255,255,255,0.1)',
-            color: 'rgba(255,255,255,0.35)',
+            color: 'rgba(255,255,255,0.7)',
             cursor: 'pointer',
             fontSize: 11,
             fontFamily: 'var(--font-body)',
@@ -54,7 +56,7 @@ export default function EWCIntro() {
             transition: 'color 0.15s, border-color 0.15s',
           }}
           onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
-          onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.35)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
+          onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
         >
           ← Dashboard
         </button>
@@ -70,7 +72,7 @@ export default function EWCIntro() {
         {[['7', 'Questions'], ['~3 min', 'Duration'], ['3', 'Domains']].map(([n, l]) => (
           <div key={l}>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600, color: 'var(--flame)', lineHeight: 1 }}>{n}</div>
-            <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginTop: 4 }}>{l}</div>
+            <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)', marginTop: 4 }}>{l}</div>
           </div>
         ))}
       </div>
@@ -92,8 +94,8 @@ export default function EWCIntro() {
       </div>
 
       {/* Domains */}
-      <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 14 }}>
-        3 Domains Measured
+      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 14 }}>
+        3 domains measured
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 36 }}>
         {DOMAINS.map(d => (
@@ -112,18 +114,18 @@ export default function EWCIntro() {
             <span style={{ color: d.color, fontSize: 9, marginTop: 4, flexShrink: 0 }}>{d.icon}</span>
             <div>
               <div style={{ fontSize: 13, fontWeight: 600, color: '#fff', marginBottom: 2 }}>{d.label}</div>
-              <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 }}>{d.desc}</div>
+              <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', lineHeight: 1.5 }}>{d.desc}</div>
             </div>
           </div>
         ))}
       </div>
 
       {/* Result bands */}
-      <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 14 }}>
-        Your Result Falls in One of 4 Bands
+      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 14 }}>
+        Your result falls in one of 4 bands
       </div>
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 44 }}>
-        {BANDS.map(b => (
+        {BAND_CHIPS.map(b => (
           <div
             key={b.label}
             style={{
@@ -137,7 +139,7 @@ export default function EWCIntro() {
             }}
           >
             <span style={{ fontSize: 12, fontWeight: 600, color: b.color }}>{b.label}</span>
-            <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)' }}>{b.range}</span>
+            <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.6)' }}>{b.range}</span>
           </div>
         ))}
       </div>
@@ -146,7 +148,7 @@ export default function EWCIntro() {
         onClick={handleBegin}
         style={{
           background: 'linear-gradient(135deg, var(--ember) 0%, var(--flame) 60%, var(--spark) 100%)',
-          color: '#fff',
+          color: 'var(--void)',
           border: 'none',
           borderRadius: 14,
           padding: '20px 32px',
@@ -166,7 +168,7 @@ export default function EWCIntro() {
         Begin the Check →
       </button>
 
-      <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.2)', textAlign: 'center', lineHeight: 1.7 }}>
+      <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', textAlign: 'center', lineHeight: 1.7 }}>
         Freeman, Mazza, Johnson &amp; Heinz (2026).<br />
         Validated on 314 entrepreneurs across US, Canada, EU, UK &amp; Israel.
       </p>

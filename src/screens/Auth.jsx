@@ -22,11 +22,11 @@ function FloatingInput({ label, type, value, onChange, placeholder, autoFocus })
         left: 16,
         top: floated ? 8 : '50%',
         transform: floated ? 'none' : 'translateY(-50%)',
-        fontSize: floated ? 10 : 15,
+        fontSize: floated ? 11 : 15,
         fontWeight: floated ? 700 : 400,
-        letterSpacing: floated ? '0.12em' : '0',
-        textTransform: floated ? 'uppercase' : 'none',
-        color: focused ? 'var(--flame)' : 'rgba(255,255,255,0.4)',
+        letterSpacing: floated ? '0.05em' : '0',
+        textTransform: 'none',
+        color: focused ? 'var(--flame)' : 'rgba(255,255,255,0.65)',
         transition: 'all 0.18s ease',
         pointerEvents: 'none',
         zIndex: 1,
@@ -103,7 +103,7 @@ export default function Auth() {
         style={{
           background: 'none',
           border: 'none',
-          color: 'rgba(255,255,255,0.35)',
+          color: 'rgba(255,255,255,0.7)',
           cursor: 'pointer',
           fontSize: 14,
           padding: '0 0 36px',
@@ -141,7 +141,7 @@ export default function Auth() {
               padding: '10px 0',
               fontSize: 13,
               fontWeight: 600,
-              color: mode === m ? '#fff' : 'rgba(255,255,255,0.4)',
+              color: mode === m ? 'var(--void)' : 'rgba(255,255,255,0.7)',
               cursor: 'pointer',
               fontFamily: 'var(--font-body)',
               letterSpacing: '0.04em',
@@ -164,7 +164,7 @@ export default function Auth() {
       }}>
         {mode === 'create' ? 'Start your journey' : 'Welcome back'}
       </div>
-      <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', marginBottom: 36, lineHeight: 1.7 }}>
+      <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', marginBottom: 36, lineHeight: 1.7 }}>
         Your responses are always anonymized. We never identify individuals.
       </p>
 
@@ -192,7 +192,7 @@ export default function Auth() {
             background: loading
               ? 'rgba(212,160,60,0.4)'
               : 'linear-gradient(135deg, var(--ember) 0%, var(--flame) 60%, var(--spark) 100%)',
-            color: '#fff',
+            color: 'var(--void)',
             border: 'none',
             borderRadius: 12,
             padding: '18px',
@@ -234,7 +234,7 @@ export default function Auth() {
               <p style={{
                 marginTop: 8,
                 fontSize: 12,
-                color: 'rgba(255,255,255,0.35)',
+                color: 'rgba(255,255,255,0.7)',
                 fontFamily: 'var(--font-body)',
                 lineHeight: 1.6,
                 letterSpacing: '0.01em',
@@ -250,7 +250,7 @@ export default function Auth() {
         marginTop: 'auto',
         paddingTop: 48,
         fontSize: 11,
-        color: 'rgba(255,255,255,0.18)',
+        color: 'rgba(255,255,255,0.6)',
         textAlign: 'center',
         lineHeight: 1.7,
       }}>

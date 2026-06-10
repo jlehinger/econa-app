@@ -28,13 +28,13 @@ export default function LabsList() {
         <EconaLogo size="sm" />
 
         <div style={{ marginTop: 24, marginBottom: 28 }}>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--teal-light)', marginBottom: 6 }}>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 11, fontWeight: 600, letterSpacing: '0.05em', color: 'var(--teal-light)', marginBottom: 6 }}>
             Econa Labs
           </div>
           <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 24, fontStyle: 'italic', color: '#fff', fontWeight: 300, lineHeight: 1.3 }}>
             Your personalized<br />wellbeing curriculum.
           </div>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', lineHeight: 1.6, marginTop: 10 }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginTop: 10 }}>
             Labs are ranked by your lowest EWC item scores — biggest need first.
           </p>
         </div>
@@ -63,8 +63,8 @@ export default function LabsList() {
                   <div style={{ flex: 1 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
                       <span style={{
-                        fontSize: 9, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase',
-                        color: lab.available ? lab.color : 'rgba(255,255,255,0.2)',
+                        fontSize: 11, fontWeight: 700, letterSpacing: '0.05em',
+                        color: lab.available ? lab.color : 'rgba(255,255,255,0.65)',
                         background: lab.available ? `${lab.color}15` : 'rgba(255,255,255,0.05)',
                         border: `1px solid ${lab.available ? lab.color + '25' : 'rgba(255,255,255,0.05)'}`,
                         borderRadius: 100, padding: '2px 7px',
@@ -72,20 +72,20 @@ export default function LabsList() {
                         {DOMAIN_LABELS[lab.domain]}
                       </span>
                       {!lab.available && (
-                        <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.04)', borderRadius: 100, padding: '2px 7px' }}>
+                        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.65)', background: 'rgba(255,255,255,0.04)', borderRadius: 100, padding: '2px 7px' }}>
                           {lab.phase === 'summer2026' ? "Coming Summer '26" : 'Phase 2'}
                         </span>
                       )}
                       {started && (
-                        <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#4CAF82', background: 'rgba(76,175,130,0.1)', borderRadius: 100, padding: '2px 7px' }}>
-                          In Progress
+                        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: '#4CAF82', background: 'rgba(76,175,130,0.1)', borderRadius: 100, padding: '2px 7px' }}>
+                          In progress
                         </span>
                       )}
                     </div>
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: 16, color: lab.available ? '#fff' : 'rgba(255,255,255,0.4)', marginBottom: 4, letterSpacing: '0.04em' }}>
                       {lab.title}
                     </div>
-                    <div style={{ fontSize: 12, color: lab.available ? 'rgba(255,255,255,0.4)' : 'rgba(255,255,255,0.2)' }}>
+                    <div style={{ fontSize: 12, color: lab.available ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.2)' }}>
                       {lab.available ? lab.tagline : lab.subtitle}
                     </div>
                   </div>
@@ -97,15 +97,15 @@ export default function LabsList() {
                     }}>
                       {itemScores[lab.ewcIndex] ?? '—'}
                     </div>
-                    <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.2)' }}>/4</div>
+                    <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.45)' }}>/4</div>
                   </div>
                 </div>
 
                 {started && (
                   <div style={{ marginTop: 12 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                      <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.25)' }}>Progress</span>
-                      <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.25)' }}>{seen}/5 sections</span>
+                      <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.6)' }}>Progress</span>
+                      <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.6)' }}>{seen}/5 sections</span>
                     </div>
                     <div style={{ height: 3, background: 'rgba(255,255,255,0.08)', borderRadius: 2 }}>
                       <div style={{ height: '100%', width: `${(seen / 5) * 100}%`, background: lab.color, borderRadius: 2, transition: 'width 0.4s ease' }} />
@@ -117,7 +117,7 @@ export default function LabsList() {
           })}
         </div>
 
-        <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.15)', textAlign: 'center', lineHeight: 1.8, padding: '28px 0 16px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', textAlign: 'center', lineHeight: 1.8, padding: '28px 0 16px', letterSpacing: '0.04em' }}>
           Phase 2 labs unlock as content is added
         </p>
       </div>

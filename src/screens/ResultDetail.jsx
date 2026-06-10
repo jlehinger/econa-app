@@ -2,35 +2,33 @@ import { useParams, useNavigate } from 'react-router-dom'
 import EconaLogo from '../components/EconaLogo.jsx'
 import NavBar from '../components/NavBar.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
-import { scoreToBand } from '../data/questions.js'
+import { scoreToBand, BANDS } from '../data/questions.js'
 import { CONNECTED_MIND_URL } from '../lib/links.js'
 
-const BAND_META = {
-  vitality:  { label: 'Thriving',  color: '#4CAF82', bg: 'rgba(76,175,130,0.1)' },
-  stability: { label: 'Driving', color: '#5DADE2', bg: 'rgba(93,173,226,0.1)' },
-  strain:    { label: 'Striving',    color: '#D4A03C', bg: 'rgba(212,160,60,0.1)' },
-  distress:  { label: 'Surviving',  color: '#E05252', bg: 'rgba(224,82,82,0.1)' },
-}
+// Band labels/colors come from the one scale in questions.js — never redefine them locally.
+const BAND_META = Object.fromEntries(
+  Object.values(BANDS).map(b => [b.key, { label: b.label, color: b.color, bg: `${b.color}1A` }])
+)
 
 const RESOURCES = {
   distress: [
     { color: '#E05252', title: 'Connected Mind Clinicians', body: 'Vetted clinicians who specialize in entrepreneurial mental health. Free initial consultation available.', cta: 'Book a Consultation', link: CONNECTED_MIND_URL },
     { color: '#E8803C', title: '988 Crisis Lifeline', body: 'Call or text 988 anytime. For entrepreneurs and all individuals experiencing crisis.', cta: 'Call or Text 988', link: 'https://988lifeline.org' },
-    { color: '#5DADE2', title: 'Econa Crisis Support', body: 'Resources and vetted practitioners who understand the entrepreneurial experience at depth.', cta: 'Find Support', link: 'https://econa.net' },
+    { color: BANDS.stability.color, title: 'Econa Crisis Support', body: 'Resources and vetted practitioners who understand the entrepreneurial experience at depth.', cta: 'Find Support', link: 'https://econa.net' },
   ],
   strain: [
     { color: '#D4A03C', title: 'Econa Programs', body: 'Workshops and retreats built for founders experiencing strain — resilience before crisis.', cta: 'View Programs', link: 'https://econa.net' },
-    { color: '#5DADE2', title: 'Connected Mind', body: 'Evidence-based mental health tools built for high-performance environments.', cta: 'Visit Connected Mind', link: CONNECTED_MIND_URL },
+    { color: BANDS.stability.color, title: 'Connected Mind', body: 'Evidence-based mental health tools built for high-performance environments.', cta: 'Visit Connected Mind', link: CONNECTED_MIND_URL },
   ],
   stability: [
-    { color: '#5DADE2', title: 'FounderScreen', body: 'Contribute to the global entrepreneur wellbeing dataset and track longitudinally over time.', cta: 'Join FounderScreen', link: 'https://econa.net' },
+    { color: BANDS.stability.color, title: 'FounderScreen', body: 'Contribute to the global entrepreneur wellbeing dataset and track longitudinally over time.', cta: 'Join FounderScreen', link: 'https://econa.net' },
     { color: '#D4A03C', title: 'Econa Programs', body: 'Keynotes, workshops, and retreats to sustain and grow from your stable foundation.', cta: 'View Programs', link: 'https://econa.net' },
     { color: '#4CAF82', title: 'Econaclast Community', body: 'Connect with other stable and thriving founders. Build accountability and share practices.', cta: 'Learn More', link: 'https://econa.net' },
   ],
   vitality: [
     { color: '#4CAF82', title: 'Econaclast Community', body: "You're thriving — now help others get here. Lead, mentor, and build the ecosystem.", cta: 'Join Econaclast', link: 'https://econa.net' },
     { color: '#D4A03C', title: "Dr. Freeman's Programs", body: 'Keynote, workshop, and leadership programs from Dr. Freeman — for high-vitality founders ready to amplify impact.', cta: 'Book Dr. Freeman', link: 'https://econa.net' },
-    { color: '#5DADE2', title: 'FounderScreen', body: "Join the global dataset and contribute to the future of founder wellbeing science.", cta: 'Join FounderScreen', link: 'https://econa.net' },
+    { color: BANDS.stability.color, title: 'FounderScreen', body: "Join the global dataset and contribute to the future of founder wellbeing science.", cta: 'Join FounderScreen', link: 'https://econa.net' },
   ],
 }
 
@@ -97,7 +95,7 @@ export default function ResultDetail() {
           style={{
             background: 'none',
             border: 'none',
-            color: 'rgba(255,255,255,0.4)',
+            color: 'rgba(255,255,255,0.7)',
             cursor: 'pointer',
             fontSize: 13,
             fontFamily: 'var(--font-body)',
@@ -108,18 +106,18 @@ export default function ResultDetail() {
             transition: 'color 0.15s',
           }}
           onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-          onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
+          onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
         >
           ← History
         </button>
         <div style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 10,
-          letterSpacing: '0.25em',
-          textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.3)',
+          fontSize: 11,
+          fontWeight: 600,
+          letterSpacing: '0.05em',
+          color: 'rgba(255,255,255,0.65)',
         }}>
-          {idx === 0 ? 'Latest Result' : 'Past Result'}
+          {idx === 0 ? 'Latest result' : 'Past result'}
         </div>
         <div style={{ width: 64 }} />
       </div>
@@ -127,7 +125,7 @@ export default function ResultDetail() {
       <div style={{ padding: '24px 24px', flex: 1 }}>
         {/* Date + EconaLogo */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
-          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.02em' }}>
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.02em' }}>
             {formatDate(entry.date)}
           </div>
           <EconaLogo size="sm" />
@@ -154,12 +152,13 @@ export default function ResultDetail() {
             }}>
               {entry.score}
             </span>
-            <span style={{ fontSize: 22, color: 'rgba(255,255,255,0.25)', marginBottom: 8 }}>/28</span>
+            <span style={{ fontSize: 22, color: 'rgba(255,255,255,0.45)', marginBottom: 8 }}>/28</span>
           </div>
           <div style={{
             fontFamily: 'var(--font-display)',
             fontSize: 12,
-            letterSpacing: '0.25em',
+            fontWeight: 600,
+            letterSpacing: '0.06em',
             textTransform: 'uppercase',
             color: band.color,
             marginBottom: 16,
@@ -170,10 +169,9 @@ export default function ResultDetail() {
             <p style={{
               fontFamily: 'var(--font-editorial)',
               fontSize: 15,
-              fontStyle: 'italic',
               color: 'rgba(255,255,255,0.62)',
               lineHeight: 1.75,
-              fontWeight: 300,
+              fontWeight: 400,
             }}>
               {bandData.description}
             </p>
@@ -184,14 +182,13 @@ export default function ResultDetail() {
         {domains && (
           <>
             <div style={{
-              fontSize: 10,
+              fontSize: 11,
               fontWeight: 700,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.25)',
+              letterSpacing: '0.04em',
+              color: 'rgba(255,255,255,0.65)',
               marginBottom: 12,
             }}>
-              By Domain
+              By domain
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 28 }}>
               {DOMAIN_CARDS.map(d => {
@@ -212,14 +209,13 @@ export default function ResultDetail() {
                       <span style={{
                         fontSize: 11,
                         fontWeight: 700,
-                        letterSpacing: '0.08em',
-                        textTransform: 'uppercase',
-                        color: 'rgba(255,255,255,0.4)',
+                        letterSpacing: '0.05em',
+                        color: 'rgba(255,255,255,0.65)',
                       }}>
                         {d.label}
                       </span>
                       <span style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 700, color: '#fff' }}>
-                        {val}<span style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', fontWeight: 400 }}>/{d.max}</span>
+                        {val}<span style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)', fontWeight: 400 }}>/{d.max}</span>
                       </span>
                     </div>
                     <div style={{ height: 4, background: 'rgba(255,255,255,0.08)', borderRadius: 2, overflow: 'hidden' }}>
@@ -239,14 +235,13 @@ export default function ResultDetail() {
 
         {/* Resources surfaced at this time */}
         <div style={{
-          fontSize: 10,
+          fontSize: 11,
           fontWeight: 700,
-          letterSpacing: '0.2em',
-          textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.25)',
+          letterSpacing: '0.04em',
+          color: 'rgba(255,255,255,0.65)',
           marginBottom: 12,
         }}>
-          Resources Surfaced
+          Resources surfaced
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 28 }}>
           {resources.map((r, i) => (
@@ -265,7 +260,7 @@ export default function ResultDetail() {
               }}>
                 {r.title}
               </div>
-              <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6, marginBottom: 12 }}>
+              <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: 12 }}>
                 {r.body}
               </p>
               <a
@@ -275,8 +270,7 @@ export default function ResultDetail() {
                 style={{
                   fontSize: 11,
                   fontWeight: 700,
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
                   color: r.color,
                   textDecoration: 'none',
                 }}
@@ -291,7 +285,7 @@ export default function ResultDetail() {
           onClick={handleRetake}
           style={{
             background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-            color: '#fff',
+            color: 'var(--void)',
             border: 'none',
             borderRadius: 14,
             padding: '17px',
@@ -310,13 +304,11 @@ export default function ResultDetail() {
 
         <p style={{
           marginTop: 12,
-          fontSize: 10,
-          color: 'rgba(255,255,255,0.12)',
+          fontSize: 11,
+          color: 'rgba(255,255,255,0.7)',
           textAlign: 'center',
           lineHeight: 1.8,
           paddingBottom: 8,
-          textTransform: 'uppercase',
-          letterSpacing: '0.08em',
         }}>
           This is a screening instrument, not a clinical diagnostic.
         </p>

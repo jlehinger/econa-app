@@ -73,8 +73,8 @@ export default function CMTriage() {
             borderRadius: 100, padding: '4px 12px', marginBottom: 14,
           }}>
             <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#E05252' }} />
-            <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#E05252' }}>
-              Your Score: {score ?? '—'}/28
+            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: '#E05252' }}>
+              Your score: {score ?? '—'}/28
             </span>
           </div>
           <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: '#fff', fontWeight: 300, lineHeight: 1.3, marginBottom: 10 }}>
@@ -85,8 +85,8 @@ export default function CMTriage() {
           </p>
         </div>
 
-        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 16 }}>
-          Your Path Forward
+        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 16 }}>
+          Your path forward
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 36 }}>
@@ -146,26 +146,26 @@ export default function CMTriage() {
           background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)',
           borderRadius: 12, padding: '16px 18px', marginBottom: 32, textAlign: 'center',
         }}>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.65)', marginBottom: 6 }}>
             If you need immediate support
           </div>
           <a href="tel:988" style={{ fontSize: 24, fontFamily: 'var(--font-display)', color: '#E05252', textDecoration: 'none', fontWeight: 700 }}>
             988
           </a>
-          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', marginTop: 4 }}>
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', marginTop: 4 }}>
             Suicide & Crisis Lifeline · Call or Text · Free · 24/7
           </div>
         </div>
 
         <button onClick={() => navigate('/dashboard')} style={{
           background: 'none', border: '1px solid rgba(255,255,255,0.12)',
-          color: 'rgba(255,255,255,0.4)', borderRadius: 14, padding: '16px',
+          color: 'rgba(255,255,255,0.7)', borderRadius: 14, padding: '16px',
           fontSize: 14, cursor: 'pointer', width: '100%', fontFamily: 'var(--font-body)', marginBottom: 32,
         }}>
           Go to Dashboard
         </button>
 
-        <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.18)', textAlign: 'center', lineHeight: 1.8, paddingBottom: 16, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', textAlign: 'center', lineHeight: 1.8, paddingBottom: 16 }}>
           This is a screening instrument, not a clinical diagnostic.<br />
           Results are for your personal awareness and professional use.
         </p>

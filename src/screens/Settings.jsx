@@ -41,11 +41,10 @@ function Toggle({ on, onChange }) {
 function SectionLabel({ title }) {
   return (
     <div style={{
-      fontSize: 10,
+      fontSize: 11,
       fontWeight: 700,
-      letterSpacing: '0.25em',
-      textTransform: 'uppercase',
-      color: 'rgba(255,255,255,0.25)',
+      letterSpacing: '0.04em',
+      color: 'rgba(255,255,255,0.65)',
       marginBottom: 10,
       paddingLeft: 2,
     }}>
@@ -95,7 +94,7 @@ function Row({ label, sub, right, onClick, destructive, noBorder }) {
           {label}
         </div>
         {sub && (
-          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', lineHeight: 1.5, marginTop: 2 }}>
+          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', lineHeight: 1.5, marginTop: 2 }}>
             {sub}
           </div>
         )}
@@ -171,9 +170,10 @@ export default function Settings() {
         <div style={{
           fontFamily: 'var(--font-display)',
           fontSize: 10,
-          letterSpacing: '0.25em',
+          fontWeight: 600,
+          letterSpacing: '0.06em',
           textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.3)',
+          color: 'rgba(255,255,255,0.65)',
         }}>
           Settings
         </div>
@@ -191,7 +191,7 @@ export default function Settings() {
               <span style={{
                 fontSize: 10,
                 color: 'var(--teal-light)',
-                letterSpacing: '0.12em',
+                letterSpacing: '0.06em',
                 textTransform: 'uppercase',
                 fontWeight: 700,
                 background: 'rgba(93,173,226,0.1)',
@@ -281,16 +281,15 @@ export default function Settings() {
           marginBottom: 24,
         }}>
           <div style={{
-            fontSize: 10,
+            fontSize: 11,
             fontWeight: 700,
-            letterSpacing: '0.2em',
-            textTransform: 'uppercase',
+            letterSpacing: '0.05em',
             color: '#E05252',
             marginBottom: 8,
           }}>
-            Delete Account
+            Delete account
           </div>
-          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', lineHeight: 1.6, marginBottom: 16 }}>
+          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: 16 }}>
             Permanently delete your account and all local assessment history. This cannot be undone.
           </p>
 
@@ -363,13 +362,12 @@ export default function Settings() {
         </div>
 
         <p style={{
-          fontSize: 10,
-          color: 'rgba(255,255,255,0.12)',
+          fontSize: 11,
+          color: 'rgba(255,255,255,0.6)',
           textAlign: 'center',
           lineHeight: 1.8,
           paddingBottom: 8,
-          textTransform: 'uppercase',
-          letterSpacing: '0.08em',
+          letterSpacing: '0.04em',
         }}>
           Econa · Entrepreneur Wellbeing Check<br />
           Version 1.0 · © 2025 Econa
@@ -401,14 +399,12 @@ export default function Settings() {
             <div style={{
               fontSize: 11,
               fontWeight: 700,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              fontVariant: 'small-caps',
+              letterSpacing: '0.05em',
               color: 'var(--flame)',
               marginBottom: 16,
               fontFamily: 'var(--font-display)',
             }}>
-              Research Participation
+              Research participation
             </div>
 
             <p style={{
@@ -469,7 +465,7 @@ export default function Settings() {
                   flex: 1,
                   background: 'linear-gradient(135deg, var(--ember), var(--flame))',
                   border: 'none',
-                  color: '#fff',
+                  color: 'var(--void)',
                   borderRadius: 10,
                   padding: '12px 16px',
                   fontSize: 14,

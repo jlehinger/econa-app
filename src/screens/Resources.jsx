@@ -4,13 +4,20 @@ import EconaLogo from '../components/EconaLogo.jsx'
 import NavBar from '../components/NavBar.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
 import { CONNECTED_MIND_URL } from '../lib/links.js'
+import { BANDS } from '../data/questions.js'
 
-const BAND_META = {
-  distress:  { label: 'Surviving',  color: '#E05252', bg: 'rgba(224,82,82,0.1)',   headline: "You're carrying something heavy right now.", sub: "This is not a character flaw — the research shows founder mental health challenges are common, under-addressed, and highly treatable. You deserve support designed for the entrepreneurial experience." },
-  strain:    { label: 'Striving',    color: '#D4A03C', bg: 'rgba(212,160,60,0.1)',  headline: "The pressure is real. Let's get you the right tools.", sub: "Addressing strain early can help you sustain performance and build more steadily. Below are three concrete steps you can take starting today." },
-  stability: { label: 'Driving', color: '#5DADE2', bg: 'rgba(93,173,226,0.1)', headline: "You're holding steady. Let's help you go further.", sub: "Stability is a foundation, not a ceiling. These resources are designed to help high-performing founders optimize and sustain." },
-  vitality:  { label: 'Thriving',  color: '#4CAF82', bg: 'rgba(76,175,130,0.1)', headline: "You're in a strong place — and you can amplify that.", sub: "High-vitality founders who give back create resilient communities. Lead, connect, and help build the ecosystem." },
+// Band labels/colors come from the one scale in questions.js — never redefine them locally.
+// Only the per-band copy (headline/sub) lives here.
+const BAND_COPY = {
+  distress:  { headline: "You're carrying something heavy right now.", sub: "This is not a character flaw — the research shows founder mental health challenges are common, under-addressed, and highly treatable. You deserve support designed for the entrepreneurial experience." },
+  strain:    { headline: "The pressure is real. Let's get you the right tools.", sub: "Addressing strain early can help you sustain performance and build more steadily. Below are three concrete steps you can take starting today." },
+  stability: { headline: "You're holding steady. Let's help you go further.", sub: "Stability is a foundation, not a ceiling. These resources are designed to help high-performing founders optimize and sustain." },
+  vitality:  { headline: "You're in a strong place — and you can amplify that.", sub: "High-vitality founders who give back create resilient communities. Lead, connect, and help build the ecosystem." },
 }
+
+const BAND_META = Object.fromEntries(
+  Object.values(BANDS).map(b => [b.key, { label: b.label, color: b.color, bg: `${b.color}1A`, ...BAND_COPY[b.key] }])
+)
 
 const RESOURCES = {
   distress: [
@@ -30,7 +37,7 @@ const RESOURCES = {
       link: 'https://988lifeline.org',
     },
     {
-      color: '#5DADE2',
+      color: BANDS.stability.color,
       title: 'Econa Crisis Support',
       body: 'Resources and vetted practitioners who understand the entrepreneurial experience at clinical depth. You do not have to navigate this alone.',
       cta: 'Find Support at Econa',
@@ -46,7 +53,7 @@ const RESOURCES = {
   ],
   stability: [
     {
-      color: '#5DADE2',
+      color: BANDS.stability.color,
       title: 'FounderScreen',
       body: 'Contribute to the first-ever global entrepreneur wellbeing dataset. Track your wellbeing longitudinally and unlock deeper personalized insights.',
       cta: 'Join FounderScreen',
@@ -91,7 +98,7 @@ const RESOURCES = {
       link: 'https://econa.net',
     },
     {
-      color: '#5DADE2',
+      color: BANDS.stability.color,
       title: 'FounderScreen',
       body: "Join the global dataset and contribute to the future of founder wellbeing science. Your vitality data helps calibrate resources for others.",
       cta: 'Join FounderScreen',
@@ -103,7 +110,7 @@ const RESOURCES = {
 const STRAIN_MODULES = [
   {
     step: 1,
-    color: '#5DADE2',
+    color: BANDS.stability.color,
     title: 'Recovery Protocol',
     sub: 'Sleep & energy management',
     bullets: [
@@ -167,7 +174,7 @@ function StandardCard({ r }) {
       <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, letterSpacing: '0.06em', color: '#fff', marginBottom: 8 }}>
         {r.title}
       </div>
-      <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.48)', lineHeight: 1.65, marginBottom: 16 }}>
+      <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', lineHeight: 1.65, marginBottom: 16 }}>
         {r.body}
       </p>
       <a
@@ -180,8 +187,7 @@ function StandardCard({ r }) {
           gap: 4,
           fontSize: 11,
           fontWeight: 700,
-          letterSpacing: '0.12em',
-          textTransform: 'uppercase',
+          letterSpacing: '0.05em',
           color: r.color,
           textDecoration: 'none',
         }}
@@ -236,7 +242,7 @@ function ModuleCard({ module }) {
           <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', fontFamily: 'var(--font-body)' }}>
             {module.title}
           </div>
-          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginTop: 2 }}>
+          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', marginTop: 2 }}>
             {module.sub}
           </div>
         </div>
@@ -283,8 +289,7 @@ function ModuleCard({ module }) {
             style={{
               fontSize: 11,
               fontWeight: 700,
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
               color: module.color,
               textDecoration: 'none',
             }}
@@ -342,7 +347,7 @@ export default function Resources() {
               marginBottom: 14,
             }}>
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: bandObj.color }} />
-              <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: bandObj.color }}>{bandObj.label}</span>
+              <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: bandObj.color }}>{bandObj.label}</span>
             </div>
             <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: '#fff', fontWeight: 300, marginBottom: 10, lineHeight: 1.3 }}>
               {bandObj.headline}
@@ -353,8 +358,8 @@ export default function Resources() {
           </div>
         )}
 
-        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 16 }}>
-          {isStrain ? '3-Step Action Plan' : 'Matched Resources'}
+        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 16 }}>
+          {isStrain ? '3-step action plan' : 'Matched resources'}
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 36 }}>
@@ -400,7 +405,7 @@ export default function Resources() {
           </div>
           <div>
             <div style={{ fontSize: 13, fontWeight: 600, color: '#fff', marginBottom: 4 }}>Contribute to Econa research</div>
-            <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', lineHeight: 1.6 }}>
+            <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>
               Share your anonymized data with the global Econa wellbeing dataset. No personal information is ever shared.
             </div>
           </div>
@@ -410,7 +415,7 @@ export default function Resources() {
           onClick={() => navigate('/dashboard')}
           style={{
             background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-            color: '#fff',
+            color: 'var(--void)',
             border: 'none',
             borderRadius: 14,
             padding: '18px',
@@ -427,7 +432,7 @@ export default function Resources() {
           Go to Dashboard →
         </button>
 
-        <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.18)', textAlign: 'center', lineHeight: 1.8, paddingBottom: 16, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', textAlign: 'center', lineHeight: 1.8, paddingBottom: 16, letterSpacing: '0.04em' }}>
           Econa · Global Center of Excellence<br />for Entrepreneur Mental Wellness
         </p>
       </div>
