@@ -363,7 +363,7 @@ export default function Settings() {
           letterSpacing: '0.04em',
         }}>
           Econa · Entrepreneur Wellbeing Check<br />
-          Version 1.0 · © 2025 Econa
+          Version 1.0 · © 2026 Econa
         </p>
       </div>
 

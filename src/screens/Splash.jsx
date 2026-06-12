@@ -100,7 +100,7 @@ export default function Splash() {
       }}>
         Built by Econa<br />
         Global Center of Excellence for Entrepreneur Mental Wellness<br />
-        © 2025 Econa
+        © 2026 Econa
       </div>
     </div>
   )
