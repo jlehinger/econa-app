@@ -5,16 +5,16 @@ const HEIGHTS = { sm: 18, md: 26, lg: 38, xl: 54 }
 
 export default function EconaLogo({ size = 'md', variant = 'white', mark = false, align = 'center' }) {
   const h = HEIGHTS[size] || HEIGHTS.md
+  // Brand colors: navy wordmark + navy-handle / gold-flame torch on light
+  // surfaces; white reverse for the rare dark surface.
   const wordmark =
-    variant === 'color' || variant === 'dark'
-      ? '/brand/econa-wordmark-black.png'
-      : '/brand/econa-wordmark-white.png'
+    variant === 'white'
+      ? '/brand/econa-wordmark-white.png'
+      : '/brand/econa-wordmark-navy.png'
   const torch =
-    variant === 'color'
-      ? '/brand/econa-torch-blackhandle.png'
-      : variant === 'dark'
-      ? '/brand/econa-torch-blackhandle.png'
-      : '/brand/econa-torch-whitehandle.png'
+    variant === 'white'
+      ? '/brand/econa-torch-whitehandle.png'
+      : '/brand/econa-torch-navygold.png'
 
   return (
     <div
