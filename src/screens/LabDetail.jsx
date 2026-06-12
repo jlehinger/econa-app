@@ -33,10 +33,10 @@ export default function LabDetail() {
   if (!lab.available) {
     return (
       <div style={{ minHeight: '100dvh', background: 'var(--void)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', maxWidth: '480px', margin: '0 auto', padding: '40px 28px' }}>
-        <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginBottom: 32 }}>
+        <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: 'rgba(255,255,255,0.82)', textAlign: 'center', marginBottom: 32 }}>
           The {lab.title} lab is coming in Phase 2.
         </div>
-        <button onClick={() => navigate('/labs')} style={{ background: 'none', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.7)', borderRadius: 14, padding: '14px 28px', fontSize: 14, cursor: 'pointer', fontFamily: 'var(--font-body)' }}>
+        <button className="btn btn-ghost" onClick={() => navigate('/labs')}>
           Back to Labs
         </button>
         <NavBar />
@@ -52,7 +52,7 @@ export default function LabDetail() {
 
       {/* Header */}
       <div style={{ padding: '48px 24px 24px', borderBottom: '1px solid rgba(255,255,255,0.06)', background: `radial-gradient(ellipse at 50% 0%, ${lab.color}10 0%, transparent 70%)` }}>
-        <button onClick={() => navigate('/labs')} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.7)', cursor: 'pointer', fontSize: 13, padding: 0, marginBottom: 16, fontFamily: 'var(--font-body)' }}>
+        <button className="btn btn-ghost" onClick={() => navigate('/labs')} style={{ alignSelf: 'flex-start', marginBottom: 16 }}>
           ← Labs
         </button>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
@@ -67,7 +67,7 @@ export default function LabDetail() {
           </div>
           <div style={{ textAlign: 'right' }}>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 32, fontWeight: 700, color: lab.color }}>{userScore}</div>
-            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.45)' }}>/ 4</div>
+            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.68)' }}>/ 4</div>
           </div>
         </div>
       </div>
@@ -207,7 +207,7 @@ function BMS10Calculator({ color }) {
           <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#ef4444', marginBottom: 8 }}>
             Professional support recommended
           </div>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', lineHeight: 1.65, marginBottom: 16 }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, marginBottom: 16 }}>
             Your score suggests you may benefit from immediate professional support. Connected Mind offers confidential care designed for entrepreneurs.
           </p>
           <button
@@ -303,7 +303,7 @@ function EmotionRegCalculator({ color }) {
         <Card key={inst.key} color={color}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 13, color: '#fff', fontWeight: 600 }}>{inst.label}</div>
-            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.05em' }}>{inst.sublabel}</div>
+            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.68)', letterSpacing: '0.05em' }}>{inst.sublabel}</div>
           </div>
           <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', marginBottom: 10 }}>{inst.hint}</div>
           <input
@@ -357,7 +357,7 @@ function EmotionRegCalculator({ color }) {
           <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#ef4444', marginBottom: 8 }}>
             Professional support recommended
           </div>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', lineHeight: 1.65, marginBottom: 16 }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, marginBottom: 16 }}>
             One or more of your scores suggests you may benefit from professional support. Connected Mind offers confidential care designed for entrepreneurs.
           </p>
           <button
@@ -392,14 +392,14 @@ function AssessmentSection({ lab, color }) {
       <SectionLabel text="How am I doing?" color={color} />
       <Card color={color} highlight>
         <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#fff', marginBottom: 8 }}>{a.instrumentName}</div>
-        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, marginBottom: 12 }}>{a.description}</p>
+        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, marginBottom: 12 }}>{a.description}</p>
         <div style={{ fontSize: 11, color: color, fontWeight: 600, marginBottom: 8 }}>Scoring</div>
         <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: 12 }}>{a.scoring}</p>
         {a.trackingNote && <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)' }}>{a.trackingNote}</p>}
       </Card>
       <Card color={color}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.65)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 6 }}>Citation</div>
-        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{a.citation}</p>
+        <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.68)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 6 }}>Citation</div>
+        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.82)', lineHeight: 1.6 }}>{a.citation}</p>
       </Card>
       {lab.id === 'burnout' && <BMS10Calculator color={color} />}
       {lab.id === 'emotional-regulation' && <EmotionRegCalculator color={color} />}
@@ -417,8 +417,8 @@ function ActionSection({ lab, color }) {
       {a.interventions.map((item, i) => (
         <Card key={i} color={color} highlight={i === 0}>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#fff', marginBottom: 8 }}>{item.title}</div>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, marginBottom: item.source ? 10 : 0 }}>{item.body}</p>
-          {item.source && <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', fontStyle: 'italic' }}>Source: {item.source}</div>}
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, marginBottom: item.source ? 10 : 0 }}>{item.body}</p>
+          {item.source && <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', fontStyle: 'italic' }}>Source: {item.source}</div>}
         </Card>
       ))}
     </>
@@ -435,7 +435,7 @@ function BetterSection({ lab, color }) {
       {b.practices.map((p, i) => (
         <Card key={i} color={color}>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#fff', marginBottom: 8 }}>{p.title}</div>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>{p.body}</p>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65 }}>{p.body}</p>
         </Card>
       ))}
     </>
@@ -459,7 +459,7 @@ function ResourcesSection({ lab, color }) {
         if (!items?.length) return null
         return (
           <div key={cat.key} style={{ marginBottom: 20 }}>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 10 }}>{cat.label}</div>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 10 }}>{cat.label}</div>
             {items.map((item, i) => (
               <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'flex-start', marginBottom: 12 }}>
                 <div style={{ width: 6, height: 6, borderRadius: '50%', background: color, flexShrink: 0, marginTop: 6 }} />
@@ -493,7 +493,7 @@ function MotivationSection({ lab, color }) {
             borderLeft: i === 0 ? `3px solid ${color}` : undefined,
             borderRadius: 12, padding: '18px 18px',
           }}>
-            <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 16, color: i === 0 ? '#fff' : 'rgba(255,255,255,0.6)', fontWeight: 400, lineHeight: 1.65 }}>
+            <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 16, color: i === 0 ? '#fff' : 'rgba(255,255,255,0.82)', fontWeight: 400, lineHeight: 1.65 }}>
               "{msg}"
             </p>
           </div>

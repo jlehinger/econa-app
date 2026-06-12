@@ -77,15 +77,15 @@ export default function CMTriage() {
               Your score: {score ?? '—'}/28
             </span>
           </div>
-          <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: '#fff', fontWeight: 300, lineHeight: 1.3, marginBottom: 10 }}>
+          <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: '#fff', fontWeight: 400, lineHeight: 1.3, marginBottom: 10 }}>
             You deserve more support than a self-help app.
           </div>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.7 }}>
             Your results suggest significant distress. This isn't a character flaw — it's a signal the research takes seriously. The next step is a clinical screening designed specifically for entrepreneurs.
           </p>
         </div>
 
-        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 16 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 16 }}>
           Your path forward
         </div>
 
@@ -111,7 +111,7 @@ export default function CMTriage() {
                   {s.title}
                 </div>
               </div>
-              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.65, marginBottom: s.cta ? 16 : 0 }}>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, marginBottom: s.cta ? 16 : 0 }}>
                 {s.body}
               </p>
               {s.note && (
@@ -146,7 +146,7 @@ export default function CMTriage() {
           background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)',
           borderRadius: 12, padding: '16px 18px', marginBottom: 32, textAlign: 'center',
         }}>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.65)', marginBottom: 6 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.68)', marginBottom: 6 }}>
             If you need immediate support
           </div>
           <a href="tel:988" style={{ fontSize: 24, fontFamily: 'var(--font-display)', color: '#E05252', textDecoration: 'none', fontWeight: 700 }}>
@@ -157,11 +157,11 @@ export default function CMTriage() {
           </div>
         </div>
 
-        <button onClick={() => navigate('/dashboard')} style={{
-          background: 'none', border: '1px solid rgba(255,255,255,0.12)',
-          color: 'rgba(255,255,255,0.7)', borderRadius: 14, padding: '16px',
-          fontSize: 14, cursor: 'pointer', width: '100%', fontFamily: 'var(--font-body)', marginBottom: 32,
-        }}>
+        <button
+          className="btn btn-ghost btn-block"
+          onClick={() => navigate('/dashboard')}
+          style={{ marginBottom: 32 }}
+        >
           Go to Dashboard
         </button>
 

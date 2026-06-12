@@ -3,7 +3,7 @@ export default function ProgressBar({ current, total }) {
   return (
     <div style={{ padding: '16px 24px 0' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
-        <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.1em' }}>
+        <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', letterSpacing: '0.1em' }}>
           Question {current} of {total}
         </span>
         <span style={{ fontSize: 11, color: 'var(--flame)', letterSpacing: '0.05em' }}>{pct}%</span>

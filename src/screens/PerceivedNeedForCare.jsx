@@ -58,21 +58,8 @@ export default function PerceivedNeedForCare() {
       {/* Header row */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 40 }}>
         <button
+          className="btn btn-ghost"
           onClick={() => navigate('/econometrics')}
-          style={{
-            background: 'none',
-            border: '1px solid rgba(255,255,255,0.1)',
-            color: 'rgba(255,255,255,0.35)',
-            cursor: 'pointer',
-            fontSize: 11,
-            fontFamily: 'var(--font-body)',
-            padding: '5px 12px',
-            borderRadius: 100,
-            letterSpacing: '0.05em',
-            transition: 'color 0.15s, border-color 0.15s',
-          }}
-          onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
-          onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.35)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
         >
           ← Your Business
         </button>
@@ -80,7 +67,7 @@ export default function PerceivedNeedForCare() {
       </div>
 
       {/* Eyebrow */}
-      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 20 }}>
+      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.68)', marginBottom: 20 }}>
         Before You Begin
       </div>
 
@@ -89,7 +76,7 @@ export default function PerceivedNeedForCare() {
         fontFamily: 'var(--font-editorial)',
         fontSize: 28,
         color: '#fff',
-        fontWeight: 300,
+        fontWeight: 400,
         lineHeight: 1.3,
         marginBottom: 40,
       }}>
@@ -117,7 +104,7 @@ export default function PerceivedNeedForCare() {
                 fontFamily: 'var(--font-body)',
                 fontSize: 15,
                 fontWeight: isSelected ? 600 : 400,
-                color: isSelected ? '#fff' : 'rgba(255,255,255,0.65)',
+                color: isSelected ? '#fff' : 'rgba(255,255,255,0.68)',
                 textAlign: 'left',
                 transition: 'all 0.15s',
               }}
@@ -130,7 +117,7 @@ export default function PerceivedNeedForCare() {
               onMouseLeave={e => {
                 if (!isSelected) {
                   e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)'
-                  e.currentTarget.style.color = 'rgba(255,255,255,0.65)'
+                  e.currentTarget.style.color = 'rgba(255,255,255,0.68)'
                 }
               }}
             >
@@ -176,7 +163,7 @@ export default function PerceivedNeedForCare() {
                 <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', marginBottom: 4, fontFamily: 'var(--font-body)' }}>
                   {resource.title}
                 </div>
-                <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5, marginBottom: 10, fontFamily: 'var(--font-body)' }}>
+                <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.82)', lineHeight: 1.5, marginBottom: 10, fontFamily: 'var(--font-body)' }}>
                   {resource.body}
                 </div>
                 <a
@@ -203,32 +190,10 @@ export default function PerceivedNeedForCare() {
       {/* Continue button — always active */}
       {/* TODO: decide with Dr. Freeman if this question should be required */}
       <button
+        className="btn btn-primary btn-block"
         onClick={handleContinue}
         style={{
-          background: 'linear-gradient(135deg, var(--ember) 0%, var(--flame) 60%, var(--spark) 100%)',
-          color: selected !== null ? '#fff' : 'rgba(255,255,255,0.7)',
-          border: 'none',
-          borderRadius: 14,
-          padding: '20px 32px',
-          fontSize: 16,
-          fontWeight: 600,
-          cursor: 'pointer',
-          letterSpacing: '0.04em',
-          fontFamily: 'var(--font-body)',
-          width: '100%',
           opacity: selected !== null ? 1 : 0.6,
-          boxShadow: selected !== null ? '0 4px 24px rgba(212,160,60,0.35)' : 'none',
-          transition: 'transform 0.15s, box-shadow 0.15s, opacity 0.15s',
-        }}
-        onMouseEnter={e => {
-          if (selected !== null) {
-            e.currentTarget.style.transform = 'translateY(-1px)'
-            e.currentTarget.style.boxShadow = '0 6px 32px rgba(212,160,60,0.45)'
-          }
-        }}
-        onMouseLeave={e => {
-          e.currentTarget.style.transform = ''
-          e.currentTarget.style.boxShadow = selected !== null ? '0 4px 24px rgba(212,160,60,0.35)' : 'none'
         }}
       >
         Continue to the Check →

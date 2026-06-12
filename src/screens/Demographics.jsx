@@ -188,21 +188,8 @@ export default function Demographics() {
       {/* Header row */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 32 }}>
         <button
+          className="btn btn-ghost"
           onClick={() => navigate('/verify')}
-          style={{
-            background: 'none',
-            border: '1px solid rgba(255,255,255,0.1)',
-            color: 'rgba(255,255,255,0.55)',
-            cursor: 'pointer',
-            fontSize: 11,
-            fontFamily: 'var(--font-body)',
-            padding: '5px 12px',
-            borderRadius: 100,
-            letterSpacing: '0.05em',
-            transition: 'color 0.15s, border-color 0.15s',
-          }}
-          onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
-          onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.55)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
         >
           ← Verify
         </button>
@@ -210,13 +197,13 @@ export default function Demographics() {
       </div>
 
       {/* Screen heading */}
-      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: 10 }}>
+      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.68)', marginBottom: 10 }}>
         FounderScreen
       </div>
-      <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 36, color: '#fff', marginBottom: 8, fontWeight: 300, lineHeight: 1.15 }}>
+      <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 36, color: '#fff', marginBottom: 8, fontWeight: 400, lineHeight: 1.15 }}>
         About You
       </div>
-      <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', marginBottom: 40 }}>
+      <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.68)', marginBottom: 40 }}>
         10 questions · ~2 min
       </div>
 
@@ -263,7 +250,7 @@ export default function Demographics() {
             onFocus={focusOn}
             onBlur={focusOff}
           />
-          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)', marginTop: 8, lineHeight: 1.5 }}>
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.68)', marginTop: 8, lineHeight: 1.5 }}>
             For example: 12 = high school · 16 = college · 18 = Master's degree/trade school/apprenticeship · 21 = Ph.D., M.D., J.D., other doctoral degree
           </div>
         </Card>
@@ -323,24 +310,8 @@ export default function Demographics() {
 
       {/* Continue button */}
       <button
+        className="btn btn-primary btn-block"
         onClick={handleContinue}
-        style={{
-          background: 'linear-gradient(135deg, var(--ember) 0%, var(--flame) 60%, var(--spark) 100%)',
-          color: '#fff',
-          border: 'none',
-          borderRadius: 14,
-          padding: '20px 32px',
-          fontSize: 16,
-          fontWeight: 600,
-          cursor: 'pointer',
-          letterSpacing: '0.04em',
-          fontFamily: 'var(--font-body)',
-          width: '100%',
-          boxShadow: '0 4px 24px rgba(212,160,60,0.35)',
-          transition: 'transform 0.15s, box-shadow 0.15s',
-        }}
-        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 6px 32px rgba(212,160,60,0.45)' }}
-        onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 4px 24px rgba(212,160,60,0.35)' }}
       >
         Continue →
       </button>

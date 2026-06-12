@@ -44,7 +44,7 @@ function SectionLabel({ title }) {
       fontSize: 11,
       fontWeight: 700,
       letterSpacing: '0.04em',
-      color: 'rgba(255,255,255,0.65)',
+      color: 'rgba(255,255,255,0.68)',
       marginBottom: 10,
       paddingLeft: 2,
     }}>
@@ -173,7 +173,7 @@ export default function Settings() {
           fontWeight: 600,
           letterSpacing: '0.06em',
           textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.65)',
+          color: 'rgba(255,255,255,0.68)',
         }}>
           Settings
         </div>
@@ -324,18 +324,9 @@ export default function Settings() {
               </div>
               <div style={{ display: 'flex', gap: 10 }}>
                 <button
+                  className="btn btn-ghost"
                   onClick={() => setDeleteStep(0)}
-                  style={{
-                    background: 'none',
-                    border: '1px solid rgba(255,255,255,0.15)',
-                    color: 'rgba(255,255,255,0.5)',
-                    borderRadius: 10,
-                    padding: '10px 18px',
-                    fontSize: 13,
-                    cursor: 'pointer',
-                    fontFamily: 'var(--font-body)',
-                    flex: 1,
-                  }}
+                  style={{ flex: 1 }}
                 >
                   Cancel
                 </button>
@@ -363,7 +354,7 @@ export default function Settings() {
 
         <p style={{
           fontSize: 11,
-          color: 'rgba(255,255,255,0.6)',
+          color: 'rgba(255,255,255,0.68)',
           textAlign: 'center',
           lineHeight: 1.8,
           paddingBottom: 8,
@@ -434,46 +425,16 @@ export default function Settings() {
 
             <div style={{ display: 'flex', gap: 12 }}>
               <button
+                className="btn btn-ghost"
                 onClick={handleDeclineConsent}
-                style={{
-                  flex: 1,
-                  background: 'none',
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  color: 'rgba(255,255,255,0.6)',
-                  borderRadius: 10,
-                  padding: '12px 16px',
-                  fontSize: 14,
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-body)',
-                  transition: 'border-color 0.15s, color 0.15s',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'
-                  e.currentTarget.style.color = 'rgba(255,255,255,0.9)'
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'
-                  e.currentTarget.style.color = 'rgba(255,255,255,0.6)'
-                }}
+                style={{ flex: 1 }}
               >
                 No Thanks
               </button>
               <button
+                className="btn btn-primary"
                 onClick={handleConsent}
-                style={{
-                  flex: 1,
-                  background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-                  border: 'none',
-                  color: 'var(--void)',
-                  borderRadius: 10,
-                  padding: '12px 16px',
-                  fontSize: 14,
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-body)',
-                  boxShadow: '0 2px 12px rgba(230,100,40,0.35)',
-                }}
+                style={{ flex: 1 }}
               >
                 I Consent
               </button>

@@ -88,7 +88,7 @@ export default function Results() {
           <span style={{
             fontFamily: 'var(--font-display)',
             fontSize: 32,
-            color: 'rgba(255,255,255,0.45)',
+            color: 'rgba(255,255,255,0.68)',
             marginBottom: 14,
           }}>
             /28
@@ -148,7 +148,7 @@ export default function Results() {
             }} />
           </div>
           {/* Zone names, width-matched to the cutoffs above */}
-          <div style={{ display: 'flex', fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.65)', marginBottom: 14 }}>
+          <div style={{ display: 'flex', fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.68)', marginBottom: 14 }}>
             <span style={{ width: `${(12.5 / 28) * 100}%`, textAlign: 'center' }}>Surviving</span>
             <span style={{ width: `${(4 / 28) * 100}%`, textAlign: 'center' }}>Striving</span>
             <span style={{ width: `${(5 / 28) * 100}%`, textAlign: 'center' }}>Driving</span>
@@ -171,7 +171,7 @@ export default function Results() {
 
       {/* Domain breakdown */}
       <div style={{ padding: '32px 24px 0' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.65)', marginBottom: 16 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.68)', marginBottom: 16 }}>
           By domain
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 32 }}>
@@ -190,10 +190,10 @@ export default function Results() {
                   <div style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.85)' }}>
                     {d.label}
                   </div>
-                  {d.sublabel && <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.55)', marginTop: 2 }}>{d.sublabel}</div>}
+                  {d.sublabel && <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.68)', marginTop: 2 }}>{d.sublabel}</div>}
                 </div>
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 700, color: '#fff' }}>
-                  {d.score}<span style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', fontWeight: 400 }}>/{d.max}</span>
+                  {d.score}<span style={{ fontSize: 12, color: 'rgba(255,255,255,0.68)', fontWeight: 400 }}>/{d.max}</span>
                 </span>
               </div>
               <div style={{ height: 4, background: 'rgba(255,255,255,0.08)', borderRadius: 2, overflow: 'hidden', marginBottom: 8 }}>
@@ -280,37 +280,18 @@ export default function Results() {
         </div>
 
         <button
+          className="btn btn-primary btn-block"
           onClick={() => navigate(triage ? '/triage' : '/village')}
           style={{
-            background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-            color: 'var(--void)',
-            border: 'none',
-            borderRadius: 14,
-            padding: '18px',
-            fontSize: 15,
-            fontWeight: 600,
-            cursor: 'pointer',
-            width: '100%',
-            fontFamily: 'var(--font-body)',
             marginBottom: 12,
-            boxShadow: '0 4px 20px rgba(212,160,60,0.3)',
-            letterSpacing: '0.03em',
           }}
         >
           {triage ? 'See Your Next Steps →' : 'Enter Econa Village →'}
         </button>
         <button
+          className="btn btn-ghost btn-block"
           onClick={() => navigate('/dashboard')}
           style={{
-            background: 'none',
-            border: '1px solid rgba(255,255,255,0.12)',
-            color: 'rgba(255,255,255,0.7)',
-            borderRadius: 14,
-            padding: '16px',
-            fontSize: 14,
-            cursor: 'pointer',
-            width: '100%',
-            fontFamily: 'var(--font-body)',
             marginBottom: 48,
           }}
         >

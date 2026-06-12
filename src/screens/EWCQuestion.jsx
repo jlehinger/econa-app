@@ -118,25 +118,12 @@ export default function EWCQuestion() {
       {/* Header */}
       <div style={{ padding: '20px 24px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <EconaLogo size="sm" />
-        <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.12em', fontFamily: 'var(--font-body)' }}>
+        <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', letterSpacing: '0.12em', fontFamily: 'var(--font-body)' }}>
           {idx + 1} / {TOTAL}
         </span>
         <button
+          className="btn btn-ghost"
           onClick={() => navigate('/dashboard')}
-          style={{
-            background: 'none',
-            border: '1px solid rgba(255,255,255,0.1)',
-            color: 'rgba(255,255,255,0.7)',
-            cursor: 'pointer',
-            fontSize: 11,
-            fontFamily: 'var(--font-body)',
-            padding: '5px 12px',
-            borderRadius: 100,
-            letterSpacing: '0.05em',
-            transition: 'color 0.15s, border-color 0.15s',
-          }}
-          onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
-          onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
         >
           Exit ✕
         </button>
@@ -178,7 +165,7 @@ export default function EWCQuestion() {
         {question.timeframe && (
           <p style={{
             fontSize: 11,
-            color: 'rgba(255,255,255,0.65)',
+            color: 'rgba(255,255,255,0.68)',
             letterSpacing: '0.05em',
             fontWeight: 600,
             marginBottom: 20,
@@ -196,7 +183,7 @@ export default function EWCQuestion() {
             padding: '14px 18px',
             marginBottom: 28,
           }}>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.65)', marginBottom: 10 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.68)', marginBottom: 10 }}>
               {question.context.label}
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 7 }}>
@@ -277,42 +264,21 @@ export default function EWCQuestion() {
         backdropFilter: 'blur(8px)',
       }}>
         <button
+          className="btn btn-ghost"
           onClick={handleBack}
-          style={{
-            background: 'none',
-            border: '1px solid rgba(255,255,255,0.12)',
-            color: 'rgba(255,255,255,0.7)',
-            borderRadius: 10,
-            padding: '11px 20px',
-            fontSize: 13,
-            cursor: 'pointer',
-            fontFamily: 'var(--font-body)',
-            letterSpacing: '0.03em',
-          }}
         >
           ← Back
         </button>
 
-        <span style={{ fontSize: 10, fontWeight: 600, color: 'rgba(255,255,255,0.65)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Private</span>
+        <span style={{ fontSize: 10, fontWeight: 600, color: 'rgba(255,255,255,0.68)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Private</span>
 
         <button
+          className="btn btn-primary"
           onClick={handleNext}
           disabled={selected === null}
           style={{
-            background: selected !== null
-              ? 'linear-gradient(135deg, var(--ember), var(--flame))'
-              : 'rgba(255,255,255,0.08)',
-            color: selected !== null ? 'var(--void)' : 'rgba(255,255,255,0.25)',
-            border: 'none',
-            borderRadius: 10,
-            padding: '11px 24px',
-            fontSize: 13,
-            fontWeight: 700,
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
+            opacity: selected !== null ? 1 : 0.4,
             cursor: selected !== null ? 'pointer' : 'not-allowed',
-            fontFamily: 'var(--font-body)',
-            transition: 'all 0.2s',
           }}
         >
           {idx === TOTAL - 1 ? 'Results →' : 'Next →'}

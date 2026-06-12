@@ -91,22 +91,8 @@ export default function ResultDetail() {
         borderBottom: '1px solid rgba(255,255,255,0.06)',
       }}>
         <button
+          className="btn btn-ghost"
           onClick={() => navigate('/history')}
-          style={{
-            background: 'none',
-            border: 'none',
-            color: 'rgba(255,255,255,0.7)',
-            cursor: 'pointer',
-            fontSize: 13,
-            fontFamily: 'var(--font-body)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 4,
-            padding: 0,
-            transition: 'color 0.15s',
-          }}
-          onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-          onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
         >
           ← History
         </button>
@@ -115,7 +101,7 @@ export default function ResultDetail() {
           fontSize: 11,
           fontWeight: 600,
           letterSpacing: '0.05em',
-          color: 'rgba(255,255,255,0.65)',
+          color: 'rgba(255,255,255,0.68)',
         }}>
           {idx === 0 ? 'Latest result' : 'Past result'}
         </div>
@@ -125,7 +111,7 @@ export default function ResultDetail() {
       <div style={{ padding: '24px 24px', flex: 1 }}>
         {/* Date + EconaLogo */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
-          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.02em' }}>
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.68)', letterSpacing: '0.02em' }}>
             {formatDate(entry.date)}
           </div>
           <EconaLogo size="sm" />
@@ -152,7 +138,7 @@ export default function ResultDetail() {
             }}>
               {entry.score}
             </span>
-            <span style={{ fontSize: 22, color: 'rgba(255,255,255,0.45)', marginBottom: 8 }}>/28</span>
+            <span style={{ fontSize: 22, color: 'rgba(255,255,255,0.68)', marginBottom: 8 }}>/28</span>
           </div>
           <div style={{
             fontFamily: 'var(--font-display)',
@@ -169,7 +155,7 @@ export default function ResultDetail() {
             <p style={{
               fontFamily: 'var(--font-editorial)',
               fontSize: 15,
-              color: 'rgba(255,255,255,0.62)',
+              color: 'rgba(255,255,255,0.82)',
               lineHeight: 1.75,
               fontWeight: 400,
             }}>
@@ -185,7 +171,7 @@ export default function ResultDetail() {
               fontSize: 11,
               fontWeight: 700,
               letterSpacing: '0.04em',
-              color: 'rgba(255,255,255,0.65)',
+              color: 'rgba(255,255,255,0.68)',
               marginBottom: 12,
             }}>
               By domain
@@ -210,12 +196,12 @@ export default function ResultDetail() {
                         fontSize: 11,
                         fontWeight: 700,
                         letterSpacing: '0.05em',
-                        color: 'rgba(255,255,255,0.65)',
+                        color: 'rgba(255,255,255,0.68)',
                       }}>
                         {d.label}
                       </span>
                       <span style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 700, color: '#fff' }}>
-                        {val}<span style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)', fontWeight: 400 }}>/{d.max}</span>
+                        {val}<span style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', fontWeight: 400 }}>/{d.max}</span>
                       </span>
                     </div>
                     <div style={{ height: 4, background: 'rgba(255,255,255,0.08)', borderRadius: 2, overflow: 'hidden' }}>
@@ -238,7 +224,7 @@ export default function ResultDetail() {
           fontSize: 11,
           fontWeight: 700,
           letterSpacing: '0.04em',
-          color: 'rgba(255,255,255,0.65)',
+          color: 'rgba(255,255,255,0.68)',
           marginBottom: 12,
         }}>
           Resources surfaced
@@ -282,21 +268,10 @@ export default function ResultDetail() {
         </div>
 
         <button
+          className="btn btn-primary btn-block"
           onClick={handleRetake}
           style={{
-            background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-            color: 'var(--void)',
-            border: 'none',
-            borderRadius: 14,
-            padding: '17px',
-            fontSize: 15,
-            fontWeight: 600,
-            cursor: 'pointer',
-            width: '100%',
-            fontFamily: 'var(--font-body)',
             marginBottom: 8,
-            boxShadow: '0 4px 20px rgba(212,160,60,0.28)',
-            letterSpacing: '0.03em',
           }}
         >
           Retake the Check →

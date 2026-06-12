@@ -42,28 +42,15 @@ export default function EWCIntro() {
       {/* Header row */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 32 }}>
         <button
+          className="btn btn-ghost"
           onClick={() => navigate('/dashboard')}
-          style={{
-            background: 'none',
-            border: '1px solid rgba(255,255,255,0.1)',
-            color: 'rgba(255,255,255,0.7)',
-            cursor: 'pointer',
-            fontSize: 11,
-            fontFamily: 'var(--font-body)',
-            padding: '5px 12px',
-            borderRadius: 100,
-            letterSpacing: '0.05em',
-            transition: 'color 0.15s, border-color 0.15s',
-          }}
-          onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
-          onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
         >
           ← Dashboard
         </button>
         <EconaLogo size="sm" />
       </div>
 
-      <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 36, fontStyle: 'italic', color: '#fff', margin: '24px 0 12px', fontWeight: 300, lineHeight: 1.15 }}>
+      <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 36, fontStyle: 'italic', color: '#fff', margin: '24px 0 12px', fontWeight: 400, lineHeight: 1.15 }}>
         The Entrepreneur<br />Wellbeing Check
       </div>
 
@@ -72,7 +59,7 @@ export default function EWCIntro() {
         {[['7', 'Questions'], ['~3 min', 'Duration'], ['3', 'Domains']].map(([n, l]) => (
           <div key={l}>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600, color: 'var(--flame)', lineHeight: 1 }}>{n}</div>
-            <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)', marginTop: 4 }}>{l}</div>
+            <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.68)', marginTop: 4 }}>{l}</div>
           </div>
         ))}
       </div>
@@ -86,7 +73,7 @@ export default function EWCIntro() {
         padding: '14px 16px',
         marginBottom: 36,
         fontSize: 13,
-        color: 'rgba(255,255,255,0.6)',
+        color: 'rgba(255,255,255,0.82)',
         lineHeight: 1.6,
       }}>
         <span style={{ color: 'var(--teal-light)', fontWeight: 600 }}>Anonymity is architectural, not a policy.</span>{' '}
@@ -94,7 +81,7 @@ export default function EWCIntro() {
       </div>
 
       {/* Domains */}
-      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 14 }}>
+      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 14 }}>
         3 domains measured
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 36 }}>
@@ -121,7 +108,7 @@ export default function EWCIntro() {
       </div>
 
       {/* Result bands */}
-      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 14 }}>
+      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 14 }}>
         Your result falls in one of 4 bands
       </div>
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 44 }}>
@@ -139,36 +126,22 @@ export default function EWCIntro() {
             }}
           >
             <span style={{ fontSize: 12, fontWeight: 600, color: b.color }}>{b.label}</span>
-            <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.6)' }}>{b.range}</span>
+            <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.68)' }}>{b.range}</span>
           </div>
         ))}
       </div>
 
       <button
+        className="btn btn-primary btn-block"
         onClick={handleBegin}
         style={{
-          background: 'linear-gradient(135deg, var(--ember) 0%, var(--flame) 60%, var(--spark) 100%)',
-          color: 'var(--void)',
-          border: 'none',
-          borderRadius: 14,
-          padding: '20px 32px',
-          fontSize: 16,
-          fontWeight: 600,
-          cursor: 'pointer',
-          letterSpacing: '0.04em',
-          fontFamily: 'var(--font-body)',
-          width: '100%',
           marginBottom: 20,
-          boxShadow: '0 4px 24px rgba(212,160,60,0.35)',
-          transition: 'transform 0.15s, box-shadow 0.15s',
         }}
-        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 6px 32px rgba(212,160,60,0.45)' }}
-        onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 4px 24px rgba(212,160,60,0.35)' }}
       >
         Begin the Check →
       </button>
 
-      <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', textAlign: 'center', lineHeight: 1.7 }}>
+      <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', textAlign: 'center', lineHeight: 1.7 }}>
         Freeman, Mazza, Johnson &amp; Heinz (2026).<br />
         Validated on 314 entrepreneurs across US, Canada, EU, UK &amp; Israel.
       </p>

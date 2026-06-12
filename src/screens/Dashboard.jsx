@@ -58,21 +58,9 @@ export default function Dashboard() {
         <EconaLogo size="sm" />
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <button
+            className="btn btn-ghost"
             onClick={() => navigate('/settings')}
             title="Settings"
-            style={{
-              background: 'none',
-              border: '1px solid rgba(255,255,255,0.1)',
-              color: 'rgba(255,255,255,0.7)',
-              cursor: 'pointer',
-              padding: '6px 8px',
-              borderRadius: 100,
-              display: 'flex',
-              alignItems: 'center',
-              transition: 'color 0.15s, border-color 0.15s',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
-            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.8" />
@@ -80,21 +68,8 @@ export default function Dashboard() {
             </svg>
           </button>
           <button
+            className="btn btn-ghost"
             onClick={handleLogout}
-            style={{
-              background: 'none',
-              border: '1px solid rgba(255,255,255,0.1)',
-              color: 'rgba(255,255,255,0.7)',
-              cursor: 'pointer',
-              fontSize: 11,
-              fontFamily: 'var(--font-body)',
-              padding: '6px 14px',
-              borderRadius: 100,
-              letterSpacing: '0.05em',
-              transition: 'color 0.15s, border-color 0.15s',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
-            onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
           >
             Sign out
           </button>
@@ -103,11 +78,11 @@ export default function Dashboard() {
 
       <div style={{ padding: '28px 24px', flex: 1 }}>
         {/* Greeting */}
-        <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 28, fontStyle: 'italic', color: '#fff', marginBottom: 4, fontWeight: 300 }}>
+        <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 28, fontStyle: 'italic', color: '#fff', marginBottom: 4, fontWeight: 400 }}>
           Welcome back
         </div>
         {user?.email && (
-          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', marginBottom: 32, letterSpacing: '0.02em' }}>
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.68)', marginBottom: 32, letterSpacing: '0.02em' }}>
             {user.email}
           </div>
         )}
@@ -122,7 +97,7 @@ export default function Dashboard() {
             padding: '24px 22px',
             marginBottom: 20,
           }}>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 12 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 12 }}>
               Latest result
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 8 }}>
@@ -136,7 +111,7 @@ export default function Dashboard() {
               }}>
                 {score}
               </span>
-              <span style={{ fontSize: 18, color: 'rgba(255,255,255,0.45)' }}>/28</span>
+              <span style={{ fontSize: 18, color: 'rgba(255,255,255,0.68)' }}>/28</span>
             </div>
             <div style={{
               fontFamily: 'var(--font-display)',
@@ -180,7 +155,7 @@ export default function Dashboard() {
             textAlign: 'center',
           }}>
             <div style={{ fontSize: 36, marginBottom: 16, opacity: 0.3 }}>✦</div>
-            <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 20, fontStyle: 'italic', color: '#fff', marginBottom: 8, fontWeight: 300 }}>
+            <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 20, fontStyle: 'italic', color: '#fff', marginBottom: 8, fontWeight: 400 }}>
               No results yet
             </div>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>
@@ -190,21 +165,10 @@ export default function Dashboard() {
         )}
 
         <button
+          className="btn btn-primary btn-block"
           onClick={handleRetake}
           style={{
-            background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-            color: 'var(--void)',
-            border: 'none',
-            borderRadius: 14,
-            padding: '17px',
-            fontSize: 15,
-            fontWeight: 600,
-            cursor: 'pointer',
-            width: '100%',
-            fontFamily: 'var(--font-body)',
             marginBottom: 36,
-            boxShadow: '0 4px 20px rgba(212,160,60,0.28)',
-            letterSpacing: '0.03em',
           }}
         >
           {history.length > 0 ? 'Retake the Check →' : 'Take the Check →'}
@@ -213,12 +177,12 @@ export default function Dashboard() {
         {/* Check History */}
         {history.length > 0 && (
           <>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 16 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 16 }}>
               Check history
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               {history.map((h, i) => {
-                const m = BAND_META[h.band] || { label: h.band, color: 'rgba(255,255,255,0.5)', bg: 'transparent' }
+                const m = BAND_META[h.band] || { label: h.band, color: 'rgba(255,255,255,0.68)', bg: 'transparent' }
                 return (
                   <div
                     key={i}
@@ -233,7 +197,7 @@ export default function Dashboard() {
                     }}
                   >
                     <div>
-                      <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', marginBottom: 4 }}>{formatDate(h.date)}</div>
+                      <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.68)', marginBottom: 4 }}>{formatDate(h.date)}</div>
                       <div style={{
                         display: 'inline-flex',
                         alignItems: 'center',
@@ -248,7 +212,7 @@ export default function Dashboard() {
                       </div>
                     </div>
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 700, color: m.color }}>
-                      {h.score}<span style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', fontWeight: 400 }}>/28</span>
+                      {h.score}<span style={{ fontSize: 13, color: 'rgba(255,255,255,0.68)', fontWeight: 400 }}>/28</span>
                     </div>
                   </div>
                 )

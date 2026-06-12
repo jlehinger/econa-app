@@ -63,14 +63,14 @@ export default function VillageWelcome() {
           fontSize: 24,
           fontStyle: 'italic',
           color: '#fff',
-          fontWeight: 300,
+          fontWeight: 400,
           lineHeight: 1.4,
           marginBottom: 14,
         }}>
           You're in the village now.
         </div>
 
-        <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', lineHeight: 1.75, maxWidth: 340, marginBottom: 40 }}>
+        <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.82)', lineHeight: 1.75, maxWidth: 340, marginBottom: 40 }}>
           You've completed your first EWC. Your score and item breakdown have unlocked your personal Econa Labs — tools matched to exactly where you are right now.
         </p>
 
@@ -84,7 +84,7 @@ export default function VillageWelcome() {
           marginBottom: 28,
           textAlign: 'left',
         }}>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 16 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 16 }}>
             Your membership
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -92,10 +92,10 @@ export default function VillageWelcome() {
               { label: 'Status', value: 'Village Member — Active', color: '#4CAF82' },
               { label: 'Access', value: 'Full — All Econa Labs + FounderScreen', color: '#fff' },
               { label: 'Free through', value: 'One year from today', color: '#fff' },
-              { label: 'After Year 1', value: '$30 / month', color: 'rgba(255,255,255,0.5)' },
+              { label: 'After Year 1', value: '$30 / month', color: 'rgba(255,255,255,0.82)' },
             ].map(row => (
               <div key={row.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', letterSpacing: '0.05em' }}>{row.label}</span>
+                <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.68)', letterSpacing: '0.05em' }}>{row.label}</span>
                 <span style={{ fontSize: 13, fontWeight: 600, color: row.color }}>{row.value}</span>
               </div>
             ))}
@@ -105,7 +105,7 @@ export default function VillageWelcome() {
         {/* First suggested lab */}
         {topLab && (
           <div style={{ width: '100%', marginBottom: 16 }}>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 12, textAlign: 'left' }}>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 12, textAlign: 'left' }}>
               Your highest-need lab
             </div>
             <button
@@ -143,25 +143,20 @@ export default function VillageWelcome() {
         )}
 
         <button
+          className="btn btn-primary btn-block"
           onClick={() => navigate('/labs')}
           style={{
-            background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-            color: 'var(--void)', border: 'none', borderRadius: 14, padding: '18px',
-            fontSize: 15, fontWeight: 600, cursor: 'pointer', width: '100%',
-            fontFamily: 'var(--font-body)', marginBottom: 12,
-            boxShadow: '0 4px 20px rgba(212,160,60,0.3)', letterSpacing: '0.03em',
+            marginBottom: 12,
           }}
         >
           Explore All My Labs →
         </button>
 
         <button
+          className="btn btn-ghost btn-block"
           onClick={() => navigate('/dashboard')}
           style={{
-            background: 'none', border: '1px solid rgba(255,255,255,0.12)',
-            color: 'rgba(255,255,255,0.7)', borderRadius: 14, padding: '16px',
-            fontSize: 14, cursor: 'pointer', width: '100%',
-            fontFamily: 'var(--font-body)', marginBottom: 40,
+            marginBottom: 40,
           }}
         >
           Go to Dashboard

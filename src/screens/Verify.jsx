@@ -35,7 +35,7 @@ export default function Verify() {
             fontStyle: 'italic',
             color: '#fff',
             margin: '28px 0 16px',
-            fontWeight: 300,
+            fontWeight: 400,
             lineHeight: 1.2,
           }}>
             Are you, or were you, the founder or co-founder of a company?
@@ -46,42 +46,14 @@ export default function Verify() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             <button
+              className="btn btn-primary btn-block"
               onClick={() => { setQualified(); setVerified(true); navigate('/demographics') }}
-              style={{
-                background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-                color: 'var(--void)',
-                border: 'none',
-                borderRadius: 14,
-                padding: '20px 28px',
-                fontSize: 16,
-                fontWeight: 600,
-                cursor: 'pointer',
-                fontFamily: 'var(--font-body)',
-                letterSpacing: '0.03em',
-                boxShadow: '0 4px 20px rgba(212,160,60,0.3)',
-                transition: 'transform 0.15s',
-              }}
-              onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-1px)'}
-              onMouseLeave={e => e.currentTarget.style.transform = ''}
             >
               Yes — I'm a founder
             </button>
             <button
+              className="btn btn-ghost btn-block"
               onClick={() => { setQualified(false); setIsQualified(false) }}
-              style={{
-                background: 'rgba(255,255,255,0.05)',
-                border: '1.5px solid rgba(255,255,255,0.12)',
-                color: 'rgba(255,255,255,0.6)',
-                borderRadius: 14,
-                padding: '18px 28px',
-                fontSize: 15,
-                fontWeight: 500,
-                cursor: 'pointer',
-                fontFamily: 'var(--font-body)',
-                transition: 'border-color 0.15s',
-              }}
-              onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'}
-              onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'}
             >
               No
             </button>
@@ -99,10 +71,10 @@ export default function Verify() {
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             marginBottom: 28, fontSize: 24,
           }}>✦</div>
-          <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 30, fontStyle: 'italic', color: '#fff', marginBottom: 16, fontWeight: 300 }}>
+          <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 30, fontStyle: 'italic', color: '#fff', marginBottom: 16, fontWeight: 400 }}>
             Not the right fit — yet.
           </div>
-          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, marginBottom: 48 }}>
+          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.82)', lineHeight: 1.8, marginBottom: 48 }}>
             Thank you for your interest in FounderScreen, however it's not the right platform for you because it is only valid for entrepreneurs.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>

@@ -242,7 +242,7 @@ function ModuleCard({ module }) {
           <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', fontFamily: 'var(--font-body)' }}>
             {module.title}
           </div>
-          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', marginTop: 2 }}>
+          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', marginTop: 2 }}>
             {module.sub}
           </div>
         </div>
@@ -349,16 +349,16 @@ export default function Resources() {
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: bandObj.color }} />
               <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: bandObj.color }}>{bandObj.label}</span>
             </div>
-            <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: '#fff', fontWeight: 300, marginBottom: 10, lineHeight: 1.3 }}>
+            <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: '#fff', fontWeight: 400, marginBottom: 10, lineHeight: 1.3 }}>
               {bandObj.headline}
             </div>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.7 }}>
               {bandObj.sub}
             </p>
           </div>
         )}
 
-        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.65)', marginBottom: 16 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 16 }}>
           {isStrain ? '3-step action plan' : 'Matched resources'}
         </div>
 
@@ -412,27 +412,16 @@ export default function Resources() {
         </div>
 
         <button
+          className="btn btn-primary btn-block"
           onClick={() => navigate('/dashboard')}
           style={{
-            background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-            color: 'var(--void)',
-            border: 'none',
-            borderRadius: 14,
-            padding: '18px',
-            fontSize: 15,
-            fontWeight: 600,
-            cursor: 'pointer',
-            width: '100%',
-            fontFamily: 'var(--font-body)',
             marginBottom: 48,
-            boxShadow: '0 4px 20px rgba(212,160,60,0.3)',
-            letterSpacing: '0.03em',
           }}
         >
           Go to Dashboard →
         </button>
 
-        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', textAlign: 'center', lineHeight: 1.8, paddingBottom: 16, letterSpacing: '0.04em' }}>
+        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', textAlign: 'center', lineHeight: 1.8, paddingBottom: 16, letterSpacing: '0.04em' }}>
           Econa · Global Center of Excellence<br />for Entrepreneur Mental Wellness
         </p>
       </div>

@@ -14,18 +14,12 @@ export default function ScreenWrapper({ children, showBack = false, backTo }) {
     }}>
       {showBack && (
         <button
+          className="btn btn-ghost"
           onClick={() => backTo ? navigate(backTo) : navigate(-1)}
           style={{
             position: 'absolute',
             top: 20,
             left: 20,
-            background: 'none',
-            border: 'none',
-            color: 'rgba(255,255,255,0.5)',
-            cursor: 'pointer',
-            fontSize: 14,
-            padding: '8px 0',
-            fontFamily: 'var(--font-body)',
           }}
         >
           ← Back

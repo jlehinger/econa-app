@@ -99,20 +99,11 @@ export default function Auth() {
       {FLAME_BAR}
 
       <button
+        className="btn btn-ghost"
         onClick={() => navigate('/')}
         style={{
-          background: 'none',
-          border: 'none',
-          color: 'rgba(255,255,255,0.7)',
-          cursor: 'pointer',
-          fontSize: 14,
-          padding: '0 0 36px',
-          fontFamily: 'var(--font-body)',
-          textAlign: 'left',
-          letterSpacing: '0.02em',
-          display: 'flex',
-          alignItems: 'center',
-          gap: 6,
+          alignSelf: 'flex-start',
+          marginBottom: 36,
         }}
       >
         ← Back
@@ -135,13 +126,13 @@ export default function Auth() {
             onClick={() => setMode(m)}
             style={{
               flex: 1,
-              background: mode === m ? 'linear-gradient(135deg, var(--ember), var(--flame))' : 'none',
+              background: mode === m ? 'var(--flame)' : 'transparent',
               border: 'none',
               borderRadius: 100,
               padding: '10px 0',
               fontSize: 13,
               fontWeight: 600,
-              color: mode === m ? 'var(--void)' : 'rgba(255,255,255,0.7)',
+              color: mode === m ? 'var(--void)' : 'rgba(255,255,255,0.82)',
               cursor: 'pointer',
               fontFamily: 'var(--font-body)',
               letterSpacing: '0.04em',
@@ -159,7 +150,7 @@ export default function Auth() {
         fontStyle: 'italic',
         color: '#fff',
         marginBottom: 8,
-        fontWeight: 300,
+        fontWeight: 400,
         lineHeight: 1.2,
       }}>
         {mode === 'create' ? 'Start your journey' : 'Welcome back'}
@@ -187,23 +178,12 @@ export default function Auth() {
 
         <button
           type="submit"
+          className="btn btn-primary btn-block"
           disabled={loading}
           style={{
-            background: loading
-              ? 'rgba(212,160,60,0.4)'
-              : 'linear-gradient(135deg, var(--ember) 0%, var(--flame) 60%, var(--spark) 100%)',
-            color: 'var(--void)',
-            border: 'none',
-            borderRadius: 12,
-            padding: '18px',
-            fontSize: 15,
-            fontWeight: 600,
-            cursor: loading ? 'not-allowed' : 'pointer',
-            letterSpacing: '0.04em',
-            fontFamily: 'var(--font-body)',
             marginTop: 8,
-            boxShadow: loading ? 'none' : '0 4px 20px rgba(212,160,60,0.3)',
-            transition: 'all 0.2s',
+            opacity: loading ? 0.6 : 1,
+            cursor: loading ? 'not-allowed' : 'pointer',
           }}
         >
           {loading ? 'One moment…' : mode === 'create' ? 'Create Account →' : 'Sign In →'}
@@ -250,7 +230,7 @@ export default function Auth() {
         marginTop: 'auto',
         paddingTop: 48,
         fontSize: 11,
-        color: 'rgba(255,255,255,0.6)',
+        color: 'rgba(255,255,255,0.68)',
         textAlign: 'center',
         lineHeight: 1.7,
       }}>

@@ -162,7 +162,7 @@ export default function History() {
           fontSize: 12,
           fontWeight: 600,
           letterSpacing: '0.04em',
-          color: 'rgba(255,255,255,0.65)',
+          color: 'rgba(255,255,255,0.68)',
         }}>
           Wellbeing history
         </div>
@@ -182,7 +182,7 @@ export default function History() {
               fontFamily: 'var(--font-editorial)',
               fontSize: 22,
               fontStyle: 'italic',
-              fontWeight: 300,
+              fontWeight: 400,
               color: '#fff',
               marginBottom: 10,
               lineHeight: 1.4,
@@ -193,19 +193,8 @@ export default function History() {
               Complete your first check to begin tracking your wellbeing over time.
             </p>
             <button
+              className="btn btn-primary"
               onClick={handleRetake}
-              style={{
-                background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-                color: 'var(--void)',
-                border: 'none',
-                borderRadius: 12,
-                padding: '14px 28px',
-                fontSize: 14,
-                fontWeight: 600,
-                cursor: 'pointer',
-                fontFamily: 'var(--font-body)',
-                boxShadow: '0 4px 20px rgba(212,160,60,0.28)',
-              }}
             >
               Take the Check →
             </button>
@@ -233,11 +222,11 @@ export default function History() {
                   fontSize: 11,
                   fontWeight: 600,
                   letterSpacing: '0.04em',
-                  color: 'rgba(255,255,255,0.65)',
+                  color: 'rgba(255,255,255,0.68)',
                 }}>
                   Score trend
                 </div>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.02em' }}>
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.68)', letterSpacing: '0.02em' }}>
                   out of 28
                 </div>
               </div>
@@ -263,21 +252,10 @@ export default function History() {
             </div>
 
             <button
+              className="btn btn-primary btn-block"
               onClick={handleRetake}
               style={{
-                background: 'linear-gradient(135deg, var(--ember), var(--flame))',
-                color: 'var(--void)',
-                border: 'none',
-                borderRadius: 14,
-                padding: '17px',
-                fontSize: 15,
-                fontWeight: 600,
-                cursor: 'pointer',
-                width: '100%',
-                fontFamily: 'var(--font-body)',
                 marginBottom: 32,
-                boxShadow: '0 4px 20px rgba(212,160,60,0.28)',
-                letterSpacing: '0.03em',
               }}
             >
               Retake the Check →
@@ -287,7 +265,7 @@ export default function History() {
               fontSize: 11,
               fontWeight: 700,
               letterSpacing: '0.04em',
-              color: 'rgba(255,255,255,0.65)',
+              color: 'rgba(255,255,255,0.68)',
               marginBottom: 14,
             }}>
               All assessments · {history.length} {history.length === 1 ? 'result' : 'results'}
@@ -331,7 +309,7 @@ export default function History() {
                             border: '1px solid rgba(212,160,60,0.2)',
                           }}>Latest</span>
                         )}
-                        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>{formatDate(entry.date)}</span>
+                        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.68)' }}>{formatDate(entry.date)}</span>
                       </div>
                       <div style={{
                         display: 'inline-flex',
@@ -349,7 +327,7 @@ export default function History() {
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                       <div style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 700, color: meta.color }}>
-                        {entry.score}<span style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', fontWeight: 400 }}>/28</span>
+                        {entry.score}<span style={{ fontSize: 13, color: 'rgba(255,255,255,0.68)', fontWeight: 400 }}>/28</span>
                       </div>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                         <path d="M9 18l6-6-6-6" stroke="rgba(255,255,255,0.2)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

@@ -36,7 +36,7 @@ export default function Splash() {
       }} />
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <EconaLogo size="lg" />
+        <EconaLogo size="lg" mark align="start" />
 
         <div style={{
           fontFamily: 'var(--font-editorial)',
@@ -45,7 +45,7 @@ export default function Splash() {
           color: '#fff',
           lineHeight: 1.15,
           margin: '28px 0 14px',
-          fontWeight: 300,
+          fontWeight: 400,
         }}>
           The Entrepreneur<br />Wellbeing Check
         </div>
@@ -63,7 +63,7 @@ export default function Splash() {
 
         <p style={{
           fontSize: 15,
-          color: 'rgba(255,255,255,0.55)',
+          color: 'rgba(255,255,255,0.82)',
           lineHeight: 1.8,
           marginBottom: 56,
           maxWidth: 340,
@@ -72,46 +72,19 @@ export default function Splash() {
         </p>
 
         <button
+          className="btn btn-primary btn-block"
           onClick={() => navigate(user ? '/dashboard' : '/auth')}
           style={{
-            background: 'linear-gradient(135deg, var(--ember) 0%, var(--flame) 60%, var(--spark) 100%)',
-            color: 'var(--void)',
-            border: 'none',
-            borderRadius: 14,
-            padding: '20px 32px',
-            fontSize: 16,
-            fontWeight: 600,
-            cursor: 'pointer',
-            letterSpacing: '0.04em',
-            fontFamily: 'var(--font-body)',
             marginBottom: 14,
-            width: '100%',
-            boxShadow: '0 4px 24px rgba(212,160,60,0.35)',
-            transition: 'transform 0.15s, box-shadow 0.15s',
           }}
-          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 6px 32px rgba(212,160,60,0.45)' }}
-          onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 4px 24px rgba(212,160,60,0.35)' }}
         >
           {user ? 'Go to Dashboard' : 'Take the Free Check'}
         </button>
 
         {!user && (
           <button
+            className="btn btn-secondary btn-block"
             onClick={() => navigate('/auth?mode=login')}
-            style={{
-              background: 'none',
-              border: '1px solid rgba(255,255,255,0.12)',
-              color: 'rgba(255,255,255,0.5)',
-              borderRadius: 14,
-              padding: '18px 32px',
-              fontSize: 15,
-              cursor: 'pointer',
-              fontFamily: 'var(--font-body)',
-              width: '100%',
-              transition: 'border-color 0.15s, color 0.15s',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'; e.currentTarget.style.color = '#fff' }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = 'rgba(255,255,255,0.5)' }}
           >
             Sign In
           </button>
@@ -121,7 +94,7 @@ export default function Splash() {
       <div style={{
         textAlign: 'center',
         fontSize: 11,
-        color: 'rgba(255,255,255,0.6)',
+        color: 'rgba(255,255,255,0.68)',
         letterSpacing: '0.04em',
         lineHeight: 2,
       }}>
