@@ -16,7 +16,7 @@ export default function Splash() {
   return (
     <div style={{
       minHeight: '100dvh',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       display: 'flex',
       flexDirection: 'column',
       maxWidth: '480px',
@@ -36,37 +36,37 @@ export default function Splash() {
       }} />
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <EconaLogo size="lg" mark align="start" />
+        <EconaLogo size="xl" mark align="start" variant="color" />
 
         <div style={{
           fontFamily: 'var(--font-editorial)',
-          fontSize: 'clamp(36px, 10vw, 48px)',
+          fontSize: 'clamp(40px, 11vw, 54px)',
           fontStyle: 'italic',
-          color: '#fff',
-          lineHeight: 1.15,
-          margin: '28px 0 14px',
-          fontWeight: 400,
+          color: 'var(--ink)',
+          lineHeight: 1.12,
+          margin: '32px 0 16px',
+          fontWeight: 500,
         }}>
           The Entrepreneur<br />Wellbeing Check
         </div>
 
         <div style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 11,
-          fontWeight: 600,
-          letterSpacing: '0.05em',
-          color: 'var(--flame)',
+          fontSize: 15,
+          fontWeight: 700,
+          letterSpacing: '0.04em',
+          color: 'var(--flame-bright)',
           marginBottom: 36,
         }}>
           7 questions · 3 minutes · Free
         </div>
 
         <p style={{
-          fontSize: 15,
-          color: 'rgba(255,255,255,0.82)',
-          lineHeight: 1.8,
+          fontSize: 19,
+          color: 'var(--ink-soft)',
+          lineHeight: 1.7,
           marginBottom: 56,
-          maxWidth: 340,
+          maxWidth: 380,
         }}>
           A scientifically validated screening tool that tells you where you stand — and connects you with resources matched to where you actually are.
         </p>
@@ -93,9 +93,9 @@ export default function Splash() {
 
       <div style={{
         textAlign: 'center',
-        fontSize: 11,
-        color: 'rgba(255,255,255,0.68)',
-        letterSpacing: '0.04em',
+        fontSize: 14,
+        color: 'var(--ink-muted)',
+        letterSpacing: '0.03em',
         lineHeight: 2,
       }}>
         Built by Econa<br />

@@ -38,7 +38,7 @@ export default function Dashboard() {
   return (
     <div style={{
       minHeight: '100dvh',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       display: 'flex',
       flexDirection: 'column',
       maxWidth: '480px',
@@ -53,9 +53,9 @@ export default function Dashboard() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        borderBottom: '1px solid var(--hairline)',
       }}>
-        <EconaLogo size="sm" />
+        <EconaLogo size="md" mark variant="color" />
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <button
             className="btn btn-ghost"
@@ -78,11 +78,11 @@ export default function Dashboard() {
 
       <div style={{ padding: '28px 24px', flex: 1 }}>
         {/* Greeting */}
-        <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 28, fontStyle: 'italic', color: '#fff', marginBottom: 4, fontWeight: 400 }}>
+        <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 28, fontStyle: 'italic', color: 'var(--ink)', marginBottom: 4, fontWeight: 400 }}>
           Welcome back
         </div>
         {user?.email && (
-          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.68)', marginBottom: 32, letterSpacing: '0.02em' }}>
+          <div style={{ fontSize: 15, color: 'var(--ink-muted)', marginBottom: 32, letterSpacing: '0.02em' }}>
             {user.email}
           </div>
         )}
@@ -90,14 +90,15 @@ export default function Dashboard() {
         {/* Latest result card */}
         {latestBand ? (
           <div style={{
-            background: `linear-gradient(135deg, ${latestBand.bg}, rgba(255,255,255,0.03))`,
-            border: `1px solid ${latestBand.color}25`,
+            background: `linear-gradient(135deg, ${latestBand.bg}, var(--surface-2))`,
+            border: '1px solid var(--hairline)',
             borderLeft: `3px solid ${latestBand.color}`,
             borderRadius: 14,
             padding: '24px 22px',
             marginBottom: 20,
+            boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
           }}>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 12 }}>
+            <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.04em', color: 'var(--ink-muted)', marginBottom: 12 }}>
               Latest result
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 8 }}>
@@ -111,7 +112,7 @@ export default function Dashboard() {
               }}>
                 {score}
               </span>
-              <span style={{ fontSize: 18, color: 'rgba(255,255,255,0.68)' }}>/28</span>
+              <span style={{ fontSize: 18, color: 'var(--ink-muted)' }}>/28</span>
             </div>
             <div style={{
               fontFamily: 'var(--font-display)',
@@ -147,18 +148,19 @@ export default function Dashboard() {
           </div>
         ) : (
           <div style={{
-            background: 'rgba(255,255,255,0.04)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            background: 'var(--surface-2)',
+            border: '1px solid var(--hairline)',
             borderRadius: 14,
             padding: '32px 22px',
             marginBottom: 20,
             textAlign: 'center',
+            boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
           }}>
             <div style={{ fontSize: 36, marginBottom: 16, opacity: 0.3 }}>✦</div>
-            <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 20, fontStyle: 'italic', color: '#fff', marginBottom: 8, fontWeight: 400 }}>
+            <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 20, fontStyle: 'italic', color: 'var(--ink)', marginBottom: 8, fontWeight: 400 }}>
               No results yet
             </div>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>
+            <p style={{ fontSize: 16, color: 'var(--ink-muted)', lineHeight: 1.7 }}>
               Take the free 3-minute check to see where you stand.
             </p>
           </div>
@@ -177,12 +179,12 @@ export default function Dashboard() {
         {/* Check History */}
         {history.length > 0 && (
           <>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 16 }}>
+            <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.04em', color: 'var(--ink-muted)', marginBottom: 16 }}>
               Check history
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               {history.map((h, i) => {
-                const m = BAND_META[h.band] || { label: h.band, color: 'rgba(255,255,255,0.68)', bg: 'transparent' }
+                const m = BAND_META[h.band] || { label: h.band, color: 'var(--ink-muted)', bg: 'transparent' }
                 return (
                   <div
                     key={i}
@@ -190,14 +192,15 @@ export default function Dashboard() {
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
-                      background: i === 0 ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(255,255,255,0.07)',
+                      background: 'var(--surface-2)',
+                      border: '1px solid var(--hairline)',
                       borderRadius: 12,
                       padding: '14px 18px',
+                      boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
                     }}
                   >
                     <div>
-                      <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.68)', marginBottom: 4 }}>{formatDate(h.date)}</div>
+                      <div style={{ fontSize: 15, color: 'var(--ink-muted)', marginBottom: 4 }}>{formatDate(h.date)}</div>
                       <div style={{
                         display: 'inline-flex',
                         alignItems: 'center',
@@ -208,11 +211,11 @@ export default function Dashboard() {
                         padding: '3px 10px',
                       }}>
                         <div style={{ width: 5, height: 5, borderRadius: '50%', background: m.color }} />
-                        <span style={{ fontSize: 11, fontWeight: 600, color: m.color }}>{m.label}</span>
+                        <span style={{ fontSize: 14, fontWeight: 600, color: m.color }}>{m.label}</span>
                       </div>
                     </div>
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 700, color: m.color }}>
-                      {h.score}<span style={{ fontSize: 13, color: 'rgba(255,255,255,0.68)', fontWeight: 400 }}>/28</span>
+                      {h.score}<span style={{ fontSize: 16, color: 'var(--ink-muted)', fontWeight: 400 }}>/28</span>
                     </div>
                   </div>
                 )

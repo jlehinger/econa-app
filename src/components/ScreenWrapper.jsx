@@ -7,7 +7,7 @@ export default function ScreenWrapper({ children, showBack = false, backTo }) {
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       maxWidth: '480px',
       margin: '0 auto',
       position: 'relative',

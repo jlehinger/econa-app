@@ -46,7 +46,7 @@ export default function PerceivedNeedForCare() {
   return (
     <div style={{
       minHeight: '100dvh',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       display: 'flex',
       flexDirection: 'column',
       maxWidth: '480px',
@@ -63,11 +63,11 @@ export default function PerceivedNeedForCare() {
         >
           ← Your Business
         </button>
-        <EconaLogo size="sm" />
+        <EconaLogo size="md" mark variant="color" />
       </div>
 
       {/* Eyebrow */}
-      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.68)', marginBottom: 20 }}>
+      <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--ink-muted)', marginBottom: 20 }}>
         Before You Begin
       </div>
 
@@ -75,7 +75,7 @@ export default function PerceivedNeedForCare() {
       <div style={{
         fontFamily: 'var(--font-editorial)',
         fontSize: 28,
-        color: '#fff',
+        color: 'var(--ink)',
         fontWeight: 400,
         lineHeight: 1.3,
         marginBottom: 40,
@@ -94,30 +94,31 @@ export default function PerceivedNeedForCare() {
               aria-checked={isSelected}
               onClick={() => setSelected(value)}
               style={{
-                background: isSelected ? 'rgba(212,160,60,0.1)' : 'rgba(255,255,255,0.04)',
+                background: 'var(--surface-2)',
                 border: isSelected
                   ? '2px solid var(--flame)'
-                  : '1.5px solid rgba(255,255,255,0.09)',
+                  : '1px solid var(--hairline)',
                 borderRadius: 14,
                 padding: '20px 22px',
                 cursor: 'pointer',
                 fontFamily: 'var(--font-body)',
-                fontSize: 15,
+                fontSize: 18,
                 fontWeight: isSelected ? 600 : 400,
-                color: isSelected ? '#fff' : 'rgba(255,255,255,0.68)',
+                color: isSelected ? 'var(--ink)' : 'var(--ink-soft)',
                 textAlign: 'left',
                 transition: 'all 0.15s',
+                boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
               }}
               onMouseEnter={e => {
                 if (!isSelected) {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'
-                  e.currentTarget.style.color = '#fff'
+                  e.currentTarget.style.borderColor = 'var(--flame)'
+                  e.currentTarget.style.color = 'var(--ink)'
                 }
               }}
               onMouseLeave={e => {
                 if (!isSelected) {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)'
-                  e.currentTarget.style.color = 'rgba(255,255,255,0.68)'
+                  e.currentTarget.style.borderColor = 'var(--hairline)'
+                  e.currentTarget.style.color = 'var(--ink-soft)'
                 }
               }}
             >
@@ -138,7 +139,7 @@ export default function PerceivedNeedForCare() {
           marginBottom: 32,
         }}>
           <div style={{
-            fontSize: 12,
+            fontSize: 15,
             fontWeight: 700,
             letterSpacing: '0.15em',
             textTransform: 'uppercase',
@@ -154,16 +155,16 @@ export default function PerceivedNeedForCare() {
               <div
                 key={resource.title}
                 style={{
-                  background: 'rgba(255,255,255,0.04)',
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  background: 'var(--surface-2)',
+                  border: '1px solid var(--hairline)',
                   borderRadius: 10,
                   padding: '14px 16px',
                 }}
               >
-                <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', marginBottom: 4, fontFamily: 'var(--font-body)' }}>
+                <div style={{ fontSize: 17, fontWeight: 600, color: 'var(--ink)', marginBottom: 4, fontFamily: 'var(--font-body)' }}>
                   {resource.title}
                 </div>
-                <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.82)', lineHeight: 1.5, marginBottom: 10, fontFamily: 'var(--font-body)' }}>
+                <div style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.5, marginBottom: 10, fontFamily: 'var(--font-body)' }}>
                   {resource.body}
                 </div>
                 <a
@@ -171,7 +172,7 @@ export default function PerceivedNeedForCare() {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
-                    fontSize: 12,
+                    fontSize: 15,
                     fontWeight: 600,
                     color: 'var(--teal)',
                     textDecoration: 'none',

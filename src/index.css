@@ -1,26 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cinzel:wght@500;600;700&display=swap');
 
 :root {
-  --void:        #0F2B4C;
+  /* ── Brand palette ── */
+  --void:        #0F2B4C;   /* deep navy — now the TEXT color, not the bg */
   --ember:       #E07B54;
   --flame:       #D4A03C;
-  /* Brighter, higher-contrast gold for text/accents on dark navy (readability) */
-  --flame-bright:#F0B847;
+  --flame-bright:#C88A1E;   /* gold dark enough to read as text on white */
   --spark:       #D4BB71;
-  --teal:        #2874A6;
-  --teal-light:  #5DADE2;
-  --vitality:    #4CAF82;
-  --distress:    #E05252;
+  --teal:        #1F6FA0;
+  --teal-light:  #2E86C1;
+  --vitality:    #2E9E6B;
+  --distress:    #C0392B;
   --ivory:       #FAF8F4;
   --paper:       #F0EDE7;
   --mist:        #E8E4DE;
-  --text:        #2D2B3D;
-  --text-light:  #5D5A72;
 
-  /* Readable text floors on the dark navy bg — no more sub-0.6 white */
-  --ink-on-dark:        #FFFFFF;
-  --ink-on-dark-soft:   rgba(255,255,255,0.82);
-  --ink-on-dark-muted:  rgba(255,255,255,0.68);
+  /* ── LIGHT THEME surfaces & ink (Dr. Freeman: navy on white, large & legible) ── */
+  --surface:     #F7F5F0;   /* warm off-white page background */
+  --surface-2:   #FFFFFF;   /* cards / panels */
+  --ink:         #0F2B4C;   /* primary navy text — max contrast on white */
+  --ink-soft:    rgba(15,43,76,0.82);
+  --ink-muted:   rgba(15,43,76,0.62);
+  --hairline:    rgba(15,43,76,0.14);
+
+  /* legacy aliases (kept so older inline styles still resolve) */
+  --text:        #0F2B4C;
+  --text-light:  rgba(15,43,76,0.62);
+  --ink-on-dark:        #0F2B4C;
+  --ink-on-dark-soft:   rgba(15,43,76,0.82);
+  --ink-on-dark-muted:  rgba(15,43,76,0.62);
 
   --font-display:   'Inter', -apple-system, sans-serif;
   --font-editorial: 'Libre Franklin', -apple-system, sans-serif;
@@ -35,12 +43,12 @@
 .btn {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 16px;
-  letter-spacing: 0.02em;
+  font-size: 18px;
+  letter-spacing: 0.01em;
   border-radius: 14px;
-  padding: 18px 32px;
+  padding: 20px 34px;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 2.5px solid transparent;
   transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
   display: inline-flex;
   align-items: center;
@@ -55,28 +63,30 @@
   background:
     linear-gradient(#E8AE42, #E8AE42) padding-box,
     linear-gradient(135deg, var(--ember), var(--flame), var(--spark)) border-box;
-  box-shadow: 0 4px 20px rgba(212,160,60,0.30);
+  box-shadow: 0 6px 22px rgba(212,160,60,0.28);
   font-weight: 700;
 }
-.btn-primary:hover { filter: brightness(1.05); box-shadow: 0 6px 28px rgba(212,160,60,0.42); }
+.btn-primary:hover { filter: brightness(1.04); box-shadow: 0 8px 30px rgba(212,160,60,0.40); }
 
-/* Secondary: transparent fill, gradient border, white text */
+/* Secondary: white fill, gradient gold border, navy text */
 .btn-secondary {
-  color: var(--ink-on-dark);
+  color: var(--ink);
   background:
-    linear-gradient(rgba(15,43,76,0.4), rgba(15,43,76,0.4)) padding-box,
+    linear-gradient(#fff, #fff) padding-box,
     linear-gradient(135deg, var(--ember), var(--flame), var(--spark)) border-box;
+  box-shadow: 0 3px 14px rgba(15,43,76,0.06);
+  font-weight: 700;
 }
-.btn-secondary:hover { filter: brightness(1.12); }
+.btn-secondary:hover { filter: brightness(0.98); box-shadow: 0 5px 20px rgba(15,43,76,0.10); }
 
-/* Ghost: quiet outline for tertiary actions (back/exit) */
+/* Ghost: quiet navy outline for tertiary actions (back/exit) */
 .btn-ghost {
-  color: var(--ink-on-dark-soft);
+  color: var(--ink-soft);
   background: transparent;
-  border: 1.5px solid rgba(255,255,255,0.22);
-  font-weight: 500;
+  border: 1.5px solid var(--hairline);
+  font-weight: 600;
 }
-.btn-ghost:hover { border-color: rgba(255,255,255,0.45); color: #fff; }
+.btn-ghost:hover { border-color: rgba(15,43,76,0.4); color: var(--ink); }
 
 .btn-block { width: 100%; }
 
@@ -87,7 +97,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 18px; /* Bumped 16→18 so rem-based type scales up everywhere */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* Prevent font size inflation on iOS */
@@ -96,10 +106,11 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--void);
-  color: #fff;
+  background: var(--surface);
+  color: var(--ink);
   min-height: 100dvh;
   overscroll-behavior: none;
+  line-height: 1.6;
 }
 
 /* Hide scrollbar on mobile for a native app feel */
@@ -130,9 +141,9 @@ input:focus:not(:focus-visible) {
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 1000px rgba(15, 43, 76, 0.95) inset;
-  -webkit-text-fill-color: #fff;
-  caret-color: var(--flame);
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
+  -webkit-text-fill-color: var(--ink);
+  caret-color: var(--flame-bright);
 }
 
 /* PWA safe area support */

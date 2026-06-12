@@ -36,7 +36,7 @@ export default function Results() {
   return (
     <div style={{
       minHeight: '100dvh',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       display: 'flex',
       flexDirection: 'column',
       maxWidth: '480px',
@@ -48,14 +48,14 @@ export default function Results() {
       <div style={{
         padding: '52px 28px 40px',
         textAlign: 'center',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        borderBottom: '1px solid var(--hairline)',
         background: `radial-gradient(ellipse at 50% 0%, ${band.color}18 0%, transparent 70%)`,
       }}>
-        <EconaLogo size="sm" />
+        <EconaLogo size="md" mark variant="color" />
 
         <div style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 12,
+          fontSize: 15,
           fontWeight: 600,
           letterSpacing: '0.05em',
           color: 'var(--teal-light)',
@@ -88,7 +88,7 @@ export default function Results() {
           <span style={{
             fontFamily: 'var(--font-display)',
             fontSize: 32,
-            color: 'rgba(255,255,255,0.68)',
+            color: 'var(--ink-muted)',
             marginBottom: 14,
           }}>
             /28
@@ -128,8 +128,8 @@ export default function Results() {
                 left: `${(cut / 28) * 100}%`,
                 width: 2,
                 height: 16,
-                background: 'var(--void)',
-                boxShadow: '0 0 0 1px rgba(255,255,255,0.9)',
+                background: 'var(--surface)',
+                boxShadow: '0 0 0 1px rgba(15,43,76,0.5)',
               }} />
             ))}
             {/* Marker dot — positioned by actual score so it lands inside its named zone */}
@@ -141,14 +141,14 @@ export default function Results() {
               width: 22,
               height: 22,
               borderRadius: '50%',
-              background: '#fff',
+              background: 'var(--surface-2)',
               border: `3px solid ${band.color}`,
-              boxShadow: `0 0 0 4px ${band.color}40, 0 2px 8px rgba(0,0,0,0.4)`,
+              boxShadow: `0 0 0 4px ${band.color}40, 0 2px 8px rgba(15,43,76,0.25)`,
               transition: 'left 1s cubic-bezier(0.4,0,0.2,1)',
             }} />
           </div>
           {/* Zone names, width-matched to the cutoffs above */}
-          <div style={{ display: 'flex', fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.68)', marginBottom: 14 }}>
+          <div style={{ display: 'flex', fontSize: 12, fontWeight: 600, color: 'var(--ink-muted)', marginBottom: 14 }}>
             <span style={{ width: `${(12.5 / 28) * 100}%`, textAlign: 'center' }}>Surviving</span>
             <span style={{ width: `${(4 / 28) * 100}%`, textAlign: 'center' }}>Striving</span>
             <span style={{ width: `${(5 / 28) * 100}%`, textAlign: 'center' }}>Driving</span>
@@ -157,9 +157,9 @@ export default function Results() {
           {/* Text caption — the score readable with zero reliance on color */}
           <span style={{
             display: 'inline-block',
-            background: '#fff',
-            color: 'var(--void)',
-            fontSize: 12,
+            background: 'var(--ink)',
+            color: 'var(--surface)',
+            fontSize: 15,
             fontWeight: 700,
             padding: '5px 14px',
             borderRadius: 100,
@@ -171,7 +171,7 @@ export default function Results() {
 
       {/* Domain breakdown */}
       <div style={{ padding: '32px 24px 0' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.68)', marginBottom: 16 }}>
+        <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.05em', color: 'var(--ink-muted)', marginBottom: 16 }}>
           By domain
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 32 }}>
@@ -179,24 +179,25 @@ export default function Results() {
             <div
               key={d.label}
               style={{
-                background: 'rgba(255,255,255,0.04)',
+                background: 'var(--surface-2)',
                 borderRadius: 12,
                 padding: '16px 18px',
-                border: '1px solid rgba(255,255,255,0.07)',
+                border: '1px solid var(--hairline)',
+                boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 10 }}>
                 <div>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.85)' }}>
+                  <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--ink)' }}>
                     {d.label}
                   </div>
-                  {d.sublabel && <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.68)', marginTop: 2 }}>{d.sublabel}</div>}
+                  {d.sublabel && <div style={{ fontSize: 13, color: 'var(--ink-muted)', marginTop: 2 }}>{d.sublabel}</div>}
                 </div>
-                <span style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 700, color: '#fff' }}>
-                  {d.score}<span style={{ fontSize: 12, color: 'rgba(255,255,255,0.68)', fontWeight: 400 }}>/{d.max}</span>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 700, color: 'var(--ink)' }}>
+                  {d.score}<span style={{ fontSize: 15, color: 'var(--ink-muted)', fontWeight: 400 }}>/{d.max}</span>
                 </span>
               </div>
-              <div style={{ height: 4, background: 'rgba(255,255,255,0.08)', borderRadius: 2, overflow: 'hidden', marginBottom: 8 }}>
+              <div style={{ height: 4, background: 'var(--hairline)', borderRadius: 2, overflow: 'hidden', marginBottom: 8 }}>
                 <div style={{
                   height: '100%',
                   width: animated ? `${(d.score / d.max) * 100}%` : '0%',
@@ -205,7 +206,7 @@ export default function Results() {
                   transition: 'width 1.2s ease 0.3s',
                 }} />
               </div>
-              <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>{d.desc}</p>
+              <p style={{ fontSize: 14, color: 'var(--ink-soft)', lineHeight: 1.6 }}>{d.desc}</p>
             </div>
           ))}
         </div>
@@ -221,17 +222,17 @@ export default function Results() {
             marginBottom: 20,
           }}>
             <div style={{
-              fontSize: 12,
+              fontSize: 15,
               fontWeight: 700,
               letterSpacing: '0.04em',
-              color: 'var(--flame)',
+              color: 'var(--flame-bright)',
               marginBottom: 10,
             }}>
               A note about your score
             </div>
             <p style={{
-              fontSize: 14,
-              color: 'rgba(255,255,255,0.75)',
+              fontSize: 17,
+              color: 'var(--ink-soft)',
               lineHeight: 1.75,
               margin: 0,
             }}>
@@ -242,7 +243,7 @@ export default function Results() {
                 onClick={() => navigate('/triage')}
                 onKeyDown={(e) => e.key === 'Enter' && navigate('/triage')}
                 style={{
-                  color: 'var(--flame)',
+                  color: 'var(--flame-bright)',
                   textDecoration: 'underline',
                   cursor: 'pointer',
                   fontWeight: 600,
@@ -257,21 +258,22 @@ export default function Results() {
 
         {/* What this means */}
         <div style={{
-          background: `linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))`,
-          border: `1px solid ${band.color}25`,
+          background: 'var(--surface-2)',
+          border: '1px solid var(--hairline)',
           borderLeft: `3px solid ${band.color}`,
           borderRadius: 12,
           padding: '22px 20px',
           marginBottom: 32,
+          boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
         }}>
-          <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.04em', color: band.color, marginBottom: 12 }}>
+          <div style={{ fontSize: 15, fontWeight: 700, letterSpacing: '0.04em', color: band.color, marginBottom: 12 }}>
             What this means
           </div>
           {/* The most-read paragraph in the app: upright, weight ≥400 (dyslexia-friendly) */}
           <p style={{
             fontFamily: 'var(--font-editorial)',
-            fontSize: 17,
-            color: 'rgba(255,255,255,0.85)',
+            fontSize: 18,
+            color: 'var(--ink-soft)',
             lineHeight: 1.75,
             fontWeight: 400,
           }}>
@@ -299,7 +301,7 @@ export default function Results() {
         </button>
 
         {/* Clinical disclaimer — must stay readable (≥0.70 opacity ≈ 5.3:1 on void) */}
-        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', textAlign: 'center', lineHeight: 1.7, paddingBottom: 32 }}>
+        <p style={{ fontSize: 14, color: 'var(--ink-muted)', textAlign: 'center', lineHeight: 1.7, paddingBottom: 32 }}>
           This is a screening instrument, not a clinical diagnostic.<br />
           Results are for your personal awareness only.
         </p>

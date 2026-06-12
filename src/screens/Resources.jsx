@@ -152,9 +152,10 @@ const STRAIN_MODULES = [
 function StandardCard({ r }) {
   return (
     <div style={{
-      background: r.highlight ? `${r.color}08` : 'rgba(255,255,255,0.04)',
-      border: r.highlight ? `1px solid ${r.color}35` : '1px solid rgba(255,255,255,0.07)',
+      background: 'var(--surface-2)',
+      border: '1px solid var(--hairline)',
       borderLeft: r.highlight ? `3px solid ${r.color}` : undefined,
+      boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
       borderRadius: 14,
       padding: '20px 20px',
     }}>
@@ -171,10 +172,10 @@ function StandardCard({ r }) {
       }}>
         <div style={{ width: 10, height: 10, borderRadius: '50%', background: r.color, opacity: 0.8 }} />
       </div>
-      <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, letterSpacing: '0.06em', color: '#fff', marginBottom: 8 }}>
+      <div style={{ fontFamily: 'var(--font-display)', fontSize: 17, letterSpacing: '0.06em', color: 'var(--ink)', marginBottom: 8 }}>
         {r.title}
       </div>
-      <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', lineHeight: 1.65, marginBottom: 16 }}>
+      <p style={{ fontSize: 16, color: 'var(--ink-soft)', lineHeight: 1.65, marginBottom: 16 }}>
         {r.body}
       </p>
       <a
@@ -185,7 +186,7 @@ function StandardCard({ r }) {
           display: 'inline-flex',
           alignItems: 'center',
           gap: 4,
-          fontSize: 11,
+          fontSize: 14,
           fontWeight: 700,
           letterSpacing: '0.05em',
           color: r.color,
@@ -202,8 +203,10 @@ function ModuleCard({ module }) {
   const [expanded, setExpanded] = useState(true)
   return (
     <div style={{
-      background: 'rgba(255,255,255,0.04)',
-      border: `1px solid ${module.color}25`,
+      background: 'var(--surface-2)',
+      border: '1px solid var(--hairline)',
+      borderLeft: `3px solid ${module.color}`,
+      boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
       borderRadius: 14,
       overflow: 'hidden',
     }}>
@@ -239,10 +242,10 @@ function ModuleCard({ module }) {
           {module.step}
         </div>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', fontFamily: 'var(--font-body)' }}>
+          <div style={{ fontSize: 17, fontWeight: 600, color: 'var(--ink)', fontFamily: 'var(--font-body)' }}>
             {module.title}
           </div>
-          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', marginTop: 2 }}>
+          <div style={{ fontSize: 14, color: 'var(--ink-muted)', marginTop: 2 }}>
             {module.sub}
           </div>
         </div>
@@ -253,12 +256,12 @@ function ModuleCard({ module }) {
           fill="none"
           style={{ flexShrink: 0, transform: expanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}
         >
-          <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,0.3)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M6 9l6 6 6-6" stroke="rgba(15,43,76,0.4)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
 
       {expanded && (
-        <div style={{ padding: '0 20px 20px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        <div style={{ padding: '0 20px 20px', borderTop: '1px solid var(--hairline)' }}>
           <div style={{ paddingTop: 16, display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 16 }}>
             {module.bullets.map((bullet, i) => (
               <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
@@ -276,7 +279,7 @@ function ModuleCard({ module }) {
                 }}>
                   <div style={{ width: 5, height: 5, borderRadius: '50%', background: module.color }} />
                 </div>
-                <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.72)', lineHeight: 1.6 }}>
+                <span style={{ fontSize: 16, color: 'var(--ink-soft)', lineHeight: 1.6 }}>
                   {bullet}
                 </span>
               </div>
@@ -287,7 +290,7 @@ function ModuleCard({ module }) {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              fontSize: 11,
+              fontSize: 14,
               fontWeight: 700,
               letterSpacing: '0.05em',
               color: module.color,
@@ -315,7 +318,7 @@ export default function Resources() {
   return (
     <div style={{
       minHeight: '100dvh',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       display: 'flex',
       flexDirection: 'column',
       maxWidth: '480px',
@@ -325,13 +328,14 @@ export default function Resources() {
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--ember), var(--flame), var(--spark))', zIndex: 200 }} />
 
       <div style={{ padding: '48px 28px 0' }}>
-        <EconaLogo size="sm" />
+        <EconaLogo size="md" mark variant="color" />
 
         {bandObj && (
           <div style={{
-            background: `radial-gradient(ellipse at 0% 0%, ${bandObj.color}18, transparent 70%)`,
-            border: `1px solid ${bandObj.color}25`,
+            background: 'var(--surface-2)',
+            border: '1px solid var(--hairline)',
             borderLeft: `3px solid ${bandObj.color}`,
+            boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
             borderRadius: 12,
             padding: '20px 20px',
             margin: '24px 0 32px',
@@ -347,18 +351,18 @@ export default function Resources() {
               marginBottom: 14,
             }}>
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: bandObj.color }} />
-              <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: bandObj.color }}>{bandObj.label}</span>
+              <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: bandObj.color }}>{bandObj.label}</span>
             </div>
-            <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: '#fff', fontWeight: 400, marginBottom: 10, lineHeight: 1.3 }}>
+            <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: 'var(--ink)', fontWeight: 400, marginBottom: 10, lineHeight: 1.3 }}>
               {bandObj.headline}
             </div>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.7 }}>
+            <p style={{ fontSize: 16, color: 'var(--ink-soft)', lineHeight: 1.7 }}>
               {bandObj.sub}
             </p>
           </div>
         )}
 
-        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 16 }}>
+        <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.04em', color: 'var(--ink-muted)', marginBottom: 16 }}>
           {isStrain ? '3-step action plan' : 'Matched resources'}
         </div>
 
@@ -372,8 +376,9 @@ export default function Resources() {
         {/* Research opt-in */}
         <div
           style={{
-            background: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            background: 'var(--surface-2)',
+            border: '1px solid var(--hairline)',
+            boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
             borderRadius: 12,
             padding: '18px 18px',
             marginBottom: 28,
@@ -388,7 +393,7 @@ export default function Resources() {
             width: 20,
             height: 20,
             borderRadius: 5,
-            border: optIn ? 'none' : '1.5px solid rgba(255,255,255,0.2)',
+            border: optIn ? 'none' : '1.5px solid var(--hairline)',
             background: optIn ? 'var(--flame)' : 'transparent',
             flexShrink: 0,
             display: 'flex',
@@ -404,8 +409,8 @@ export default function Resources() {
             )}
           </div>
           <div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: '#fff', marginBottom: 4 }}>Contribute to Econa research</div>
-            <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>
+            <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--ink)', marginBottom: 4 }}>Contribute to Econa research</div>
+            <div style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6 }}>
               Share your anonymized data with the global Econa wellbeing dataset. No personal information is ever shared.
             </div>
           </div>
@@ -421,7 +426,7 @@ export default function Resources() {
           Go to Dashboard →
         </button>
 
-        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', textAlign: 'center', lineHeight: 1.8, paddingBottom: 16, letterSpacing: '0.04em' }}>
+        <p style={{ fontSize: 14, color: 'var(--ink-muted)', textAlign: 'center', lineHeight: 1.8, paddingBottom: 16, letterSpacing: '0.04em' }}>
           Econa · Global Center of Excellence<br />for Entrepreneur Mental Wellness
         </p>
       </div>

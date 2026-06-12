@@ -32,8 +32,8 @@ export default function LabDetail() {
   if (!lab) return null
   if (!lab.available) {
     return (
-      <div style={{ minHeight: '100dvh', background: 'var(--void)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', maxWidth: '480px', margin: '0 auto', padding: '40px 28px' }}>
-        <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: 'rgba(255,255,255,0.82)', textAlign: 'center', marginBottom: 32 }}>
+      <div style={{ minHeight: '100dvh', background: 'var(--surface)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', maxWidth: '480px', margin: '0 auto', padding: '40px 28px' }}>
+        <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: 'var(--ink-soft)', textAlign: 'center', marginBottom: 32 }}>
           The {lab.title} lab is coming in Phase 2.
         </div>
         <button className="btn btn-ghost" onClick={() => navigate('/labs')}>
@@ -47,33 +47,33 @@ export default function LabDetail() {
   const userScore = itemScores[lab.ewcIndex] ?? '—'
 
   return (
-    <div style={{ minHeight: '100dvh', background: 'var(--void)', display: 'flex', flexDirection: 'column', maxWidth: '480px', margin: '0 auto', paddingBottom: 80 }}>
+    <div style={{ minHeight: '100dvh', background: 'var(--surface)', display: 'flex', flexDirection: 'column', maxWidth: '480px', margin: '0 auto', paddingBottom: 80 }}>
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg, ${lab.color}, ${lab.color}99)`, zIndex: 200 }} />
 
       {/* Header */}
-      <div style={{ padding: '48px 24px 24px', borderBottom: '1px solid rgba(255,255,255,0.06)', background: `radial-gradient(ellipse at 50% 0%, ${lab.color}10 0%, transparent 70%)` }}>
+      <div style={{ padding: '48px 24px 24px', borderBottom: '1px solid var(--hairline)', background: `radial-gradient(ellipse at 50% 0%, ${lab.color}10 0%, transparent 70%)` }}>
         <button className="btn btn-ghost" onClick={() => navigate('/labs')} style={{ alignSelf: 'flex-start', marginBottom: 16 }}>
           ← Labs
         </button>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <div>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: lab.color, marginBottom: 6 }}>
+            <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.05em', color: lab.color, marginBottom: 6 }}>
               Econa Lab
             </div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 26, color: '#fff', letterSpacing: '0.04em', marginBottom: 6 }}>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 26, color: 'var(--ink)', letterSpacing: '0.04em', marginBottom: 6 }}>
               {lab.title}
             </div>
-            <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)' }}>{lab.tagline}</div>
+            <div style={{ fontSize: 16, color: 'var(--ink-soft)' }}>{lab.tagline}</div>
           </div>
           <div style={{ textAlign: 'right' }}>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 32, fontWeight: 700, color: lab.color }}>{userScore}</div>
-            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.68)' }}>/ 4</div>
+            <div style={{ fontSize: 13, color: 'var(--ink-muted)' }}>/ 4</div>
           </div>
         </div>
       </div>
 
       {/* Tab nav */}
-      <div style={{ display: 'flex', borderBottom: '1px solid rgba(255,255,255,0.06)', overflowX: 'auto', scrollbarWidth: 'none' }}>
+      <div style={{ display: 'flex', borderBottom: '1px solid var(--hairline)', overflowX: 'auto', scrollbarWidth: 'none' }}>
         {SECTIONS.map(s => (
           <button
             key={s.id}
@@ -81,8 +81,8 @@ export default function LabDetail() {
             style={{
               flex: '0 0 auto', padding: '14px 16px', background: 'none', border: 'none',
               borderBottom: activeSection === s.id ? `2px solid ${lab.color}` : '2px solid transparent',
-              color: activeSection === s.id ? lab.color : 'rgba(255,255,255,0.7)',
-              cursor: 'pointer', fontSize: 12, fontWeight: 600, fontFamily: 'var(--font-body)',
+              color: activeSection === s.id ? lab.color : 'var(--ink-soft)',
+              cursor: 'pointer', fontSize: 15, fontWeight: 600, fontFamily: 'var(--font-body)',
               transition: 'all 0.15s', whiteSpace: 'nowrap',
             }}
           >
@@ -116,9 +116,10 @@ function SectionLabel({ text, color }) {
 function Card({ children, color, highlight }) {
   return (
     <div style={{
-      background: highlight ? `${color}08` : 'rgba(255,255,255,0.04)',
-      border: highlight ? `1px solid ${color}25` : '1px solid rgba(255,255,255,0.07)',
+      background: 'var(--surface-2)',
+      border: '1px solid var(--hairline)',
       borderLeft: highlight ? `3px solid ${color}` : undefined,
+      boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
       borderRadius: 14, padding: '18px', marginBottom: 12,
     }}>
       {children}
@@ -149,10 +150,10 @@ function BMS10Calculator({ color }) {
       </div>
 
       <Card color={color}>
-        <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', fontWeight: 600, marginBottom: 6 }}>
+        <div style={{ fontSize: 16, color: 'var(--ink-soft)', fontWeight: 600, marginBottom: 6 }}>
           Average item score
         </div>
-        <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', marginBottom: 12, lineHeight: 1.5 }}>
+        <div style={{ fontSize: 14, color: 'var(--ink-muted)', marginBottom: 12, lineHeight: 1.5 }}>
           Enter your average (add all 10 item scores, divide by 10)
         </div>
         <input
@@ -166,13 +167,13 @@ function BMS10Calculator({ color }) {
           style={{
             width: '100%',
             boxSizing: 'border-box',
-            background: 'rgba(255,255,255,0.06)',
-            border: band ? `1px solid ${band.color}50` : '1px solid rgba(255,255,255,0.12)',
+            background: 'var(--surface)',
+            border: band ? `1px solid ${band.color}80` : '1px solid var(--hairline)',
             borderRadius: 10,
             padding: '12px 14px',
             fontSize: 18,
             fontFamily: 'var(--font-display)',
-            color: band ? band.color : '#fff',
+            color: 'var(--ink)',
             outline: 'none',
             letterSpacing: '0.04em',
           }}
@@ -185,12 +186,12 @@ function BMS10Calculator({ color }) {
             alignItems: 'center',
             gap: 10,
             padding: '10px 14px',
-            background: `${band.color}12`,
-            border: `1px solid ${band.color}30`,
+            background: `${band.color}18`,
+            border: `1px solid ${band.color}50`,
             borderRadius: 10,
           }}>
             <div style={{ width: 8, height: 8, borderRadius: '50%', background: band.color, flexShrink: 0 }} />
-            <span style={{ fontSize: 13, fontWeight: 700, color: band.color }}>{band.label}</span>
+            <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)' }}>{band.label}</span>
           </div>
         )}
       </Card>
@@ -204,10 +205,10 @@ function BMS10Calculator({ color }) {
           padding: '18px',
           marginTop: 4,
         }}>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#ef4444', marginBottom: 8 }}>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 17, color: '#dc2626', marginBottom: 8 }}>
             Professional support recommended
           </div>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, marginBottom: 16 }}>
+          <p style={{ fontSize: 16, color: 'var(--ink-soft)', lineHeight: 1.65, marginBottom: 16 }}>
             Your score suggests you may benefit from immediate professional support. Connected Mind offers confidential care designed for entrepreneurs.
           </p>
           <button
@@ -218,7 +219,7 @@ function BMS10Calculator({ color }) {
               border: 'none',
               borderRadius: 12,
               padding: '14px 20px',
-              fontSize: 14,
+              fontSize: 17,
               fontWeight: 700,
               fontFamily: 'var(--font-body)',
               color: '#fff',
@@ -295,17 +296,17 @@ function EmotionRegCalculator({ color }) {
 
   return (
     <div style={{ marginTop: 8 }}>
-      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color, marginBottom: 14 }}>
+      <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.04em', color, marginBottom: 14 }}>
         Calculate your scores
       </div>
 
       {results.map(({ inst, band }) => (
         <Card key={inst.key} color={color}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 13, color: '#fff', fontWeight: 600 }}>{inst.label}</div>
-            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.68)', letterSpacing: '0.05em' }}>{inst.sublabel}</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 16, color: 'var(--ink)', fontWeight: 600 }}>{inst.label}</div>
+            <div style={{ fontSize: 13, color: 'var(--ink-muted)', letterSpacing: '0.05em' }}>{inst.sublabel}</div>
           </div>
-          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', marginBottom: 10 }}>{inst.hint}</div>
+          <div style={{ fontSize: 14, color: 'var(--ink-soft)', marginBottom: 10 }}>{inst.hint}</div>
           <input
             type="number"
             min={inst.min}
@@ -317,13 +318,13 @@ function EmotionRegCalculator({ color }) {
             style={{
               width: '100%',
               boxSizing: 'border-box',
-              background: 'rgba(255,255,255,0.06)',
-              border: band ? `1px solid ${band.color}50` : '1px solid rgba(255,255,255,0.12)',
+              background: 'var(--surface)',
+              border: band ? `1px solid ${band.color}80` : '1px solid var(--hairline)',
               borderRadius: 10,
               padding: '11px 14px',
               fontSize: 17,
               fontFamily: 'var(--font-display)',
-              color: band ? band.color : '#fff',
+              color: 'var(--ink)',
               outline: 'none',
             }}
           />
@@ -334,12 +335,12 @@ function EmotionRegCalculator({ color }) {
               alignItems: 'center',
               gap: 8,
               padding: '8px 12px',
-              background: `${band.color}12`,
-              border: `1px solid ${band.color}30`,
+              background: `${band.color}18`,
+              border: `1px solid ${band.color}50`,
               borderRadius: 8,
             }}>
               <div style={{ width: 7, height: 7, borderRadius: '50%', background: band.color, flexShrink: 0 }} />
-              <span style={{ fontSize: 12, fontWeight: 700, color: band.color }}>{band.label}</span>
+              <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--ink)' }}>{band.label}</span>
             </div>
           )}
         </Card>
@@ -354,10 +355,10 @@ function EmotionRegCalculator({ color }) {
           padding: '18px',
           marginTop: 4,
         }}>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#ef4444', marginBottom: 8 }}>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 17, color: '#dc2626', marginBottom: 8 }}>
             Professional support recommended
           </div>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, marginBottom: 16 }}>
+          <p style={{ fontSize: 16, color: 'var(--ink-soft)', lineHeight: 1.65, marginBottom: 16 }}>
             One or more of your scores suggests you may benefit from professional support. Connected Mind offers confidential care designed for entrepreneurs.
           </p>
           <button
@@ -368,7 +369,7 @@ function EmotionRegCalculator({ color }) {
               border: 'none',
               borderRadius: 12,
               padding: '14px 20px',
-              fontSize: 14,
+              fontSize: 17,
               fontWeight: 700,
               fontFamily: 'var(--font-body)',
               color: '#fff',
@@ -391,15 +392,15 @@ function AssessmentSection({ lab, color }) {
     <>
       <SectionLabel text="How am I doing?" color={color} />
       <Card color={color} highlight>
-        <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#fff', marginBottom: 8 }}>{a.instrumentName}</div>
-        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, marginBottom: 12 }}>{a.description}</p>
-        <div style={{ fontSize: 11, color: color, fontWeight: 600, marginBottom: 8 }}>Scoring</div>
-        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: 12 }}>{a.scoring}</p>
-        {a.trackingNote && <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)' }}>{a.trackingNote}</p>}
+        <div style={{ fontFamily: 'var(--font-display)', fontSize: 17, color: 'var(--ink)', marginBottom: 8 }}>{a.instrumentName}</div>
+        <p style={{ fontSize: 16, color: 'var(--ink-soft)', lineHeight: 1.65, marginBottom: 12 }}>{a.description}</p>
+        <div style={{ fontSize: 14, color: color, fontWeight: 600, marginBottom: 8 }}>Scoring</div>
+        <p style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: 12 }}>{a.scoring}</p>
+        {a.trackingNote && <p style={{ fontSize: 14, color: 'var(--ink-soft)' }}>{a.trackingNote}</p>}
       </Card>
       <Card color={color}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.68)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 6 }}>Citation</div>
-        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.82)', lineHeight: 1.6 }}>{a.citation}</p>
+        <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--ink-muted)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 6 }}>Citation</div>
+        <p style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6 }}>{a.citation}</p>
       </Card>
       {lab.id === 'burnout' && <BMS10Calculator color={color} />}
       {lab.id === 'emotional-regulation' && <EmotionRegCalculator color={color} />}
@@ -413,12 +414,12 @@ function ActionSection({ lab, color }) {
   return (
     <>
       <SectionLabel text="What should I do now?" color={color} />
-      <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 18, color: '#fff', fontWeight: 400, lineHeight: 1.4, marginBottom: 20 }}>{a.headline}</p>
+      <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 18, color: 'var(--ink)', fontWeight: 400, lineHeight: 1.4, marginBottom: 20 }}>{a.headline}</p>
       {a.interventions.map((item, i) => (
         <Card key={i} color={color} highlight={i === 0}>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#fff', marginBottom: 8 }}>{item.title}</div>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, marginBottom: item.source ? 10 : 0 }}>{item.body}</p>
-          {item.source && <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', fontStyle: 'italic' }}>Source: {item.source}</div>}
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 17, color: 'var(--ink)', marginBottom: 8 }}>{item.title}</div>
+          <p style={{ fontSize: 16, color: 'var(--ink-soft)', lineHeight: 1.65, marginBottom: item.source ? 10 : 0 }}>{item.body}</p>
+          {item.source && <div style={{ fontSize: 14, color: 'var(--ink-muted)', fontStyle: 'italic' }}>Source: {item.source}</div>}
         </Card>
       ))}
     </>
@@ -431,11 +432,11 @@ function BetterSection({ lab, color }) {
   return (
     <>
       <SectionLabel text="How can I get even better?" color={color} />
-      <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 18, color: '#fff', fontWeight: 400, lineHeight: 1.4, marginBottom: 20 }}>{b.headline}</p>
+      <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 18, color: 'var(--ink)', fontWeight: 400, lineHeight: 1.4, marginBottom: 20 }}>{b.headline}</p>
       {b.practices.map((p, i) => (
         <Card key={i} color={color}>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, color: '#fff', marginBottom: 8 }}>{p.title}</div>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65 }}>{p.body}</p>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 17, color: 'var(--ink)', marginBottom: 8 }}>{p.title}</div>
+          <p style={{ fontSize: 16, color: 'var(--ink-soft)', lineHeight: 1.65 }}>{p.body}</p>
         </Card>
       ))}
     </>
@@ -459,17 +460,17 @@ function ResourcesSection({ lab, color }) {
         if (!items?.length) return null
         return (
           <div key={cat.key} style={{ marginBottom: 20 }}>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 10 }}>{cat.label}</div>
+            <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.04em', color: 'var(--ink-muted)', marginBottom: 10 }}>{cat.label}</div>
             {items.map((item, i) => (
               <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'flex-start', marginBottom: 12 }}>
                 <div style={{ width: 6, height: 6, borderRadius: '50%', background: color, flexShrink: 0, marginTop: 6 }} />
                 <div>
                   {item.url ? (
-                    <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, fontWeight: 600, color: color, textDecoration: 'none' }}>{item.name}</a>
+                    <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: 16, fontWeight: 600, color: color, textDecoration: 'none' }}>{item.name}</a>
                   ) : (
-                    <span style={{ fontSize: 13, fontWeight: 600, color: '#fff' }}>{item.name}</span>
+                    <span style={{ fontSize: 16, fontWeight: 600, color: 'var(--ink)' }}>{item.name}</span>
                   )}
-                  {item.note && <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', marginTop: 2 }}>{item.note}</div>}
+                  {item.note && <div style={{ fontSize: 15, color: 'var(--ink-soft)', marginTop: 2 }}>{item.note}</div>}
                 </div>
               </div>
             ))}
@@ -489,11 +490,12 @@ function MotivationSection({ lab, color }) {
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
         {messages.map((msg, i) => (
           <div key={i} style={{
-            background: 'rgba(255,255,255,0.04)', border: `1px solid rgba(255,255,255,0.07)`,
+            background: 'var(--surface-2)', border: '1px solid var(--hairline)',
             borderLeft: i === 0 ? `3px solid ${color}` : undefined,
+            boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
             borderRadius: 12, padding: '18px 18px',
           }}>
-            <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 16, color: i === 0 ? '#fff' : 'rgba(255,255,255,0.82)', fontWeight: 400, lineHeight: 1.65 }}>
+            <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 18, color: i === 0 ? 'var(--ink)' : 'var(--ink-soft)', fontWeight: 400, lineHeight: 1.65 }}>
               "{msg}"
             </p>
           </div>
@@ -506,7 +508,7 @@ function MotivationSection({ lab, color }) {
 function PlaceholderSection({ message }) {
   return (
     <div style={{ padding: '40px 0', textAlign: 'center' }}>
-      <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 16, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{message}</p>
+      <p style={{ fontFamily: 'var(--font-editorial)', fontSize: 18, color: 'var(--ink-soft)', lineHeight: 1.7 }}>{message}</p>
     </div>
   )
 }

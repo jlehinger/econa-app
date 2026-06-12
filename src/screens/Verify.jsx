@@ -15,7 +15,7 @@ export default function Verify() {
   return (
     <div style={{
       minHeight: '100dvh',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       display: 'flex',
       flexDirection: 'column',
       maxWidth: '480px',
@@ -24,7 +24,7 @@ export default function Verify() {
     }}>
       {FLAME_BAR}
 
-      <EconaLogo size="md" />
+      <EconaLogo size="md" mark variant="color" />
 
       {/* Step 1: FounderScreen qualification gate */}
       {isQualified === null && (
@@ -33,14 +33,14 @@ export default function Verify() {
             fontFamily: 'var(--font-editorial)',
             fontSize: 34,
             fontStyle: 'italic',
-            color: '#fff',
+            color: 'var(--ink)',
             margin: '28px 0 16px',
             fontWeight: 400,
             lineHeight: 1.2,
           }}>
             Are you, or were you, the founder or co-founder of a company?
           </div>
-          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, marginBottom: 48 }}>
+          <p style={{ fontSize: 17, color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: 48 }}>
             FounderScreen is validated exclusively for entrepreneurs. The assessment questions and scoring are calibrated to this population.
           </p>
 
@@ -66,15 +66,16 @@ export default function Verify() {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div style={{
             width: 56, height: 56, borderRadius: '50%',
-            background: 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(255,255,255,0.1)',
+            background: 'var(--surface-2)',
+            border: '1px solid var(--hairline)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            marginBottom: 28, fontSize: 24,
+            marginBottom: 28, fontSize: 24, color: 'var(--flame-bright)',
+            boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
           }}>✦</div>
-          <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 30, fontStyle: 'italic', color: '#fff', marginBottom: 16, fontWeight: 400 }}>
+          <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 30, fontStyle: 'italic', color: 'var(--ink)', marginBottom: 16, fontWeight: 400 }}>
             Not the right fit — yet.
           </div>
-          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.82)', lineHeight: 1.8, marginBottom: 48 }}>
+          <p style={{ fontSize: 18, color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: 48 }}>
             Thank you for your interest in FounderScreen, however it's not the right platform for you because it is only valid for entrepreneurs.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -84,24 +85,25 @@ export default function Verify() {
               rel="noopener noreferrer"
               style={{
                 display: 'block', textAlign: 'center',
-                background: 'rgba(255,255,255,0.06)',
-                border: '1px solid rgba(255,255,255,0.12)',
-                color: '#fff', borderRadius: 12, padding: '16px',
-                fontSize: 14, textDecoration: 'none',
+                background: 'var(--surface-2)',
+                border: '1px solid var(--hairline)',
+                color: 'var(--ink)', borderRadius: 12, padding: '16px',
+                fontSize: 17, textDecoration: 'none',
                 fontFamily: 'var(--font-body)', fontWeight: 500,
+                boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
               }}
             >
               Learn about Econa →
             </a>
             <button
               onClick={() => { setQualified(false); setIsQualified(null) }}
-              style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.7)', cursor: 'pointer', fontSize: 13, fontFamily: 'var(--font-body)', padding: '12px 0' }}
+              style={{ background: 'none', border: 'none', color: 'var(--ink-soft)', cursor: 'pointer', fontSize: 16, fontFamily: 'var(--font-body)', padding: '12px 0' }}
             >
               ← Go back
             </button>
             <button
               onClick={() => navigate('/')}
-              style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.7)', cursor: 'pointer', fontSize: 12, fontFamily: 'var(--font-body)', padding: '4px 0' }}
+              style={{ background: 'none', border: 'none', color: 'var(--ink-muted)', cursor: 'pointer', fontSize: 15, fontFamily: 'var(--font-body)', padding: '4px 0' }}
             >
               Return to home
             </button>

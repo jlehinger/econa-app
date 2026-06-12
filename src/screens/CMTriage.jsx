@@ -46,7 +46,7 @@ export default function CMTriage() {
   return (
     <div style={{
       minHeight: '100dvh',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       display: 'flex',
       flexDirection: 'column',
       maxWidth: '480px',
@@ -56,7 +56,7 @@ export default function CMTriage() {
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, #E05252, #D4A03C, var(--flame))', zIndex: 200 }} />
 
       <div style={{ padding: '48px 28px 0' }}>
-        <EconaLogo size="sm" />
+        <EconaLogo size="md" mark variant="color" />
 
         {/* Score badge */}
         <div style={{
@@ -77,26 +77,27 @@ export default function CMTriage() {
               Your score: {score ?? '—'}/28
             </span>
           </div>
-          <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: '#fff', fontWeight: 400, lineHeight: 1.3, marginBottom: 10 }}>
+          <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 22, fontStyle: 'italic', color: 'var(--ink)', fontWeight: 400, lineHeight: 1.3, marginBottom: 10 }}>
             You deserve more support than a self-help app.
           </div>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.7 }}>
+          <p style={{ fontSize: 16, color: 'var(--ink-soft)', lineHeight: 1.7 }}>
             Your results suggest significant distress. This isn't a character flaw — it's a signal the research takes seriously. The next step is a clinical screening designed specifically for entrepreneurs.
           </p>
         </div>
 
-        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 16 }}>
+        <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.04em', color: 'var(--ink-muted)', marginBottom: 16 }}>
           Your path forward
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 36 }}>
           {STEPS.map(s => (
             <div key={s.step} style={{
-              background: s.highlight ? `${s.color}08` : 'rgba(255,255,255,0.04)',
-              border: s.highlight ? `1px solid ${s.color}30` : '1px solid rgba(255,255,255,0.07)',
+              background: s.highlight ? `${s.color}08` : 'var(--surface-2)',
+              border: s.highlight ? `1px solid ${s.color}30` : '1px solid var(--hairline)',
               borderLeft: s.highlight ? `3px solid ${s.color}` : undefined,
               borderRadius: 14,
               padding: '20px',
+              boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
                 <div style={{
@@ -107,15 +108,15 @@ export default function CMTriage() {
                 }}>
                   {s.step}
                 </div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: 14, letterSpacing: '0.05em', color: '#fff' }}>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: 17, letterSpacing: '0.05em', color: 'var(--ink)' }}>
                   {s.title}
                 </div>
               </div>
-              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, marginBottom: s.cta ? 16 : 0 }}>
+              <p style={{ fontSize: 16, color: 'var(--ink-soft)', lineHeight: 1.65, marginBottom: s.cta ? 16 : 0 }}>
                 {s.body}
               </p>
               {s.note && (
-                <p style={{ fontSize: 11, color: `${s.color}90`, marginBottom: s.cta ? 14 : 0 }}>
+                <p style={{ fontSize: 14, color: s.color, marginBottom: s.cta ? 14 : 0 }}>
                   {s.note}
                 </p>
               )}
@@ -143,16 +144,17 @@ export default function CMTriage() {
 
         {/* Crisis line */}
         <div style={{
-          background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)',
+          background: 'var(--surface-2)', border: '1px solid var(--hairline)',
           borderRadius: 12, padding: '16px 18px', marginBottom: 32, textAlign: 'center',
+          boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
         }}>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.68)', marginBottom: 6 }}>
+          <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.05em', color: 'var(--ink-muted)', marginBottom: 6 }}>
             If you need immediate support
           </div>
           <a href="tel:988" style={{ fontSize: 24, fontFamily: 'var(--font-display)', color: '#E05252', textDecoration: 'none', fontWeight: 700 }}>
             988
           </a>
-          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', marginTop: 4 }}>
+          <div style={{ fontSize: 15, color: 'var(--ink-muted)', marginTop: 4 }}>
             Suicide & Crisis Lifeline · Call or Text · Free · 24/7
           </div>
         </div>
@@ -165,7 +167,7 @@ export default function CMTriage() {
           Go to Dashboard
         </button>
 
-        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', textAlign: 'center', lineHeight: 1.8, paddingBottom: 16 }}>
+        <p style={{ fontSize: 14, color: 'var(--ink-muted)', textAlign: 'center', lineHeight: 1.8, paddingBottom: 16 }}>
           This is a screening instrument, not a clinical diagnostic.<br />
           Results are for your personal awareness and professional use.
         </p>

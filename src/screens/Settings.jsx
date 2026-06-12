@@ -15,7 +15,7 @@ function Toggle({ on, onChange }) {
         width: 44,
         height: 26,
         borderRadius: 13,
-        background: on ? 'var(--flame)' : 'rgba(255,255,255,0.12)',
+        background: on ? 'var(--flame)' : 'var(--hairline)',
         border: 'none',
         cursor: 'pointer',
         position: 'relative',
@@ -27,12 +27,13 @@ function Toggle({ on, onChange }) {
         width: 20,
         height: 20,
         borderRadius: '50%',
-        background: '#fff',
+        background: on ? '#fff' : 'var(--surface-2)',
         position: 'absolute',
         top: 3,
         left: on ? 21 : 3,
         transition: 'left 0.2s cubic-bezier(0.4,0,0.2,1)',
-        boxShadow: '0 1px 4px rgba(0,0,0,0.35)',
+        boxShadow: '0 1px 4px rgba(15,43,76,0.35)',
+        border: '1px solid var(--hairline)',
       }} />
     </button>
   )
@@ -41,10 +42,10 @@ function Toggle({ on, onChange }) {
 function SectionLabel({ title }) {
   return (
     <div style={{
-      fontSize: 11,
+      fontSize: 14,
       fontWeight: 700,
       letterSpacing: '0.04em',
-      color: 'rgba(255,255,255,0.68)',
+      color: 'var(--ink-muted)',
       marginBottom: 10,
       paddingLeft: 2,
     }}>
@@ -56,11 +57,12 @@ function SectionLabel({ title }) {
 function SettingsCard({ children }) {
   return (
     <div style={{
-      background: 'rgba(255,255,255,0.04)',
-      border: '1px solid rgba(255,255,255,0.08)',
+      background: 'var(--surface-2)',
+      border: '1px solid var(--hairline)',
       borderRadius: 14,
       overflow: 'hidden',
       marginBottom: 28,
+      boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
     }}>
       {children}
     </div>
@@ -76,25 +78,25 @@ function Row({ label, sub, right, onClick, destructive, noBorder }) {
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '15px 18px',
-        borderBottom: noBorder ? 'none' : '1px solid rgba(255,255,255,0.05)',
+        borderBottom: noBorder ? 'none' : '1px solid var(--hairline)',
         cursor: onClick ? 'pointer' : 'default',
         transition: onClick ? 'background 0.15s' : 'none',
         gap: 12,
       }}
-      onMouseEnter={e => { if (onClick) e.currentTarget.style.background = 'rgba(255,255,255,0.04)' }}
+      onMouseEnter={e => { if (onClick) e.currentTarget.style.background = 'rgba(15,43,76,0.04)' }}
       onMouseLeave={e => { if (onClick) e.currentTarget.style.background = 'transparent' }}
     >
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{
-          fontSize: 14,
-          color: destructive ? '#E05252' : '#fff',
+          fontSize: 17,
+          color: destructive ? '#E05252' : 'var(--ink)',
           fontFamily: 'var(--font-body)',
           marginBottom: sub ? 2 : 0,
         }}>
           {label}
         </div>
         {sub && (
-          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', lineHeight: 1.5, marginTop: 2 }}>
+          <div style={{ fontSize: 14, color: 'var(--ink-muted)', lineHeight: 1.5, marginTop: 2 }}>
             {sub}
           </div>
         )}
@@ -150,7 +152,7 @@ export default function Settings() {
   return (
     <div style={{
       minHeight: '100dvh',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       display: 'flex',
       flexDirection: 'column',
       maxWidth: '480px',
@@ -164,16 +166,16 @@ export default function Settings() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        borderBottom: '1px solid var(--hairline)',
       }}>
-        <EconaLogo size="sm" />
+        <EconaLogo size="md" mark variant="color" />
         <div style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 10,
+          fontSize: 13,
           fontWeight: 600,
           letterSpacing: '0.06em',
           textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.68)',
+          color: 'var(--ink-muted)',
         }}>
           Settings
         </div>
@@ -189,13 +191,13 @@ export default function Settings() {
             sub="Account email"
             right={
               <span style={{
-                fontSize: 10,
-                color: 'var(--teal-light)',
+                fontSize: 13,
+                color: 'var(--teal)',
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
                 fontWeight: 700,
-                background: 'rgba(93,173,226,0.1)',
-                border: '1px solid rgba(93,173,226,0.2)',
+                background: 'rgba(93,173,226,0.12)',
+                border: '1px solid rgba(93,173,226,0.3)',
                 padding: '3px 8px',
                 borderRadius: 100,
               }}>
@@ -246,13 +248,13 @@ export default function Settings() {
             label="Visit econa.net"
             sub="Global center of excellence for entrepreneur mental wellness"
             onClick={() => window.open('https://econa.net', '_blank', 'noopener,noreferrer')}
-            right={<span style={{ color: 'rgba(255,255,255,0.2)', fontSize: 16 }}>→</span>}
+            right={<span style={{ color: 'var(--ink-muted)', fontSize: 18 }}>→</span>}
           />
           <Row
             label="Connected Mind"
             sub="Clinical partner — evidence-based tools for high-performance environments"
             onClick={() => window.open(CONNECTED_MIND_URL, '_blank', 'noopener,noreferrer')}
-            right={<span style={{ color: 'rgba(255,255,255,0.2)', fontSize: 16 }}>→</span>}
+            right={<span style={{ color: 'var(--ink-muted)', fontSize: 18 }}>→</span>}
           />
           <Row
             label="EWC Version 1.0"
@@ -267,7 +269,7 @@ export default function Settings() {
           <Row
             label="Sign out"
             onClick={handleLogout}
-            right={<span style={{ color: 'rgba(255,255,255,0.2)', fontSize: 16 }}>→</span>}
+            right={<span style={{ color: 'var(--ink-muted)', fontSize: 18 }}>→</span>}
             noBorder
           />
         </SettingsCard>
@@ -281,15 +283,15 @@ export default function Settings() {
           marginBottom: 24,
         }}>
           <div style={{
-            fontSize: 11,
+            fontSize: 14,
             fontWeight: 700,
             letterSpacing: '0.05em',
-            color: '#E05252',
+            color: '#C0392B',
             marginBottom: 8,
           }}>
             Delete account
           </div>
-          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: 16 }}>
+          <p style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: 16 }}>
             Permanently delete your account and all local assessment history. This cannot be undone.
           </p>
 
@@ -298,11 +300,11 @@ export default function Settings() {
               onClick={() => setDeleteStep(1)}
               style={{
                 background: 'none',
-                border: '1px solid rgba(224,82,82,0.35)',
-                color: '#E05252',
+                border: '1px solid rgba(192,57,43,0.45)',
+                color: '#C0392B',
                 borderRadius: 10,
                 padding: '10px 18px',
-                fontSize: 13,
+                fontSize: 16,
                 cursor: 'pointer',
                 fontFamily: 'var(--font-body)',
                 fontWeight: 600,
@@ -315,8 +317,8 @@ export default function Settings() {
           {deleteStep === 1 && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               <div style={{
-                fontSize: 12,
-                color: '#E05252',
+                fontSize: 15,
+                color: '#C0392B',
                 fontWeight: 600,
                 marginBottom: 4,
               }}>
@@ -333,12 +335,12 @@ export default function Settings() {
                 <button
                   onClick={handleDeleteAccount}
                   style={{
-                    background: '#E05252',
+                    background: '#C0392B',
                     border: 'none',
                     color: '#fff',
                     borderRadius: 10,
                     padding: '10px 18px',
-                    fontSize: 13,
+                    fontSize: 16,
                     fontWeight: 700,
                     cursor: 'pointer',
                     fontFamily: 'var(--font-body)',
@@ -353,8 +355,8 @@ export default function Settings() {
         </div>
 
         <p style={{
-          fontSize: 11,
-          color: 'rgba(255,255,255,0.68)',
+          fontSize: 14,
+          color: 'var(--ink-muted)',
           textAlign: 'center',
           lineHeight: 1.8,
           paddingBottom: 8,
@@ -380,18 +382,19 @@ export default function Settings() {
           padding: '24px',
         }}>
           <div style={{
-            background: 'var(--void)',
+            background: 'var(--surface-2)',
             borderRadius: 16,
             padding: '32px',
             maxWidth: 400,
             width: '100%',
-            border: '1px solid rgba(255,255,255,0.1)',
+            border: '1px solid var(--hairline)',
+            boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
           }}>
             <div style={{
-              fontSize: 11,
+              fontSize: 14,
               fontWeight: 700,
               letterSpacing: '0.05em',
-              color: 'var(--flame)',
+              color: 'var(--flame-bright)',
               marginBottom: 16,
               fontFamily: 'var(--font-display)',
             }}>
@@ -399,24 +402,24 @@ export default function Settings() {
             </div>
 
             <p style={{
-              fontSize: 13,
-              color: 'rgba(255,255,255,0.75)',
+              fontSize: 16,
+              color: 'var(--ink-soft)',
               lineHeight: 1.7,
               marginBottom: 12,
             }}>
               Econa is conducting ongoing research on entrepreneur mental health and wellbeing, in partnership with UC Berkeley and the Wharton School.
             </p>
             <p style={{
-              fontSize: 13,
-              color: 'rgba(255,255,255,0.75)',
+              fontSize: 16,
+              color: 'var(--ink-soft)',
               lineHeight: 1.7,
               marginBottom: 12,
             }}>
               By enabling this option, you consent to your anonymized assessment scores being included in Econa's research dataset. No personally identifiable information is shared. You may withdraw consent at any time by disabling this toggle in Settings.
             </p>
             <p style={{
-              fontSize: 13,
-              color: 'rgba(255,255,255,0.75)',
+              fontSize: 16,
+              color: 'var(--ink-soft)',
               lineHeight: 1.7,
               marginBottom: 28,
             }}>

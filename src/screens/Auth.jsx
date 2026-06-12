@@ -22,11 +22,11 @@ function FloatingInput({ label, type, value, onChange, placeholder, autoFocus })
         left: 16,
         top: floated ? 8 : '50%',
         transform: floated ? 'none' : 'translateY(-50%)',
-        fontSize: floated ? 11 : 15,
+        fontSize: floated ? 14 : 18,
         fontWeight: floated ? 700 : 400,
         letterSpacing: floated ? '0.05em' : '0',
         textTransform: 'none',
-        color: focused ? 'var(--flame)' : 'rgba(255,255,255,0.65)',
+        color: focused ? 'var(--flame-bright)' : 'var(--ink-muted)',
         transition: 'all 0.18s ease',
         pointerEvents: 'none',
         zIndex: 1,
@@ -46,14 +46,14 @@ function FloatingInput({ label, type, value, onChange, placeholder, autoFocus })
         onBlur={() => setFocused(false)}
         style={{
           width: '100%',
-          background: 'rgba(255,255,255,0.05)',
+          background: 'var(--surface-2)',
           border: focused
             ? '1.5px solid var(--flame)'
-            : '1.5px solid rgba(255,255,255,0.12)',
+            : '1px solid var(--hairline)',
           borderRadius: 12,
           padding: floated ? '28px 16px 10px' : '18px 16px',
-          fontSize: 15,
-          color: '#fff',
+          fontSize: 18,
+          color: 'var(--ink)',
           fontFamily: 'var(--font-body)',
           outline: 'none',
           transition: 'border-color 0.18s, box-shadow 0.18s',
@@ -89,7 +89,7 @@ export default function Auth() {
   return (
     <div style={{
       minHeight: '100dvh',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       display: 'flex',
       flexDirection: 'column',
       maxWidth: '480px',
@@ -109,12 +109,12 @@ export default function Auth() {
         ← Back
       </button>
 
-      <EconaLogo size="md" />
+      <EconaLogo size="md" mark variant="color" />
 
       <div style={{
         display: 'flex',
-        background: 'rgba(255,255,255,0.06)',
-        border: '1px solid rgba(255,255,255,0.1)',
+        background: 'var(--surface-2)',
+        border: '1px solid var(--hairline)',
         borderRadius: 100,
         padding: 4,
         margin: '24px 0 32px',
@@ -130,9 +130,9 @@ export default function Auth() {
               border: 'none',
               borderRadius: 100,
               padding: '10px 0',
-              fontSize: 13,
+              fontSize: 16,
               fontWeight: 600,
-              color: mode === m ? 'var(--void)' : 'rgba(255,255,255,0.82)',
+              color: mode === m ? 'var(--void)' : 'var(--ink-soft)',
               cursor: 'pointer',
               fontFamily: 'var(--font-body)',
               letterSpacing: '0.04em',
@@ -148,14 +148,14 @@ export default function Auth() {
         fontFamily: 'var(--font-editorial)',
         fontSize: 30,
         fontStyle: 'italic',
-        color: '#fff',
+        color: 'var(--ink)',
         marginBottom: 8,
         fontWeight: 400,
         lineHeight: 1.2,
       }}>
         {mode === 'create' ? 'Start your journey' : 'Welcome back'}
       </div>
-      <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', marginBottom: 36, lineHeight: 1.7 }}>
+      <p style={{ fontSize: 16, color: 'var(--ink-soft)', marginBottom: 36, lineHeight: 1.7 }}>
         Your responses are always anonymized. We never identify individuals.
       </p>
 
@@ -197,24 +197,24 @@ export default function Auth() {
               style={{
                 background: 'none',
                 border: 'none',
-                color: 'rgba(212,187,113,0.6)',
+                color: 'var(--flame-bright)',
                 cursor: 'pointer',
-                fontSize: 13,
+                fontSize: 16,
                 fontFamily: 'var(--font-body)',
                 letterSpacing: '0.02em',
                 padding: '4px 0',
                 transition: 'color 0.15s',
               }}
-              onMouseEnter={e => e.currentTarget.style.color = 'var(--spark)'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(212,187,113,0.6)'}
+              onMouseEnter={e => e.currentTarget.style.color = 'var(--ink)'}
+              onMouseLeave={e => e.currentTarget.style.color = 'var(--flame-bright)'}
             >
               Forgot password?
             </button>
             {forgotClicked && (
               <p style={{
                 marginTop: 8,
-                fontSize: 12,
-                color: 'rgba(255,255,255,0.7)',
+                fontSize: 15,
+                color: 'var(--ink-soft)',
                 fontFamily: 'var(--font-body)',
                 lineHeight: 1.6,
                 letterSpacing: '0.01em',
@@ -229,8 +229,8 @@ export default function Auth() {
       <p style={{
         marginTop: 'auto',
         paddingTop: 48,
-        fontSize: 11,
-        color: 'rgba(255,255,255,0.68)',
+        fontSize: 14,
+        color: 'var(--ink-muted)',
         textAlign: 'center',
         lineHeight: 1.7,
       }}>

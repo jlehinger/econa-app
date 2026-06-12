@@ -112,9 +112,9 @@ function TrendChart({ history }) {
               <text
                 x={xs[i]}
                 y={ys[i] - 12}
-                fontSize="9"
+                fontSize="12"
                 fontWeight="600"
-                fill="rgba(255,255,255,0.85)"
+                fill="var(--ink)"
                 textAnchor={N === 1 ? 'middle' : 'end'}
                 fontFamily="Inter, sans-serif"
               >
@@ -140,7 +140,7 @@ export default function History() {
   return (
     <div style={{
       minHeight: '100dvh',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       display: 'flex',
       flexDirection: 'column',
       maxWidth: '480px',
@@ -154,15 +154,15 @@ export default function History() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        borderBottom: '1px solid var(--hairline)',
       }}>
-        <EconaLogo size="sm" />
+        <EconaLogo size="md" mark variant="color" />
         <div style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 12,
+          fontSize: 15,
           fontWeight: 600,
           letterSpacing: '0.04em',
-          color: 'rgba(255,255,255,0.68)',
+          color: 'var(--ink-muted)',
         }}>
           Wellbeing history
         </div>
@@ -171,11 +171,12 @@ export default function History() {
       <div style={{ padding: '28px 24px', flex: 1 }}>
         {history.length === 0 ? (
           <div style={{
-            background: 'rgba(255,255,255,0.04)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            background: 'var(--surface-2)',
+            border: '1px solid var(--hairline)',
             borderRadius: 16,
             padding: '52px 28px',
             textAlign: 'center',
+            boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
           }}>
             <div style={{ fontSize: 40, marginBottom: 20, opacity: 0.2 }}>✦</div>
             <div style={{
@@ -183,13 +184,13 @@ export default function History() {
               fontSize: 22,
               fontStyle: 'italic',
               fontWeight: 400,
-              color: '#fff',
+              color: 'var(--ink)',
               marginBottom: 10,
               lineHeight: 1.4,
             }}>
               Your timeline starts here
             </div>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 28 }}>
+            <p style={{ fontSize: 16, color: 'var(--ink-muted)', lineHeight: 1.7, marginBottom: 28 }}>
               Complete your first check to begin tracking your wellbeing over time.
             </p>
             <button
@@ -203,11 +204,12 @@ export default function History() {
           <>
             {/* Trend chart */}
             <div style={{
-              background: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.07)',
+              background: 'var(--surface-2)',
+              border: '1px solid var(--hairline)',
               borderRadius: 16,
               padding: '20px 16px 14px',
               marginBottom: 20,
+              boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
             }}>
               <div style={{
                 display: 'flex',
@@ -219,14 +221,14 @@ export default function History() {
               }}>
                 <div style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 11,
+                  fontSize: 14,
                   fontWeight: 600,
                   letterSpacing: '0.04em',
-                  color: 'rgba(255,255,255,0.68)',
+                  color: 'var(--ink-muted)',
                 }}>
                   Score trend
                 </div>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.68)', letterSpacing: '0.02em' }}>
+                <div style={{ fontSize: 13, color: 'var(--ink-muted)', letterSpacing: '0.02em' }}>
                   out of 28
                 </div>
               </div>
@@ -245,7 +247,7 @@ export default function History() {
                     <svg width="10" height="10" viewBox="0 0 10 10">
                       <BandMark band={key} cx={5} cy={5} r={4} fill={BAND_META[key].color} />
                     </svg>
-                    <span style={{ fontSize: 9, fontWeight: 600, color: BAND_META[key].color }}>{BAND_META[key].label}</span>
+                    <span style={{ fontSize: 12, fontWeight: 600, color: BAND_META[key].color }}>{BAND_META[key].label}</span>
                   </div>
                 ))}
               </div>
@@ -262,10 +264,10 @@ export default function History() {
             </button>
 
             <div style={{
-              fontSize: 11,
+              fontSize: 14,
               fontWeight: 700,
               letterSpacing: '0.04em',
-              color: 'rgba(255,255,255,0.68)',
+              color: 'var(--ink-muted)',
               marginBottom: 14,
             }}>
               All assessments · {history.length} {history.length === 1 ? 'result' : 'results'}
@@ -279,8 +281,8 @@ export default function History() {
                     key={i}
                     onClick={() => navigate(`/history/${i}`)}
                     style={{
-                      background: i === 0 ? 'rgba(255,255,255,0.055)' : 'rgba(255,255,255,0.03)',
-                      border: `1px solid ${i === 0 ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.06)'}`,
+                      background: 'var(--surface-2)',
+                      border: '1px solid var(--hairline)',
                       borderRadius: 14,
                       padding: '16px 18px',
                       cursor: 'pointer',
@@ -290,26 +292,27 @@ export default function History() {
                       width: '100%',
                       textAlign: 'left',
                       transition: 'background 0.15s',
+                      boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
                     }}
-                    onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.07)'}
-                    onMouseLeave={e => e.currentTarget.style.background = i === 0 ? 'rgba(255,255,255,0.055)' : 'rgba(255,255,255,0.03)'}
+                    onMouseEnter={e => e.currentTarget.style.background = 'rgba(15,43,76,0.03)'}
+                    onMouseLeave={e => e.currentTarget.style.background = 'var(--surface-2)'}
                   >
                     <div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 7 }}>
                         {i === 0 && (
                           <span style={{
-                            fontSize: 9,
+                            fontSize: 12,
                             fontWeight: 700,
                             letterSpacing: '0.05em',
                             textTransform: 'uppercase',
-                            color: 'var(--flame)',
+                            color: 'var(--flame-bright)',
                             background: 'rgba(212,160,60,0.12)',
                             padding: '2px 8px',
                             borderRadius: 100,
                             border: '1px solid rgba(212,160,60,0.2)',
                           }}>Latest</span>
                         )}
-                        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.68)' }}>{formatDate(entry.date)}</span>
+                        <span style={{ fontSize: 15, color: 'var(--ink-muted)' }}>{formatDate(entry.date)}</span>
                       </div>
                       <div style={{
                         display: 'inline-flex',
@@ -321,16 +324,16 @@ export default function History() {
                         padding: '3px 10px',
                       }}>
                         <div style={{ width: 5, height: 5, borderRadius: '50%', background: meta.color }} />
-                        <span style={{ fontSize: 10, fontWeight: 600, color: meta.color }}>{meta.label}</span>
+                        <span style={{ fontSize: 13, fontWeight: 600, color: meta.color }}>{meta.label}</span>
                       </div>
                     </div>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                       <div style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 700, color: meta.color }}>
-                        {entry.score}<span style={{ fontSize: 13, color: 'rgba(255,255,255,0.68)', fontWeight: 400 }}>/28</span>
+                        {entry.score}<span style={{ fontSize: 16, color: 'var(--ink-muted)', fontWeight: 400 }}>/28</span>
                       </div>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 18l6-6-6-6" stroke="rgba(255,255,255,0.2)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M9 18l6-6-6-6" stroke="rgba(15,43,76,0.3)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>
                   </button>

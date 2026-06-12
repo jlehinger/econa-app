@@ -73,7 +73,7 @@ export default function ResultDetail() {
   return (
     <div style={{
       minHeight: '100dvh',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       display: 'flex',
       flexDirection: 'column',
       maxWidth: '480px',
@@ -88,7 +88,7 @@ export default function ResultDetail() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        borderBottom: '1px solid var(--hairline)',
       }}>
         <button
           className="btn btn-ghost"
@@ -98,10 +98,10 @@ export default function ResultDetail() {
         </button>
         <div style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 11,
+          fontSize: 14,
           fontWeight: 600,
           letterSpacing: '0.05em',
-          color: 'rgba(255,255,255,0.68)',
+          color: 'var(--ink-muted)',
         }}>
           {idx === 0 ? 'Latest result' : 'Past result'}
         </div>
@@ -111,21 +111,22 @@ export default function ResultDetail() {
       <div style={{ padding: '24px 24px', flex: 1 }}>
         {/* Date + EconaLogo */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
-          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.68)', letterSpacing: '0.02em' }}>
+          <div style={{ fontSize: 15, color: 'var(--ink-muted)', letterSpacing: '0.02em' }}>
             {formatDate(entry.date)}
           </div>
-          <EconaLogo size="sm" />
+          <EconaLogo size="md" mark variant="color" />
         </div>
 
         {/* Score hero */}
         <div style={{
-          background: `radial-gradient(ellipse at 10% 0%, ${band.color}18, transparent 65%)`,
-          border: `1px solid ${band.color}25`,
+          background: `linear-gradient(135deg, ${band.color}14, var(--surface-2))`,
+          border: '1px solid var(--hairline)',
           borderLeft: `3px solid ${band.color}`,
           borderRadius: 14,
           padding: '24px 22px',
           marginBottom: 24,
           textAlign: 'center',
+          boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
         }}>
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: 8, marginBottom: 8 }}>
             <span style={{
@@ -138,7 +139,7 @@ export default function ResultDetail() {
             }}>
               {entry.score}
             </span>
-            <span style={{ fontSize: 22, color: 'rgba(255,255,255,0.68)', marginBottom: 8 }}>/28</span>
+            <span style={{ fontSize: 22, color: 'var(--ink-muted)', marginBottom: 8 }}>/28</span>
           </div>
           <div style={{
             fontFamily: 'var(--font-display)',
@@ -154,8 +155,8 @@ export default function ResultDetail() {
           {bandData?.description && (
             <p style={{
               fontFamily: 'var(--font-editorial)',
-              fontSize: 15,
-              color: 'rgba(255,255,255,0.82)',
+              fontSize: 18,
+              color: 'var(--ink-soft)',
               lineHeight: 1.75,
               fontWeight: 400,
             }}>
@@ -168,10 +169,10 @@ export default function ResultDetail() {
         {domains && (
           <>
             <div style={{
-              fontSize: 11,
+              fontSize: 14,
               fontWeight: 700,
               letterSpacing: '0.04em',
-              color: 'rgba(255,255,255,0.68)',
+              color: 'var(--ink-muted)',
               marginBottom: 12,
             }}>
               By domain
@@ -181,10 +182,11 @@ export default function ResultDetail() {
                 const val = domains[d.key] ?? 0
                 return (
                   <div key={d.key} style={{
-                    background: 'rgba(255,255,255,0.04)',
+                    background: 'var(--surface-2)',
                     borderRadius: 12,
                     padding: '14px 16px',
-                    border: '1px solid rgba(255,255,255,0.07)',
+                    border: '1px solid var(--hairline)',
+                    boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
                   }}>
                     <div style={{
                       display: 'flex',
@@ -193,18 +195,18 @@ export default function ResultDetail() {
                       marginBottom: 8,
                     }}>
                       <span style={{
-                        fontSize: 11,
+                        fontSize: 14,
                         fontWeight: 700,
                         letterSpacing: '0.05em',
-                        color: 'rgba(255,255,255,0.68)',
+                        color: 'var(--ink-muted)',
                       }}>
                         {d.label}
                       </span>
-                      <span style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 700, color: '#fff' }}>
-                        {val}<span style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', fontWeight: 400 }}>/{d.max}</span>
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 700, color: 'var(--ink)' }}>
+                        {val}<span style={{ fontSize: 14, color: 'var(--ink-muted)', fontWeight: 400 }}>/{d.max}</span>
                       </span>
                     </div>
-                    <div style={{ height: 4, background: 'rgba(255,255,255,0.08)', borderRadius: 2, overflow: 'hidden' }}>
+                    <div style={{ height: 4, background: 'var(--hairline)', borderRadius: 2, overflow: 'hidden' }}>
                       <div style={{
                         height: '100%',
                         width: `${(val / d.max) * 100}%`,
@@ -221,10 +223,10 @@ export default function ResultDetail() {
 
         {/* Resources surfaced at this time */}
         <div style={{
-          fontSize: 11,
+          fontSize: 14,
           fontWeight: 700,
           letterSpacing: '0.04em',
-          color: 'rgba(255,255,255,0.68)',
+          color: 'var(--ink-muted)',
           marginBottom: 12,
         }}>
           Resources surfaced
@@ -232,21 +234,22 @@ export default function ResultDetail() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 28 }}>
           {resources.map((r, i) => (
             <div key={i} style={{
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.07)',
+              background: 'var(--surface-2)',
+              border: '1px solid var(--hairline)',
               borderRadius: 14,
               padding: '18px 18px',
+              boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
             }}>
               <div style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 13,
+                fontSize: 16,
                 letterSpacing: '0.05em',
-                color: '#fff',
+                color: 'var(--ink)',
                 marginBottom: 6,
               }}>
                 {r.title}
               </div>
-              <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: 12 }}>
+              <p style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: 12 }}>
                 {r.body}
               </p>
               <a
@@ -254,10 +257,10 @@ export default function ResultDetail() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  fontSize: 11,
+                  fontSize: 14,
                   fontWeight: 700,
                   letterSpacing: '0.05em',
-                  color: r.color,
+                  color: r.color === '#D4A03C' ? 'var(--flame-bright)' : r.color,
                   textDecoration: 'none',
                 }}
               >
@@ -279,8 +282,8 @@ export default function ResultDetail() {
 
         <p style={{
           marginTop: 12,
-          fontSize: 11,
-          color: 'rgba(255,255,255,0.7)',
+          fontSize: 14,
+          color: 'var(--ink-muted)',
           textAlign: 'center',
           lineHeight: 1.8,
           paddingBottom: 8,

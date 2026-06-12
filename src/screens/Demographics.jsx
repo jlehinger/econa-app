@@ -56,18 +56,19 @@ const INITIAL_RESPONSES = {
 }
 
 const cardStyle = {
-  background: 'rgba(255,255,255,0.04)',
-  border: '1px solid rgba(255,255,255,0.08)',
+  background: 'var(--surface-2)',
+  border: '1px solid var(--hairline)',
   borderRadius: 12,
   padding: '16px 18px',
+  boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
 }
 
 const labelStyle = {
   display: 'block',
-  fontSize: 12,
+  fontSize: 15,
   fontWeight: 600,
   letterSpacing: '0.04em',
-  color: 'rgba(255,255,255,0.7)',
+  color: 'var(--ink-soft)',
   marginBottom: 10,
   fontFamily: 'var(--font-body)',
   lineHeight: 1.5,
@@ -75,12 +76,12 @@ const labelStyle = {
 
 const inputStyle = {
   width: '100%',
-  background: 'rgba(255,255,255,0.05)',
-  border: '1px solid rgba(255,255,255,0.1)',
+  background: 'var(--surface-2)',
+  border: '1px solid var(--hairline)',
   borderRadius: 8,
   padding: '12px 14px',
-  fontSize: 14,
-  color: '#fff',
+  fontSize: 17,
+  color: 'var(--ink)',
   fontFamily: 'var(--font-body)',
   outline: 'none',
   boxSizing: 'border-box',
@@ -91,7 +92,7 @@ const selectStyle = {
   ...inputStyle,
   appearance: 'none',
   WebkitAppearance: 'none',
-  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`,
+  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(15,43,76,0.5)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'right 14px center',
   paddingRight: 36,
@@ -99,7 +100,7 @@ const selectStyle = {
 }
 
 const focusOn = e => { e.currentTarget.style.borderColor = 'var(--flame)' }
-const focusOff = e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }
+const focusOff = e => { e.currentTarget.style.borderColor = 'var(--hairline)' }
 
 function Card({ label, children }) {
   return (
@@ -120,9 +121,9 @@ function Select({ value, onChange, options, placeholder = 'Select…', ariaLabel
       onFocus={focusOn}
       onBlur={focusOff}
     >
-      <option value="" style={{ background: '#111' }}>{placeholder}</option>
+      <option value="" style={{ background: 'var(--surface-2)', color: 'var(--ink)' }}>{placeholder}</option>
       {options.map(opt => (
-        <option key={opt} value={opt} style={{ background: '#111' }}>{opt}</option>
+        <option key={opt} value={opt} style={{ background: 'var(--surface-2)', color: 'var(--ink)' }}>{opt}</option>
       ))}
     </select>
   )
@@ -141,15 +142,15 @@ function YesNo({ value, onChange, ariaLabel }) {
             onClick={() => onChange(opt)}
             style={{
               flex: 1,
-              background: isSelected ? 'rgba(212,160,60,0.1)' : 'rgba(255,255,255,0.04)',
-              border: isSelected ? '2px solid var(--flame)' : '1.5px solid rgba(255,255,255,0.12)',
+              background: 'var(--surface-2)',
+              border: isSelected ? '2px solid var(--flame)' : '1px solid var(--hairline)',
               borderRadius: 10,
               padding: '12px 14px',
               cursor: 'pointer',
               fontFamily: 'var(--font-body)',
-              fontSize: 14,
+              fontSize: 17,
               fontWeight: isSelected ? 600 : 400,
-              color: isSelected ? '#fff' : 'rgba(255,255,255,0.65)',
+              color: isSelected ? 'var(--ink)' : 'var(--ink-soft)',
               transition: 'all 0.15s',
             }}
           >
@@ -176,7 +177,7 @@ export default function Demographics() {
   return (
     <div style={{
       minHeight: '100dvh',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       display: 'flex',
       flexDirection: 'column',
       maxWidth: '480px',
@@ -193,17 +194,17 @@ export default function Demographics() {
         >
           ← Verify
         </button>
-        <EconaLogo size="sm" />
+        <EconaLogo size="md" mark variant="color" />
       </div>
 
       {/* Screen heading */}
-      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.68)', marginBottom: 10 }}>
+      <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--ink-muted)', marginBottom: 10 }}>
         FounderScreen
       </div>
-      <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 36, color: '#fff', marginBottom: 8, fontWeight: 400, lineHeight: 1.15 }}>
+      <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 36, color: 'var(--ink)', marginBottom: 8, fontWeight: 400, lineHeight: 1.15 }}>
         About You
       </div>
-      <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.68)', marginBottom: 40 }}>
+      <div style={{ fontSize: 16, color: 'var(--ink-muted)', marginBottom: 40 }}>
         10 questions · ~2 min
       </div>
 
@@ -225,7 +226,7 @@ export default function Demographics() {
               aria-valuenow={r.age}
               style={{ flex: 1, accentColor: 'var(--flame)', cursor: 'pointer' }}
             />
-            <span style={{ fontSize: 16, fontWeight: 600, color: 'var(--flame)', fontFamily: 'var(--font-display)', minWidth: 36, textAlign: 'right' }}>
+            <span style={{ fontSize: 18, fontWeight: 600, color: 'var(--flame-bright)', fontFamily: 'var(--font-display)', minWidth: 36, textAlign: 'right' }}>
               {r.age}
             </span>
           </div>
@@ -250,7 +251,7 @@ export default function Demographics() {
             onFocus={focusOn}
             onBlur={focusOff}
           />
-          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.68)', marginTop: 8, lineHeight: 1.5 }}>
+          <div style={{ fontSize: 15, color: 'var(--ink-muted)', marginTop: 8, lineHeight: 1.5 }}>
             For example: 12 = high school · 16 = college · 18 = Master's degree/trade school/apprenticeship · 21 = Ph.D., M.D., J.D., other doctoral degree
           </div>
         </Card>

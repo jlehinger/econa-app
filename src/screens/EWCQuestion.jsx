@@ -96,7 +96,7 @@ export default function EWCQuestion() {
     return (
       <>
         <span>{parts[0]}</span>
-        <span style={{ color: 'var(--spark)' }}>{boldWord}</span>
+        <span style={{ color: 'var(--flame-bright)' }}>{boldWord}</span>
         <span>{parts[1]}</span>
       </>
     )
@@ -105,7 +105,7 @@ export default function EWCQuestion() {
   return (
     <div style={{
       minHeight: '100dvh',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       display: 'flex',
       flexDirection: 'column',
       maxWidth: '480px',
@@ -117,8 +117,8 @@ export default function EWCQuestion() {
 
       {/* Header */}
       <div style={{ padding: '20px 24px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <EconaLogo size="sm" />
-        <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', letterSpacing: '0.12em', fontFamily: 'var(--font-body)' }}>
+        <EconaLogo size="md" mark variant="color" />
+        <span style={{ fontSize: 14, color: 'var(--ink-muted)', letterSpacing: '0.12em', fontFamily: 'var(--font-body)' }}>
           {idx + 1} / {TOTAL}
         </span>
         <button
@@ -144,7 +144,7 @@ export default function EWCQuestion() {
           marginBottom: 20,
           alignSelf: 'flex-start',
         }}>
-          <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: 'var(--teal-light)' }}>
+          <span style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.05em', color: 'var(--teal)' }}>
             {question.domain}
           </span>
         </div>
@@ -157,15 +157,15 @@ export default function EWCQuestion() {
           lineHeight: 1.4,
           letterSpacing: '0.01em',
           marginBottom: 12,
-          color: '#fff',
+          color: 'var(--ink)',
         }}>
           {renderText()}
         </h2>
 
         {question.timeframe && (
           <p style={{
-            fontSize: 11,
-            color: 'rgba(255,255,255,0.68)',
+            fontSize: 14,
+            color: 'var(--ink-muted)',
             letterSpacing: '0.05em',
             fontWeight: 600,
             marginBottom: 20,
@@ -177,19 +177,20 @@ export default function EWCQuestion() {
 
         {question.context && (
           <div style={{
-            background: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(255,255,255,0.07)',
+            background: 'var(--surface-2)',
+            border: '1px solid var(--hairline)',
             borderRadius: 10,
             padding: '14px 18px',
             marginBottom: 28,
+            boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
           }}>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.68)', marginBottom: 10 }}>
+            <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.05em', color: 'var(--ink-muted)', marginBottom: 10 }}>
               {question.context.label}
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 7 }}>
               {question.context.items.map((item, i) => (
-                <li key={i} style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, paddingLeft: 18, position: 'relative' }}>
-                  <span style={{ position: 'absolute', left: 0, color: 'var(--flame)', fontSize: 10 }}>—</span>
+                <li key={i} style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6, paddingLeft: 18, position: 'relative' }}>
+                  <span style={{ position: 'absolute', left: 0, color: 'var(--flame)', fontSize: 13 }}>—</span>
                   {item}
                 </li>
               ))}
@@ -206,16 +207,14 @@ export default function EWCQuestion() {
                 key={opt.value}
                 onClick={() => handleSelect(opt.value)}
                 style={{
-                  background: isSelected
-                    ? 'rgba(212,160,60,0.14)'
-                    : 'rgba(255,255,255,0.04)',
+                  background: 'var(--surface-2)',
                   border: isSelected
                     ? '2px solid var(--flame)'
-                    : '1.5px solid rgba(255,255,255,0.09)',
+                    : '1px solid var(--hairline)',
                   borderRadius: 12,
                   padding: '16px 20px',
-                  fontSize: 14,
-                  color: isSelected ? '#fff' : 'rgba(255,255,255,0.7)',
+                  fontSize: 17,
+                  color: isSelected ? 'var(--ink)' : 'var(--ink-soft)',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
@@ -224,7 +223,7 @@ export default function EWCQuestion() {
                   textAlign: 'left',
                   transition: 'all 0.15s',
                   fontWeight: isSelected ? 600 : 400,
-                  boxShadow: isSelected ? '0 2px 12px rgba(212,160,60,0.2)' : 'none',
+                  boxShadow: isSelected ? '0 2px 12px rgba(212,160,60,0.2)' : '0 2px 12px rgba(15,43,76,0.06)',
                 }}
               >
                 {/* Checkmark indicator */}
@@ -232,7 +231,7 @@ export default function EWCQuestion() {
                   width: 20,
                   height: 20,
                   borderRadius: '50%',
-                  border: isSelected ? 'none' : '1.5px solid rgba(255,255,255,0.2)',
+                  border: isSelected ? 'none' : '1.5px solid var(--hairline)',
                   background: isSelected ? 'var(--flame)' : 'transparent',
                   flexShrink: 0,
                   display: 'flex',
@@ -259,8 +258,8 @@ export default function EWCQuestion() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-        background: 'rgba(15,43,76,0.95)',
+        borderTop: '1px solid var(--hairline)',
+        background: 'var(--surface-2)',
         backdropFilter: 'blur(8px)',
       }}>
         <button
@@ -270,7 +269,7 @@ export default function EWCQuestion() {
           ← Back
         </button>
 
-        <span style={{ fontSize: 10, fontWeight: 600, color: 'rgba(255,255,255,0.68)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Private</span>
+        <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--ink-muted)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Private</span>
 
         <button
           className="btn btn-primary"

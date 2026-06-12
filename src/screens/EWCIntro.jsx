@@ -30,7 +30,7 @@ export default function EWCIntro() {
   return (
     <div style={{
       minHeight: '100dvh',
-      background: 'var(--void)',
+      background: 'var(--surface)',
       display: 'flex',
       flexDirection: 'column',
       maxWidth: '480px',
@@ -47,10 +47,10 @@ export default function EWCIntro() {
         >
           ← Dashboard
         </button>
-        <EconaLogo size="sm" />
+        <EconaLogo size="md" mark variant="color" />
       </div>
 
-      <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 36, fontStyle: 'italic', color: '#fff', margin: '24px 0 12px', fontWeight: 400, lineHeight: 1.15 }}>
+      <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 36, fontStyle: 'italic', color: 'var(--ink)', margin: '24px 0 12px', fontWeight: 400, lineHeight: 1.15 }}>
         The Entrepreneur<br />Wellbeing Check
       </div>
 
@@ -58,30 +58,31 @@ export default function EWCIntro() {
       <div style={{ display: 'flex', gap: 24, marginBottom: 40 }}>
         {[['7', 'Questions'], ['~3 min', 'Duration'], ['3', 'Domains']].map(([n, l]) => (
           <div key={l}>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600, color: 'var(--flame)', lineHeight: 1 }}>{n}</div>
-            <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.68)', marginTop: 4 }}>{l}</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600, color: 'var(--flame-bright)', lineHeight: 1 }}>{n}</div>
+            <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--ink-muted)', marginTop: 4 }}>{l}</div>
           </div>
         ))}
       </div>
 
       {/* Anonymity callout */}
       <div style={{
-        background: 'rgba(93,173,226,0.08)',
-        border: '1px solid rgba(93,173,226,0.2)',
+        background: 'var(--surface-2)',
+        border: '1px solid var(--hairline)',
         borderLeft: '3px solid var(--teal)',
         borderRadius: 10,
         padding: '14px 16px',
         marginBottom: 36,
-        fontSize: 13,
-        color: 'rgba(255,255,255,0.82)',
+        fontSize: 16,
+        color: 'var(--ink-soft)',
         lineHeight: 1.6,
+        boxShadow: '0 2px 12px rgba(15,43,76,0.06)',
       }}>
-        <span style={{ color: 'var(--teal-light)', fontWeight: 600 }}>Anonymity is architectural, not a policy.</span>{' '}
+        <span style={{ color: 'var(--teal)', fontWeight: 600 }}>Anonymity is architectural, not a policy.</span>{' '}
         Your responses are never linked to your identity.
       </div>
 
       {/* Domains */}
-      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 14 }}>
+      <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.04em', color: 'var(--ink-muted)', marginBottom: 14 }}>
         3 domains measured
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 36 }}>
@@ -98,17 +99,17 @@ export default function EWCIntro() {
               gap: 14,
             }}
           >
-            <span style={{ color: d.color, fontSize: 9, marginTop: 4, flexShrink: 0 }}>{d.icon}</span>
+            <span style={{ color: d.color, fontSize: 12, marginTop: 4, flexShrink: 0 }}>{d.icon}</span>
             <div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: '#fff', marginBottom: 2 }}>{d.label}</div>
-              <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', lineHeight: 1.5 }}>{d.desc}</div>
+              <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--ink)', marginBottom: 2 }}>{d.label}</div>
+              <div style={{ fontSize: 14, color: 'var(--ink-muted)', lineHeight: 1.5 }}>{d.desc}</div>
             </div>
           </div>
         ))}
       </div>
 
       {/* Result bands */}
-      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.68)', marginBottom: 14 }}>
+      <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.04em', color: 'var(--ink-muted)', marginBottom: 14 }}>
         Your result falls in one of 4 bands
       </div>
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 44 }}>
@@ -125,8 +126,8 @@ export default function EWCIntro() {
               gap: 8,
             }}
           >
-            <span style={{ fontSize: 12, fontWeight: 600, color: b.color }}>{b.label}</span>
-            <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.68)' }}>{b.range}</span>
+            <span style={{ fontSize: 15, fontWeight: 600, color: b.color }}>{b.label}</span>
+            <span style={{ fontSize: 13, color: 'var(--ink-muted)' }}>{b.range}</span>
           </div>
         ))}
       </div>
@@ -141,7 +142,7 @@ export default function EWCIntro() {
         Begin the Check →
       </button>
 
-      <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.68)', textAlign: 'center', lineHeight: 1.7 }}>
+      <p style={{ fontSize: 14, color: 'var(--ink-muted)', textAlign: 'center', lineHeight: 1.7 }}>
         Freeman, Mazza, Johnson &amp; Heinz (2026).<br />
         Validated on 314 entrepreneurs across US, Canada, EU, UK &amp; Israel.
       </p>
