@@ -4,28 +4,30 @@ import EconaLogo from '../components/EconaLogo.jsx'
 import { useAssessmentStore } from '../store/assessmentStore.js'
 import { CONNECTED_MIND_URL } from '../lib/links.js'
 
-// PLACEHOLDER — resource list pending Dr. Freeman (Q8 in delivery email)
+// Dr. Freeman's full mental-health resource list is still pending; these two
+// entries are the confirmed starting points (CM triage pathway + Econa).
 const RESOURCES = [
   {
     title: 'Connected Mind',
-    body: '[Resource description pending]',   // PLACEHOLDER — replace with Dr. Freeman's verbatim text
+    body: 'A confidential, clinically validated mental health screening you can take in minutes, with a pathway to professional support.',
     cta: 'Learn More',
     link: CONNECTED_MIND_URL,
   },
   {
     title: 'Econa Support',
-    body: '[Resource description pending]',   // PLACEHOLDER — replace with Dr. Freeman's verbatim text
+    body: 'Econa resources built for entrepreneurs — community, learning labs, and support designed around the founder experience.',
     cta: 'Find Support',
     link: 'https://econa.net',
   },
 ]
 
-// PLACEHOLDER — 4 response labels pending Dr. Freeman (Q8 in delivery email)
-const RESPONSE_LABELS = [
-  '1 — [Response label pending]',
-  '2 — [Response label pending]',
-  '3 — [Response label pending]',
-  '4 — [Response label pending]',
+// Verbatim labels + values from Dr. Freeman's April 28 assessment bundle (p. 9).
+// This item is NOT scored — it gates the self-care resource list (shown on 1 or 2).
+const RESPONSE_OPTIONS = [
+  { value: 4, label: 'No' },
+  { value: 3, label: 'Not now' },
+  { value: 2, label: "I'm somewhat interested" },
+  { value: 1, label: "I'm interested and would like to learn more" },
 ]
 
 export default function PerceivedNeedForCare() {
@@ -82,29 +84,27 @@ export default function PerceivedNeedForCare() {
         Before You Begin
       </div>
 
-      {/* Question text */}
-      {/* PLACEHOLDER — exact question text pending Dr. Freeman (Q8 in delivery email) */}
+      {/* Question text — verbatim from Dr. Freeman's April 28 assessment bundle */}
       <div style={{
         fontFamily: 'var(--font-editorial)',
-        fontSize: 32,
-        fontStyle: 'italic',
+        fontSize: 28,
         color: '#fff',
         fontWeight: 300,
-        lineHeight: 1.25,
+        lineHeight: 1.3,
         marginBottom: 40,
       }}>
-        [Perceived need for care question — text pending Dr. Freeman confirmation]
+        Would you like to obtain, or learn more about how to obtain mental health resources including those that address the needs of entrepreneurs?
       </div>
 
-      {/* Four response buttons */}
-      {/* PLACEHOLDER — 4 response labels pending Dr. Freeman (Q8 in delivery email) */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 32 }}>
-        {RESPONSE_LABELS.map((label, i) => {
-          const value = i + 1
+      {/* Four response buttons — verbatim labels, spec values (No=4 … interested=1) */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 32 }} role="radiogroup" aria-label="Would you like to obtain, or learn more about how to obtain mental health resources?">
+        {RESPONSE_OPTIONS.map(({ value, label }) => {
           const isSelected = selected === value
           return (
             <button
               key={value}
+              role="radio"
+              aria-checked={isSelected}
               onClick={() => setSelected(value)}
               style={{
                 background: isSelected ? 'rgba(212,160,60,0.1)' : 'rgba(255,255,255,0.04)',
@@ -161,7 +161,7 @@ export default function PerceivedNeedForCare() {
           }}>
             Support is available
           </div>
-          {/* PLACEHOLDER — resource list pending Dr. Freeman (Q8 in delivery email) */}
+          {/* Full resource list still pending Dr. Freeman — see docs/HANDOFF */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {RESOURCES.map(resource => (
               <div

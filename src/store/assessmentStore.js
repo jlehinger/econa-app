@@ -48,7 +48,14 @@ export const useAssessmentStore = create(persist(
         }
       }
     }),
+    // Resets only the EWC check itself. FounderScreen intake (demographics,
+    // econometrics, perceivedNeed) is collected once and survives retakes —
+    // use resetAll to wipe everything (e.g. on sign-out).
     resetAssessment: () => set({
+      answers: {}, currentQuestion: 0, completed: false,
+      score: null, band: null, itemScores: [], domainScores: null,
+    }),
+    resetAll: () => set({
       answers: {}, currentQuestion: 0, completed: false,
       score: null, band: null, itemScores: [], domainScores: null,
       demographics: null, econometrics: null, perceivedNeed: null,
