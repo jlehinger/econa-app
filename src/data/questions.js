@@ -1,4 +1,5 @@
-// EWC Questions — sourced from Econa EWC Portal Mockup
+// EWC Questions — verified word-for-word (2026-06-12) against the published instrument:
+// econa.net/wp-content/uploads/2025/12/EWC-Version-1.1-Updated.pdf (MVP v1.1, Nov 10 2025). Wording LOCKED.
 // Freeman, Mazza, Johnson & Heinz (2026). The Entrepreneur Well-Being Check.
 // International Journal of Entrepreneurial Behavior & Research, 32(5):1333-1354. DOI 10.1108/IJEBR-02-2025-0147.
 // Validated on 314 entrepreneurs across US, Canada, EU, UK & Israel.
