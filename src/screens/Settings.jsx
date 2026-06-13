@@ -92,6 +92,7 @@ function Row({ label, sub, right, onClick, destructive, noBorder }) {
           color: destructive ? '#E05252' : 'var(--ink)',
           fontFamily: 'var(--font-body)',
           marginBottom: sub ? 2 : 0,
+          overflowWrap: 'anywhere',
         }}>
           {label}
         </div>
@@ -200,6 +201,8 @@ export default function Settings() {
                 border: '1px solid rgba(93,173,226,0.3)',
                 padding: '3px 8px',
                 borderRadius: 100,
+                flexShrink: 0,
+                whiteSpace: 'nowrap',
               }}>
                 Entrepreneur
               </span>
