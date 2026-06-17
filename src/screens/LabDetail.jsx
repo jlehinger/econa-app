@@ -404,7 +404,21 @@ function AssessmentSection({ lab, color }) {
       </Card>
       {lab.id === 'burnout' && <BMS10Calculator color={color} />}
       {lab.id === 'emotional-regulation' && <EmotionRegCalculator color={color} />}
+      {lab.id === 'trauma' && <TraumaScreeningLauncher color={color} />}
     </>
+  )
+}
+
+function TraumaScreeningLauncher({ color }) {
+  const navigate = useNavigate()
+  return (
+    <Card color={color} highlight>
+      <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'var(--flame-bright)', marginBottom: 8 }}>Draft · for review</div>
+      <p style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6, marginBottom: 14 }}>
+        Take the v2 intake the way an entrepreneur would — a trigger question, two brief exposure screens, then five questions about the past month. About two minutes, confidential.
+      </p>
+      <button className="btn btn-primary btn-block" onClick={() => navigate('/trauma')}>Begin the screening →</button>
+    </Card>
   )
 }
 

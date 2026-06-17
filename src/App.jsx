@@ -18,6 +18,7 @@ import CMTriage from './screens/CMTriage.jsx'
 import VillageWelcome from './screens/VillageWelcome.jsx'
 import LabsList from './screens/LabsList.jsx'
 import LabDetail from './screens/LabDetail.jsx'
+import TraumaScreening from './screens/TraumaScreening.jsx'
 import { useAuthStore } from './store/authStore.js'
 
 function PrivateRoute({ children }) {
@@ -50,6 +51,7 @@ export default function App() {
       <Route path="/village" element={<PrivateRoute><VillageWelcome /></PrivateRoute>} />
       <Route path="/labs" element={<PrivateRoute><LabsList /></PrivateRoute>} />
       <Route path="/labs/:labId" element={<PrivateRoute><LabDetail /></PrivateRoute>} />
+      <Route path="/trauma" element={<PrivateRoute><TraumaScreening /></PrivateRoute>} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   )

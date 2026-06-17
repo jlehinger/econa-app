@@ -77,6 +77,11 @@ export default function LabsList() {
                           {lab.phase === 'summer2026' ? "Coming Summer '26" : 'Phase 2'}
                         </span>
                       )}
+                      {lab.available && lab.phase === 'draft' && (
+                        <span style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.05em', color: 'var(--flame-bright)', background: 'rgba(200,138,30,0.12)', border: '1px solid rgba(200,138,30,0.3)', borderRadius: 100, padding: '2px 7px' }}>
+                          Draft
+                        </span>
+                      )}
                       {started && (
                         <span style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.05em', color: '#2E7D55', background: 'rgba(76,175,130,0.14)', borderRadius: 100, padding: '2px 7px' }}>
                           In progress
