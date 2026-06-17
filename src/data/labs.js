@@ -2,6 +2,8 @@
 // Phase 1 content: Burnout (4), Sleep (6), Emotional Regulation (5) have full content
 // Phase 2 labs (0-3) are available: false with null content sections (content pending Dr. Freeman)
 
+import { TRAUMA_LAB_CONTENT } from './trauma.js'
+
 export const LABS = [
   {
     id: 'thriving',
@@ -187,15 +189,15 @@ export const LABS = [
   },
   {
     id: 'trauma',
-    ewcIndex: null,        // No EWC item yet — new PTSD screen coming summer 2026
+    ewcIndex: null,        // No EWC item — routed by the trigger question, not an EWC score
     title: 'Trauma',
     subtitle: 'Entrepreneur PTSD & Business Trauma',
     domain: 'emotional',
-    color: '#9B59B6',      // Purple — distinct from existing lab colors
-    phase: 'summer2026',   // Custom phase flag
-    available: false,
+    color: '#7E5A86',      // Calm plum — distinct, serious, complements navy/gold
+    phase: 'draft',        // DRAFT — v2 intake built for review, pending Dr. Freeman's confirmation
+    available: true,
     tagline: 'You are not alone in what you carry.',
-    assessment: null,
+    assessment: TRAUMA_LAB_CONTENT,
     action: null,
     better: null,
     resources: null,

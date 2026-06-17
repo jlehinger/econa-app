@@ -16,6 +16,7 @@ export const useAssessmentStore = create(persist(
     econometrics: null,      // object { sector, growth_a, growth_b, q4..q17 } — set by Econometrics screen
     perceivedNeed: null,     // 1|2|3|4 — set by PerceivedNeedForCare screen
     researchConsented: false, // true once user has accepted the IRB consent modal
+    traumaResult: null,      // DRAFT Trauma Lab — { exposure, symptomYes, screen: 'positive'|'negative'|'none', takenAt }
 
     setAnswer: (index, value) => set(state => ({
       answers: { ...state.answers, [index]: value }
@@ -59,11 +60,14 @@ export const useAssessmentStore = create(persist(
       answers: {}, currentQuestion: 0, completed: false,
       score: null, band: null, itemScores: [], domainScores: null,
       demographics: null, econometrics: null, perceivedNeed: null,
+      traumaResult: null,
     }),
     setDemographics: (data) => set({ demographics: data }),
     setEconometrics: (data) => set({ econometrics: data }),
     setPerceivedNeed: (val) => set({ perceivedNeed: val }),
     setResearchConsented: (val) => set({ researchConsented: val }),
+    setTraumaResult: (result) => set({ traumaResult: result }),
+    resetTrauma: () => set({ traumaResult: null }),
     clearHistory: () => set({ history: [] }),
   }),
   {
