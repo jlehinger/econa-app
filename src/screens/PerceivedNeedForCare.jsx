@@ -15,7 +15,7 @@ const RESOURCES = [
   },
   {
     title: 'Econa Support',
-    body: 'Econa resources built for entrepreneurs — community, learning labs, and support designed around the founder experience.',
+    body: 'Econa resources built for entrepreneurs — community, learning labs, and support designed around the entrepreneur experience.',
     cta: 'Find Support',
     link: 'https://econa.net',
   },

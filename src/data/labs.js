@@ -1,6 +1,6 @@
 // Econa Labs — one lab per EWC item (indices 0-6)
-// Phase 1 content: Burnout (4), Sleep (6), Emotional Regulation (5) have full content
-// Phase 2 labs (0-3) are available: false with null content sections (content pending Dr. Freeman)
+// Phase 1 content: Burnout (4), Sleep (6), Emotion Regulation (5) have full content
+// Phase 2 labs (Thriving, Resilience, Wellbeing, People Skills, Entrepreneuring) are available: false with placeholder content (pending Dr. Freeman)
 
 import { TRAUMA_LAB_CONTENT } from './trauma.js'
 
@@ -28,9 +28,9 @@ export const LABS = [
     motivation: null,
   },
   {
-    id: 'life-satisfaction',
+    id: 'resilience',
     ewcIndex: 1,
-    title: 'Life Satisfaction',
+    title: 'Resilience',
     subtitle: 'Purpose & Fulfillment',
     domain: 'wellbeing',
     color: '#5DADE2',
@@ -50,9 +50,9 @@ export const LABS = [
     motivation: null,
   },
   {
-    id: 'social-functioning',
+    id: 'wellbeing',
     ewcIndex: 2,
-    title: 'Social Functioning',
+    title: 'Wellbeing',
     subtitle: 'Relationships & Community',
     domain: 'wellbeing',
     color: '#5DADE2',
@@ -72,21 +72,43 @@ export const LABS = [
     motivation: null,
   },
   {
-    id: 'self-efficacy',
+    id: 'people-skills',
     ewcIndex: 3,
-    title: 'Entrepreneurial Self-Efficacy',
+    title: 'People Skills',
     subtitle: 'Confidence & Capability',
     domain: 'occupational',
     color: '#D4A03C',
     phase: 2,
     available: false,
-    tagline: 'Rebuild your founder confidence.',
+    tagline: 'Rebuild your entrepreneur confidence.',
     assessment: {
       instrumentName: 'Zhao, Seibert and Hills Entrepreneurial Self-Efficacy Scale',
       description: 'A 4-item validated measure of confidence in core entrepreneurial tasks: identifying new business opportunities, creating new products, thinking creatively, and commercializing an idea or new development.',
       scoring: 'Each item rated 1 (No confidence) to 5 (Complete confidence). Sum or average for overall score.',
       citation: 'Zhao, H., Seibert, S.E., & Hills, G.E. (2005). The mediating role of self-efficacy in the development of entrepreneurial intentions. Journal of Applied Psychology, 90(6), 1265–1272.',
       trackingNote: 'Retake monthly. Useful for tracking confidence recovery after setbacks.',
+    },
+    action: null,
+    better: null,
+    resources: null,
+    motivation: null,
+  },
+  {
+    id: 'entrepreneuring',
+    ewcIndex: null,        // No EWC item — Phase 2 placeholder
+    title: 'Entrepreneuring',
+    subtitle: 'Building & Scaling',
+    domain: 'occupational',
+    color: '#D4A03C',
+    phase: 2,
+    available: false,
+    tagline: 'Grow what you are building.',
+    assessment: {
+      instrumentName: 'Entrepreneuring (content to follow)',
+      description: 'A Phase 2 lab focused on the work of building and scaling a venture. Content is in development with Dr. Freeman.',
+      scoring: 'Content pending.',
+      citation: 'Phase 2 — instrument to be confirmed.',
+      trackingNote: 'Available when Phase 2 content is added.',
     },
     action: null,
     better: null,
@@ -123,7 +145,7 @@ export const LABS = [
       practices: [
         { title: 'Values realignment', body: 'Quarterly review of which activities energize you vs. drain you. Burnout often signals values misalignment, not weakness.' },
         { title: 'Sustainable pace modeling', body: 'Treat capacity as a renewable resource: protect sleep, movement, and social connection as non-negotiables in your calendar.' },
-        { title: 'Peer accountability', body: 'Connect with other founders who understand the pressure. Isolation accelerates burnout; community buffers it.' },
+        { title: 'Peer accountability', body: 'Connect with other entrepreneurs who understand the pressure. Isolation accelerates burnout; community buffers it.' },
       ],
     },
     resources: {
@@ -134,16 +156,16 @@ export const LABS = [
     },
     motivation: [
       'By taking breaks and time off, you actually get more done.',
-      'The founders who last aren\'t the ones who never stop — they\'re the ones who know when to pause.',
+      'The entrepreneurs who last aren\'t the ones who never stop — they\'re the ones who know when to pause.',
       'Recovery isn\'t weakness. It\'s strategy.',
       'You\'ve overcome bigger challenges than this. You already have the mindset.',
       'Your team needs you sustainable, not just present.',
     ],
   },
   {
-    id: 'emotional-regulation',
+    id: 'emotion-regulation',
     ewcIndex: 5,
-    title: 'Emotional Regulation',
+    title: 'Emotion Regulation',
     subtitle: 'Negative Emotionality & Resilience',
     domain: 'emotional',
     color: '#E05252',
@@ -152,10 +174,10 @@ export const LABS = [
     tagline: 'Feel it. Process it. Move forward.',
     assessment: {
       instrumentName: 'GAD-7 · PHQ-9 · BPAQ-SF',
-      description: 'Three validated instruments covering the full emotional regulation picture for founders: the GAD-7 (7-item anxiety screen), PHQ-9 (9-item depression screen), and the Buss-Perry Aggression Questionnaire Short Form (BPAQ-SF, 12-item anger-hostility measure). All three have clinical cutoff scores that trigger CM triage when exceeded.',
+      description: 'Three validated instruments covering the full emotion regulation picture for entrepreneurs: the GAD-7 (7-item anxiety screen), PHQ-9 (9-item depression screen), and the Buss-Perry Aggression Questionnaire Short Form (BPAQ-SF, 12-item anger-hostility measure). All three have clinical cutoff scores that trigger CM triage when exceeded.',
       scoring: 'GAD-7: Each item scored 0–3. Total 0–21. ≥10 = moderate anxiety → CM triage. PHQ-9: Each item scored 0–3. Total 0–27. ≥10 = moderate depression → CM triage. BPAQ-SF: Each item rated 1–5. Total 12–60. ≥45 = clinically significant aggression → CM triage.',
       citation: 'GAD-7: Spitzer, R.L. et al. (2006). A brief measure for assessing generalized anxiety disorder. Archives of Internal Medicine, 166(10), 1092–1097. PHQ-9: Kroenke, K., Spitzer, R.L., & Williams, J.B.W. (2001). Journal of General Internal Medicine, 16(9), 606–613. BPAQ-SF: Bryant, F.B., & Smith, B.D. (2001). Journal of Research in Personality, 35(2), 138–167.',
-      trackingNote: 'Retake every 4–6 weeks. Use all three together — anxiety, depression, and anger-hostility often co-occur in high-pressure founder environments.',
+      trackingNote: 'Retake every 4–6 weeks. Use all three together — anxiety, depression, and anger-hostility often co-occur in high-pressure entrepreneur environments.',
     },
     action: {
       headline: 'Immediate tools for intense moments',
@@ -170,7 +192,7 @@ export const LABS = [
       practices: [
         { title: 'Emotion journaling', body: '5 minutes daily: what did I feel today, what triggered it, how did I respond, what would I do differently. Builds emotional vocabulary and self-awareness.' },
         { title: 'Somatic awareness practice', body: 'Movement-based practices (yoga, martial arts, dance) process stored stress from the body — what talk therapy can\'t always reach.' },
-        { title: 'Therapeutic support', body: 'Entrepreneurs experience emotions at intensity levels the general population rarely encounters. A therapist who understands founders is worth the investment.' },
+        { title: 'Therapeutic support', body: 'Entrepreneurs experience emotions at intensity levels the general population rarely encounters. A therapist who understands entrepreneurs is worth the investment.' },
       ],
     },
     resources: {
@@ -180,11 +202,11 @@ export const LABS = [
       websites: [{ name: 'econa.net', url: 'https://econa.net', note: 'Econa emotional wellness resources' }],
     },
     motivation: [
-      'Feeling things deeply is part of what makes you a great founder. The skill is learning to work with it.',
+      'Feeling things deeply is part of what makes you a great entrepreneur. The skill is learning to work with it.',
       'Many entrepreneurs work on changing their emotional patterns — it takes time and that\'s okay.',
       'Your emotional intelligence is a competitive advantage when you develop it.',
       'You can\'t think your way out of what you felt your way into. That\'s not weakness — it\'s how humans work.',
-      'It\'s great that you\'re paying attention to this. Most founders don\'t.',
+      'It\'s great that you\'re paying attention to this. Most entrepreneurs don\'t.',
     ],
   },
   {
@@ -238,16 +260,16 @@ export const LABS = [
     },
     resources: {
       apps: [
-        { name: 'Oura Ring / WHOOP', url: null, note: 'Sleep tracking hardware for data-driven founders' },
+        { name: 'Oura Ring / WHOOP', url: null, note: 'Sleep tracking hardware for data-driven entrepreneurs' },
         { name: 'Sleep Cycle', url: 'https://sleepcycle.com', note: 'Smart alarm + sleep analysis' },
       ],
-      books: [{ name: 'Why We Sleep — Matthew Walker', note: 'The science case for founder sleep' }],
+      books: [{ name: 'Why We Sleep — Matthew Walker', note: 'The science case for entrepreneur sleep' }],
       podcasts: [{ name: 'Huberman Lab: Sleep episodes', note: 'Evidence-based sleep protocols' }],
       websites: [{ name: 'sleepfoundation.org', url: 'https://sleepfoundation.org', note: 'Evidence-based sleep hygiene' }],
     },
     motivation: [
       'Every hour of sleep debt costs you cognitive performance that no amount of caffeine recovers.',
-      'The best founders aren\'t the ones who sleep the least. They\'re the ones who protect their edge.',
+      'The best entrepreneurs aren\'t the ones who sleep the least. They\'re the ones who protect their edge.',
       'Sleep is when your brain consolidates what you learned today into tomorrow\'s decisions.',
       'You wouldn\'t run your company on a server that\'s been up for 80 hours. Don\'t run yourself that way.',
       'One week of good sleep will show you what you\'ve been missing.',

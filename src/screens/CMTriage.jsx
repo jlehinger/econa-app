@@ -9,7 +9,7 @@ const STEPS = [
     step: 1,
     color: '#E05252',
     title: 'Connected Mind Mental Health Lab',
-    body: "Your score indicates you may benefit from a deeper clinical assessment. We're partnering with Connected Mind to provide a confidential DSM-5 screening — the same tool used by vetted clinicians who specialize in founders.",
+    body: "Your score indicates you may benefit from a deeper clinical assessment. We're partnering with Connected Mind to provide a confidential DSM-5 screening — the same tool used by vetted clinicians who specialize in entrepreneurs.",
     note: 'Takes about 10 minutes. No referral required. Free.',
     cta: 'Begin Mental Health Screening',
     link: CONNECTED_MIND_URL,

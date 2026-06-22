@@ -164,7 +164,7 @@ export default function History() {
           letterSpacing: '0.04em',
           color: 'var(--ink-muted)',
         }}>
-          Wellbeing history
+          Resilience history
         </div>
       </div>
 
