@@ -5,9 +5,9 @@ import { useAssessmentStore } from '../store/assessmentStore.js'
 import { BANDS } from '../data/questions.js'
 
 const DOMAINS = [
-  { icon: '◆', label: 'Wellbeing',                desc: 'Thriving, life satisfaction, and social functioning as a founder', color: '#D4A03C', bg: 'rgba(212,160,60,0.08)' },
-  { icon: '◆', label: 'Occupational Functioning', desc: 'Entrepreneurial self-efficacy and burnout at work',                color: '#5DADE2', bg: 'rgba(93,173,226,0.08)' },
-  { icon: '◆', label: 'Emotional Stability',      desc: 'Negative emotionality and the impact of sleep impairments',       color: '#E07B54', bg: 'rgba(224,123,84,0.08)' },
+  { icon: '◆', label: 'Entrepreneurial Self-Efficacy', desc: 'Your confidence and capability building and running a venture', color: '#D4A03C', bg: 'rgba(212,160,60,0.08)' },
+  { icon: '◆', label: 'Work Engagement',               desc: 'How engaged and energized you feel in your work as an entrepreneur', color: '#5DADE2', bg: 'rgba(93,173,226,0.08)' },
+  { icon: '◆', label: 'Burnout',                       desc: 'Negative emotionality and the impact of sleep impairments',       color: '#E07B54', bg: 'rgba(224,123,84,0.08)' },
 ]
 
 // Band labels/colors/ranges come from the one scale in questions.js — never redefine them locally.
@@ -56,7 +56,7 @@ export default function EWCIntro() {
 
       {/* Stats row */}
       <div style={{ display: 'flex', gap: 24, marginBottom: 40 }}>
-        {[['7', 'Questions'], ['~3 min', 'Duration'], ['3', 'Domains']].map(([n, l]) => (
+        {[['7', 'Questions'], ['about 3 min', 'Duration'], ['3', 'Domains']].map(([n, l]) => (
           <div key={l}>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600, color: 'var(--flame-bright)', lineHeight: 1 }}>{n}</div>
             <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--ink-muted)', marginTop: 4 }}>{l}</div>
@@ -83,7 +83,7 @@ export default function EWCIntro() {
 
       {/* Domains */}
       <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.04em', color: 'var(--ink-muted)', marginBottom: 14 }}>
-        3 domains measured
+        3 entrepreneur performance domains
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 36 }}>
         {DOMAINS.map(d => (
@@ -110,7 +110,7 @@ export default function EWCIntro() {
 
       {/* Result bands */}
       <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: '0.04em', color: 'var(--ink-muted)', marginBottom: 14 }}>
-        Your result falls in one of 4 bands
+        Your result falls in one of four entrepreneur performance bands
       </div>
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 44 }}>
         {BAND_CHIPS.map(b => (

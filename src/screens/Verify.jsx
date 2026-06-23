@@ -38,10 +38,10 @@ export default function Verify() {
             fontWeight: 400,
             lineHeight: 1.2,
           }}>
-            Are you, or were you, the founder or co-founder of a company?
+            Are you an entrepreneur?
           </div>
           <p style={{ fontSize: 17, color: 'var(--ink-soft)', lineHeight: 1.8, marginBottom: 48 }}>
-            FounderScreen is validated exclusively for entrepreneurs. The assessment questions and scoring are calibrated to this population.
+            FounderScreen is validated exclusively for entrepreneurs — self-employed, with or without employees, so it includes those who acquired or inherited a business, not only those who founded one. The assessment questions and scoring are calibrated to this population.
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -49,7 +49,7 @@ export default function Verify() {
               className="btn btn-primary btn-block"
               onClick={() => { setQualified(); setVerified(true); navigate('/demographics') }}
             >
-              Yes — I'm a founder
+              Yes, I'm an entrepreneur.
             </button>
             <button
               className="btn btn-ghost btn-block"

@@ -403,7 +403,7 @@ function AssessmentSection({ lab, color }) {
         <p style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6 }}>{a.citation}</p>
       </Card>
       {lab.id === 'burnout' && <BMS10Calculator color={color} />}
-      {lab.id === 'emotional-regulation' && <EmotionRegCalculator color={color} />}
+      {lab.id === 'emotion-regulation' && <EmotionRegCalculator color={color} />}
       {lab.id === 'trauma' && <TraumaScreeningLauncher color={color} />}
     </>
   )

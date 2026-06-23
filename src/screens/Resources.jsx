@@ -9,10 +9,10 @@ import { BANDS } from '../data/questions.js'
 // Band labels/colors come from the one scale in questions.js — never redefine them locally.
 // Only the per-band copy (headline/sub) lives here.
 const BAND_COPY = {
-  distress:  { headline: "You're carrying something heavy right now.", sub: "This is not a character flaw — the research shows founder mental health challenges are common, under-addressed, and highly treatable. You deserve support designed for the entrepreneurial experience." },
+  distress:  { headline: "You're carrying something heavy right now.", sub: "This is not a character flaw — the research shows entrepreneur mental health challenges are common, under-addressed, and highly treatable. You deserve support designed for the entrepreneurial experience." },
   strain:    { headline: "The pressure is real. Let's get you the right tools.", sub: "Addressing strain early can help you sustain performance and build more steadily. Below are three concrete steps you can take starting today." },
-  stability: { headline: "You're holding steady. Let's help you go further.", sub: "Stability is a foundation, not a ceiling. These resources are designed to help high-performing founders optimize and sustain." },
-  vitality:  { headline: "You're in a strong place — and you can amplify that.", sub: "High-vitality founders who give back create resilient communities. Lead, connect, and help build the ecosystem." },
+  stability: { headline: "You're holding steady. Let's help you go further.", sub: "Stability is a foundation, not a ceiling. These resources are designed to help high-performing entrepreneurs optimize and sustain." },
+  vitality:  { headline: "You're in a strong place — and you can amplify that.", sub: "High-vitality entrepreneurs who give back create resilient communities. Lead, connect, and help build the ecosystem." },
 }
 
 const BAND_META = Object.fromEntries(
@@ -46,7 +46,7 @@ const RESOURCES = {
     {
       color: '#D4A03C',
       title: 'Read the Research',
-      body: 'Understanding the science behind why founders experience these challenges at higher rates can itself reduce shame and accelerate recovery.',
+      body: 'Understanding the science behind why entrepreneurs experience these challenges at higher rates can itself reduce shame and accelerate recovery.',
       cta: 'Read the Study',
       link: 'https://econa.net',
     },
@@ -69,14 +69,14 @@ const RESOURCES = {
     {
       color: '#4CAF82',
       title: 'Econaclast Community',
-      body: 'Connect with other stable and thriving founders. Build accountability, share practices, and grow together.',
+      body: 'Connect with other stable and thriving entrepreneurs. Build accountability, share practices, and grow together.',
       cta: 'Join the Community',
       link: 'https://econa.net',
     },
     {
       color: '#E05252',
       title: 'The Research',
-      body: 'Understand what the science says about maintaining stability and preventing the drift toward strain many founders experience over time.',
+      body: 'Understand what the science says about maintaining stability and preventing the drift toward strain many entrepreneurs experience over time.',
       cta: 'Read the Study',
       link: 'https://econa.net',
     },
@@ -93,14 +93,14 @@ const RESOURCES = {
     {
       color: '#D4A03C',
       title: "Dr. Freeman's Programs",
-      body: "Dr. Michael Freeman's keynote, workshop, and leadership programs for high-vitality founders ready to amplify impact and sustain their edge.",
+      body: "Dr. Michael Freeman's keynote, workshop, and leadership programs for high-vitality entrepreneurs ready to amplify impact and sustain their edge.",
       cta: 'Book Dr. Freeman',
       link: 'https://econa.net',
     },
     {
       color: BANDS.stability.color,
       title: 'FounderScreen',
-      body: "Join the global dataset and contribute to the future of founder wellbeing science. Your vitality data helps calibrate resources for others.",
+      body: "Join the global dataset and contribute to the future of entrepreneur wellbeing science. Your vitality data helps calibrate resources for others.",
       cta: 'Join FounderScreen',
       link: 'https://econa.net',
     },
@@ -131,7 +131,7 @@ const STRAIN_MODULES = [
       'Reframe ritual: "What is this moment asking of me?"',
       'Identify one thing within your control today and do it first',
     ],
-    cta: 'Explore founder coaching',
+    cta: 'Explore entrepreneur coaching',
     link: 'https://econa.net',
   },
   {
@@ -140,8 +140,8 @@ const STRAIN_MODULES = [
     title: 'Connect & Seek Support',
     sub: 'Peer connection & professional resources',
     bullets: [
-      'Reach out to one peer who genuinely understands the founder experience',
-      'Explore Econa workshops designed specifically for founders under strain',
+      'Reach out to one peer who genuinely understands the entrepreneur experience',
+      'Explore Econa workshops designed specifically for entrepreneurs under strain',
       'Schedule a free Connected Mind consultation — no referral needed',
     ],
     cta: 'Book a Connected Mind consult',

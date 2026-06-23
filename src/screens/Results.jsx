@@ -29,8 +29,8 @@ export default function Results() {
 
   const domainCards = [
     { label: 'Wellbeing',               sublabel: 'Thriving · Satisfaction · Social',   score: domains.wellbeing,    max: 12, color: 'var(--flame)',    desc: 'How fully you are thriving, satisfied with life, and engaged socially.' },
-    { label: 'Occupational Functioning', sublabel: 'Self-Efficacy · Burnout',           score: domains.occupational, max: 8,  color: 'var(--teal)',     desc: 'Your entrepreneurial confidence and freedom from burnout.' },
-    { label: 'Emotional Stability',      sublabel: 'Emotional Regulation · Sleep',      score: domains.emotional,    max: 8,  color: 'var(--ember)',    desc: 'Frequency of negative emotions and sleep impairment at work.' },
+    { label: 'Occupational Functioning', sublabel: 'Entrepreneurial Self-Efficacy · Burnout', score: domains.occupational, max: 8,  color: 'var(--teal)',     desc: 'Your entrepreneurial confidence and freedom from burnout.' },
+    { label: 'Emotional Stability',      sublabel: 'Emotion Regulation · Sleep',        score: domains.emotional,    max: 8,  color: 'var(--ember)',    desc: 'Frequency of negative emotions and sleep impairments at work.' },
   ]
 
   return (

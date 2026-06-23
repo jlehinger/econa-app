@@ -32,7 +32,7 @@ export default function LabsList() {
             Econa Labs
           </div>
           <div style={{ fontFamily: 'var(--font-editorial)', fontSize: 24, fontStyle: 'italic', color: 'var(--ink)', fontWeight: 400, lineHeight: 1.3 }}>
-            Your personalized<br />wellbeing curriculum.
+            Your personalized wellbeing and<br />performance optimization action plan.
           </div>
           <p style={{ fontSize: 16, color: 'var(--ink-muted)', lineHeight: 1.6, marginTop: 10 }}>
             Labs are ranked by your lowest EWC item scores — biggest need first.
